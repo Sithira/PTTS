@@ -6,37 +6,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import shu.cssd.transportsystem.models.SetOfUsers;
-import shu.cssd.transportsystem.models.User;
 
 
 public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
-        SetOfUsers sop = new SetOfUsers();
-
-        User user = new User();
-
-        sop.create(user);
-
-        System.out.println("Size: " + sop.getRows().size());
-
-        for (int i = 0; i < sop.getRows().size(); i++) {
-            if (sop.getRows().get(i) instanceof User)
-            {
-                System.out.println("Instance Match the model");
-            }
-        }
-
         
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("Transport and Ticketing Management System");
         stage.setScene(scene);
         stage.show();
     }

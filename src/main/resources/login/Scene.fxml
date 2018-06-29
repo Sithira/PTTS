@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.LoginController">
+    <children>
+        <Label fx:id="label" layoutX="216.0" layoutY="81.0" prefHeight="39.0" prefWidth="331.0" text="Transport Management Platform" textFill="#393737" textOverrun="WORD_ELLIPSIS">
+            <font>
+                <Font name="Chalkboard" size="22.0" />
+            </font>
+        </Label>
+        <JFXTextField fx:id="username" alignment="CENTER" focusColor="#8c8c8c" layoutX="323.0" layoutY="153.0" prefHeight="27.0" prefWidth="224.0" promptText="Username" styleClass="button" unFocusColor="#8c8c8c" />
+        <JFXPasswordField fx:id="password" alignment="CENTER" layoutX="323.0" layoutY="211.0" prefHeight="27.0" prefWidth="224.0" promptText="Password" />
+        <JFXButton buttonType="RAISED" layoutX="429.0" layoutY="282.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="118.0" ripplerFill="#7398d7" style="-fx-background-color: #446CB3;" text="Login" textFill="WHITE" />
+    </children>
+</AnchorPane>
