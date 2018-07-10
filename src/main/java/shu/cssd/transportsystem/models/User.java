@@ -23,6 +23,9 @@ public class User extends BaseModel
 	
 	public String postalCode;
 	
+	// Model Relations
+	public Account account;
+	
 	/**
 	 * Creates a new User Object that can be saved in the collection.
 	 *

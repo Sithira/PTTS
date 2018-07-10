@@ -5,4 +5,6 @@ import shu.cssd.transportsystem.foundation.BaseModel;
 public class Account extends BaseModel
 {
 
+	public User user;
+	
 }
