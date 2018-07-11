@@ -5,7 +5,7 @@
  */
 package shu.cssd.transportsystem.foundation;
 
-import shu.cssd.transportsystem.models.exceptions.ModelNotFoundException;
+import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 
 import java.io.Serializable;
 import java.nio.file.Paths;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * @author sithira
  */
-public class BaseCollection implements Serializable
+public abstract class BaseCollection implements Serializable
 {
 	
 	// actual path for the serialized object
@@ -158,7 +158,7 @@ public class BaseCollection implements Serializable
 	 *
 	 * @return ArrayList
 	 */
-	public ArrayList<BaseModel> getRows()
+	public ArrayList<BaseModel> all()
 	{
 		return this.rows;
 	}

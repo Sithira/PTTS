@@ -1,46 +1,114 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.models.collections.SetOfCards;
+import shu.cssd.transportsystem.models.collections.SetOfDynamicJourney;
+import shu.cssd.transportsystem.models.collections.SetOfTransactions;
+import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 
-/**
- * @author sithira
- */
+import java.util.ArrayList;
+
 public class User extends BaseModel
 {
-
+	
+	// from user
 	public String name;
 	
 	public String email;
 	
 	public String address;
-
+	
 	public String city;
 	
 	public String postalCode;
 	
-	// Model Relations
-	public Account account;
+	// from employee
+	public float salary;
+	
+	public String permission_id;
+	
+	// from account
+	public String username;
+	
+	public String password;
+	
+	public String cardId;
+	
+	public String dynamicJourneyId;
 	
 	/**
-	 * Creates a new User Object that can be saved in the collection.
+	 * Get the card
 	 *
-	 * @param name
-	 * @param email
-	 * @param address
-	 * @param city
-	 * @param postalCode
+	 * @return
 	 */
-	public User(String name, String email, String address, String city, String postalCode)
+	public Card getCard()
 	{
-		this.name = name;
-		this.email = email;
-		this.address = address;
-		this.city = city;
-		this.postalCode = postalCode;
+		SetOfCards setOfCards = new SetOfCards();
+		
+		try
+		{
+			return (Card) setOfCards.findById(this.cardId);
+		} catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
+	
+	/**
+	 * Get the Dynamic Journey of an User
+	 *
+	 * @return
+	 */
+	public DynamicJourney getDynamicJourney()
+	{
+		
+		SetOfDynamicJourney setOfDynamicJourney = new SetOfDynamicJourney();
+		
+		try
+		{
+			return (DynamicJourney) setOfDynamicJourney.findById(this.dynamicJourneyId);
+		} catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Get transactions for the account.
+	 *
+	 * @return
+	 */
+	public ArrayList<Transaction> getTransactions()
+	{
+		
+		// build an array list
+		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+		
+		// get the set of transactions
+		SetOfTransactions setOfTransactions = new SetOfTransactions();
+		
+		// get all the rows in the collection
+		ArrayList<BaseModel> rows = setOfTransactions.all();
+		
+		// loop through each row
+		for (BaseModel row : rows)
+		{
+			Transaction transaction = (Transaction) row;
+			
+			// find the appropiate row
+			if (transaction.userId.equals(this.id))
+			{
+				
+				// add to the arraylist
+				transactions.add(transaction);
+			}
+		}
+		
+		return transactions;
+	}
+	
 }

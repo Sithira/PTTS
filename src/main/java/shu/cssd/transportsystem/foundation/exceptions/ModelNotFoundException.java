@@ -1,4 +1,4 @@
-package shu.cssd.transportsystem.models.exceptions;
+package shu.cssd.transportsystem.foundation.exceptions;
 
 public class ModelNotFoundException extends Exception
 {
