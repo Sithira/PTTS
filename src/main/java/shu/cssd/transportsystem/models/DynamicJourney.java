@@ -15,7 +15,9 @@ public class DynamicJourney extends BaseModel
 	public String originId;
 	
 	public String destinationId;
-	
+
+	public Double cost;
+
 	/**
 	 * Get the Origin
 	 *
