@@ -14,6 +14,8 @@ public class Card extends BaseModel
 	public int cvc;
 	
 	public String holderName;
+	
+	public float balance = 0;
 
 	public Date expiryDate;
 	

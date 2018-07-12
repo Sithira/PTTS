@@ -2,7 +2,7 @@ package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.models.collections.SetOfCards;
-import shu.cssd.transportsystem.models.collections.SetOfDynamicJourney;
+import shu.cssd.transportsystem.models.collections.SetOfJourney;
 import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 
@@ -22,6 +22,8 @@ public class User extends BaseModel
 	
 	public String postalCode;
 	
+	public float balance;
+	
 	// from employee
 	public float salary;
 	
@@ -35,6 +37,56 @@ public class User extends BaseModel
 	public String cardId;
 	
 	public String dynamicJourneyId;
+	
+	/**
+	 * Create a new employee in the system
+	 *
+	 * @param name
+	 * @param email
+	 * @param address
+	 * @param city
+	 * @param postalCode
+	 * @param salary
+	 * @param permission_id
+	 * @param username
+	 * @param password
+	 */
+	public User(String name, String email, String address, String city, String postalCode,
+	            float salary, String permission_id, String username, String password)
+	{
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.city = city;
+		this.postalCode = postalCode;
+		this.salary = salary;
+		this.permission_id = permission_id;
+		this.username = username;
+		this.password = password;
+	}
+	
+	/**
+	 * Create a new user in the system
+	 *
+	 * @param name
+	 * @param email
+	 * @param address
+	 * @param city
+	 * @param postalCode
+	 * @param username
+	 * @param password
+	 */
+	public User(String name, String email, String address, String city,
+	            String postalCode, String username, String password)
+	{
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.city = city;
+		this.postalCode = postalCode;
+		this.username = username;
+		this.password = password;
+	}
 	
 	/**
 	 * Get the card
@@ -61,14 +113,14 @@ public class User extends BaseModel
 	 *
 	 * @return
 	 */
-	public DynamicJourney getDynamicJourney()
+	public Journey getDynamicJourney()
 	{
 		
-		SetOfDynamicJourney setOfDynamicJourney = new SetOfDynamicJourney();
+		SetOfJourney setOfDynamicJourney = new SetOfJourney();
 		
 		try
 		{
-			return (DynamicJourney) setOfDynamicJourney.findById(this.dynamicJourneyId);
+			return (Journey) setOfDynamicJourney.findById(this.dynamicJourneyId);
 		} catch (ModelNotFoundException e)
 		{
 			e.printStackTrace();
