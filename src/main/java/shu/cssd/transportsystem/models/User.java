@@ -1,7 +1,7 @@
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
-import shu.cssd.transportsystem.models.collections.SetOfCards;
+import shu.cssd.transportsystem.models.collections.SetOfSmartCards;
 import shu.cssd.transportsystem.models.collections.SetOfJourney;
 import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
@@ -93,13 +93,13 @@ public class User extends BaseModel
 	 *
 	 * @return
 	 */
-	public Card getCard()
+	public SmartCard getCard()
 	{
-		SetOfCards setOfCards = new SetOfCards();
+		SetOfSmartCards setOfCards = new SetOfSmartCards();
 		
 		try
 		{
-			return (Card) setOfCards.findById(this.cardId);
+			return (SmartCard) setOfCards.findById(this.cardId);
 		} catch (ModelNotFoundException e)
 		{
 			e.printStackTrace();

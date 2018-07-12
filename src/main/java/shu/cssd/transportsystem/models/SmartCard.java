@@ -6,7 +6,7 @@ import shu.cssd.transportsystem.models.collections.SetOfUsers;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Card extends BaseModel
+public class SmartCard extends BaseModel
 {
 
 	public int pinCode;
@@ -19,7 +19,7 @@ public class Card extends BaseModel
 
 	public Date expiryDate;
 	
-	public Card(int pinCode, int cvc, String holderName, Date expiryDate)
+	public SmartCard(int pinCode, int cvc, String holderName, Date expiryDate)
 	{
 		this.pinCode = pinCode;
 		this.cvc = cvc;
