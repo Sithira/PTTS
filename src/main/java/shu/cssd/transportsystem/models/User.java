@@ -36,7 +36,7 @@ public class User extends BaseModel
 	
 	public String cardId;
 	
-	public String dynamicJourneyId;
+	public String journeyId;
 	
 	/**
 	 * Create a new employee in the system
@@ -113,14 +113,14 @@ public class User extends BaseModel
 	 *
 	 * @return
 	 */
-	public Journey getDynamicJourney()
+	public Journey getJourney()
 	{
 		
 		SetOfJourney setOfDynamicJourney = new SetOfJourney();
 		
 		try
 		{
-			return (Journey) setOfDynamicJourney.findById(this.dynamicJourneyId);
+			return (Journey) setOfDynamicJourney.findById(this.journeyId);
 		} catch (ModelNotFoundException e)
 		{
 			e.printStackTrace();
