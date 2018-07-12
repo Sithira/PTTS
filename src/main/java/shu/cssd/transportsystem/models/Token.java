@@ -8,6 +8,16 @@ import java.util.ArrayList;
 public class Token extends BaseModel
 {
 	
+	public String origin_stop_id;
+	
+	public Token(String origin_stop_id, String source_stop_id)
+	{
+		this.origin_stop_id = origin_stop_id;
+		this.source_stop_id = source_stop_id;
+	}
+	
+	public String source_stop_id;
+	
 	/**
 	 * Get the transaction of a token
 	 *

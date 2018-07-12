@@ -1,15 +1,13 @@
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
-import shu.cssd.transportsystem.models.collections.SetOfStops;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
+import shu.cssd.transportsystem.models.collections.SetOfStops;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
-import java.util.ArrayList;
-
-public class DynamicJourney extends BaseModel
+public class Journey extends BaseModel
 {
-
+	
 	public String userId;
 	
 	public String originId;
@@ -37,7 +35,8 @@ public class DynamicJourney extends BaseModel
 	}
 	
 	/**
-	 *  Get Destination
+	 * Get Destination
+	 *
 	 * @return
 	 */
 	public Stop getDestination()
