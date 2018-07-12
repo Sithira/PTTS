@@ -1,13 +1,19 @@
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.models.collections.SetOfJourney;
 import shu.cssd.transportsystem.models.collections.SetOfStops;
+import shu.cssd.transportsystem.models.collections.SetOfVehicles;
 
 import java.util.ArrayList;
 
 public class Route extends BaseModel {
 
     public String stopId;
+
+    public String journeyId;
+
+    public String vehicleId;
 
     public String name;
 
@@ -37,33 +43,47 @@ public class Route extends BaseModel {
         return null;
     }
 
-//    /**
-//     * Get Journeys for a Route
-//     *
-//     * @return
-//     */
-//    public Journey getJourney()
+    /**
+     * Get Journeys for a Route
+     *
+     * @return
+     */
+    public Journey getJourney()
+    {
+        SetOfJourney setOfJourney = new SetOfJourney();
+
+        ArrayList<BaseModel> journeys = setOfJourney.all();
+
+        for (BaseModel model: journeys)
+        {
+            Journey journey = (Journey) model;
+
+            if (journey.id.equals(journeyId))
+            {
+                return journey;
+            }
+        }
+
+        return null;
+    }
+
+
+//    public Vehicle getVehicle()
 //    {
-//        SetOfStops setOfStops = new SetOfStops();
+//        SetOfVehicles setOfVehicles = new SetOfVehicles();
 //
-//        ArrayList<BaseModel> stops = setOfStops.all();
+//        ArrayList<BaseModel> vehicles = setOfVehicles.all();
 //
-//        for (BaseModel model: stops)
+//        for (BaseModel model: vehicles)
 //        {
-//            Stop stop = (Stop) model;
+//            Vehicle vehicle = (Vehicle) model;
 //
-//            if (stop.id.equals(stopId))
+//            if (Vehicle.id.equals(vehicleId))
 //            {
-//                return stop;
+//                return vehicle;
 //            }
 //        }
 //
 //        return null;
-//    }
-//
-//
-//    public Vehicle getVehicle()
-//    {
-//
 //    }
 }
