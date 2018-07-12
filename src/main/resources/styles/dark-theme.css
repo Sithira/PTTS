@@ -5,5 +5,6 @@
 }
 
 .root{
-    -fx-background-color: #FFFFF;
+    -fx-background-color: #FFFFFF;
+    -fx-background-size: cover;
 }
