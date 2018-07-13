@@ -2,10 +2,9 @@ package shu.cssd.transportsystem.controllers;
 
 import org.apache.commons.lang.time.DateUtils;
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.models.*;
-import shu.cssd.transportsystem.models.collections.SetOfTokens;
-
-import shu.cssd.transportsystem.models.collections.SetOfOffers;
+import shu.cssd.transportsystem.models.collections.SetOfJourney;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,26 +19,42 @@ public class PaymentManagerController
 		this.paymentManager = new PaymentManager();
 	}
 	
-	public boolean buyToken()
-	{
-		return true;
-	}
-	
 	/**
-	 * Create a new token
+	 * Apply Discount for the journey.
 	 *
-	 * @param origin
-	 * @param destination
-	 * @return
+	 * @param journey
 	 */
-	public boolean createToken(Stop origin, Stop destination)
+	public void applyDiscount(Journey journey)
 	{
 		
-		SetOfTokens set = new SetOfTokens();
+		// get the user from the journey
+		User user = journey.getUser();
 		
-		Token token = new Token(origin.id, destination.id);
+		// get the eligible offers
+		Offer offer = this.checkOffers(user);
 		
-		return set.create(token);
+		// if the offer is not null
+		if (offer != null)
+		{
+			
+			// apply the discount to the journey
+			journey.cost = journey.cost - (journey.cost * offer.discount);
+			
+			// get the set
+			SetOfJourney setOfJourney = new SetOfJourney();
+			
+			try
+			{
+				
+				// apply the discount.
+				setOfJourney.findByIdAndUpdate(journey.id, journey);
+				
+			} catch (ModelNotFoundException e)
+			{
+				e.printStackTrace();
+			}
+			
+		}
 		
 	}
 	
@@ -49,19 +64,24 @@ public class PaymentManagerController
 	 * @param user
 	 * @return
 	 */
-	public Offer checkOffers(User user)
+	private Offer checkOffers(User user)
 	{
-		int numberOfTransactions = this.getValidTransactions(user.getTransactions());
-	
-		SetOfOffers setOfOffers = new SetOfOffers();
 		
-		for (BaseModel model: setOfOffers.all())
+		// get the number of transaction done by the user
+		int numberOfTransactions = this.getValidTransactions(user.getTransactions());
+		
+		// loop for all the offers in the system
+		for (BaseModel model: paymentManager.getSetOfOffers().all())
 		{
 			
+			// get the offers into the correct model
 			Offer offer = (Offer) model;
 			
+			// check for the criteria
 			if (offer.criteria == numberOfTransactions)
 			{
+				
+				// return the correct offer
 				return offer;
 			}
 			
@@ -70,26 +90,6 @@ public class PaymentManagerController
 		return null;
 		
 	}
-	
-	public void calculateJourney(Journey dynamicJourney)
-	{
-	
-		User user = dynamicJourney.getUser();
-		
-		
-	
-	}
-	
-	/**
-	 * Get all offers
-	 *
-	 * @return
-	 */
-	private SetOfOffers getSetOfOffers()
-	{
-		return this.paymentManager.getSetOfOffers();
-	}
-	
 	
 	/**
 	 * Get the number of transaction done by a user for a day.

@@ -1,6 +1,7 @@
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.models.collections.SetOfPermissions;
 import shu.cssd.transportsystem.models.collections.SetOfSmartCards;
 import shu.cssd.transportsystem.models.collections.SetOfJourney;
 import shu.cssd.transportsystem.models.collections.SetOfTransactions;
@@ -96,6 +97,27 @@ public class User extends BaseModel
 		try
 		{
 			return (Journey) setOfDynamicJourney.findById(this.journeyId);
+		} catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Get the permission that might be belong to a user
+	 *
+	 * @return
+	 */
+	public Permission getPermission()
+	{
+		SetOfPermissions setOfPermissions = new SetOfPermissions();
+		
+		try
+		{
+			return (Permission) setOfPermissions.findById(this.permission_id);
+			
 		} catch (ModelNotFoundException e)
 		{
 			e.printStackTrace();
