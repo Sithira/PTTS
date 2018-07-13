@@ -84,7 +84,7 @@ public class User extends BaseModel
 	}
 	
 	/**
-	 * Get the Dynamic Journey of an User
+	 * Get the Journey of an User
 	 *
 	 * @return
 	 */
