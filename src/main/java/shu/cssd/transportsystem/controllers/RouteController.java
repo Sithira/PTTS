@@ -1,10 +1,13 @@
 package shu.cssd.transportsystem.controllers;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.TransportType;
 import shu.cssd.transportsystem.models.Journey;
 import shu.cssd.transportsystem.models.Route;
+import shu.cssd.transportsystem.models.Vehicle;
 import shu.cssd.transportsystem.models.collections.SetOfRoutes;
+import shu.cssd.transportsystem.models.collections.SetOfVehicles;
 
 import java.util.ArrayList;
 
@@ -67,6 +70,32 @@ public class RouteController
         return route.name;
     }
 
+
+    /**
+     * Get the time of the delayed vehicle
+     *
+     * @param vehicleId
+     * @return
+     */
+    public float getDelayedVehicleTime(String vehicleId)
+    {
+        try {
+
+            SetOfVehicles setOfVehicles = new SetOfVehicles();
+
+            Vehicle vehicle = (Vehicle) setOfVehicles.findById(vehicleId);
+
+            if(vehicle.isDelayed = true)
+            {
+                return vehicle.timeDelayed;
+            }
+        }
+        catch (ModelNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 //    /**
 //     * Create a Route
 //     *
