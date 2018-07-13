@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,26 +17,26 @@
                <image>
                   <Image url="@../images/login.png" />
                </image></ImageView>
-            <JFXTextField layoutX="112.0" layoutY="137.0" prefHeight="25.0" prefWidth="275.0" promptText="Username">
+            <JFXTextField fx:id="username" layoutX="112.0" layoutY="137.0" prefHeight="25.0" prefWidth="275.0" promptText="Username">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXTextField layoutX="112.0" layoutY="198.0" prefHeight="25.0" prefWidth="275.0" promptText="Password">
+            <JFXButton fx:id="login_button" buttonType="RAISED" layoutX="210.0" layoutY="245.0" mnemonicParsing="false" onAction="#login_buttonClick" prefHeight="42.0" prefWidth="79.0" styleClass="topPane" text="Login" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="guest_button" buttonType="RAISED" layoutX="210.0" layoutY="300.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" styleClass="topPane" text="Guest" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXPasswordField fx:id="password" layoutX="111.0" layoutY="190.0" prefHeight="25.0" prefWidth="275.0" promptText="Password">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
-            </JFXTextField>
-            <JFXButton buttonType="RAISED" layoutX="210.0" layoutY="245.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" styleClass="topPane" text="Login" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="210.0" layoutY="300.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" styleClass="topPane" text="Guest" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXButton>
+            </JFXPasswordField>
          </children>
       </AnchorPane>
    </children>
