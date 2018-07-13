@@ -1,13 +1,16 @@
 package shu.cssd.transportsystem.controllers;
 
+import org.apache.commons.lang.time.DateUtils;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
-import shu.cssd.transportsystem.models.Gate;
-import shu.cssd.transportsystem.models.Token;
-import shu.cssd.transportsystem.models.collections.SetOfGates;
-import shu.cssd.transportsystem.models.collections.SetOfTokens;
+import shu.cssd.transportsystem.foundation.types.GateType;
+import shu.cssd.transportsystem.models.*;
+import shu.cssd.transportsystem.models.collections.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static shu.cssd.transportsystem.foundation.types.GateState.CLOSED;
 import static shu.cssd.transportsystem.foundation.types.GateState.OPEN;
@@ -24,18 +27,14 @@ public class GateController
      *
      * @return
      */
-    public void setCurrentGate(String gateId)
+    private void setCurrentGate(String gateId)
     {
-        ArrayList<BaseModel> Gates = this.setOfGates .all();
-
-        for (BaseModel model: Gates)
+        try
         {
-            Gate gate = (Gate) model;
-
-            if (gate.id.equals(gateId))
-            {
-                currentGate = gate;
-            }
+            currentGate = (Gate) setOfGates.findById(gateId);
+        }
+        catch (ModelNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -96,8 +95,70 @@ public class GateController
 
     /**
      * Read Smart Card
-     *
-     *
+     * @param smartCardId
+     * @param gateId
+     * @return
      */
+    public boolean readSmartCard(String smartCardId, String gateId) {
+        String originId;
+        Journey currentjourney;
+        SetOfStops setOfStops = new SetOfStops();
+        Stop currentStop;
 
+        try
+        {
+            SetOfSmartCards setOfSmartCards = new SetOfSmartCards();
+
+            SmartCard smartCard = (SmartCard) setOfSmartCards.findById(smartCardId);
+
+            Date currentDate = new Date();
+
+            if (currentDate.compareTo(smartCard.expiryDate) < 0)
+            {
+                setCurrentGate(gateId);
+
+                if (currentGate.gateType == GateType.ENTRY)
+                {
+                    originId = this.currentGate.stopId;
+
+                    JourneyController journeyController = new JourneyController();
+
+                    journeyController.createJourney(null, originId, null, null);
+                }
+                else
+                {
+                    SetOfJourney setOfJourney = new SetOfJourney();
+
+                    ArrayList<BaseModel> journeys = setOfJourney.all();
+
+                    for (BaseModel model: journeys) {
+                        Journey journey = (Journey) model;
+                        if (journey.routeId == null && journey.destinationId == null && journey.cost == null)
+                        {
+                            currentjourney = journey;
+
+                            currentjourney.destinationId = currentGate.stopId;
+
+                            currentStop = (Stop) setOfStops.findById(currentGate.stopId);
+
+                            currentjourney.routeId = currentStop.getRoute().id;
+
+
+                        }
+                    }
+                }
+            }
+            else
+            {
+                System.out.println("Smart card has expired");
+                return false;
+            }
+            return true;
+        }
+        catch (ModelNotFoundException e)
+        {
+            return false;
+        }
+
+    }
 }

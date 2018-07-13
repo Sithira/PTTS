@@ -18,6 +18,15 @@ public class Journey extends BaseModel
 
 	public Double cost;
 
+	public Journey(String routeId, String originId, String destinationId, Double cost)
+	{
+		this.routeId = routeId;
+		this.originId = originId;
+		this.destinationId = destinationId;
+		this.cost = cost;
+	}
+
+
 	/**
 	 * Get the Origin
 	 *
