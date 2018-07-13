@@ -24,6 +24,7 @@ public class TokenMachineController
 	private Stop currentStop;
 	
 	private User loggedInUser;
+	private float fare;
 	
 	TokenMachineController()
 	{
@@ -62,9 +63,11 @@ public class TokenMachineController
 	 *
 	 * @return
 	 */
-	public Token createToken()
+	public Token createToken(Stop origin, Stop destination)
 	{
-		float fare = CostCalculator.getInstance().calculate(this.origin.id, this.destination.id, this.route.id);
+		 this.fare = CostCalculator
+				.getInstance()
+				.calculate(origin.id, destination.id, this.route.id);
 		
 		return null;
 	}
@@ -76,17 +79,25 @@ public class TokenMachineController
 	 * @return
 	 * @throws NotEnoughFundsException
 	 */
-	public Payment acceptPayment(float fare, float amount) throws NotEnoughFundsException
+	public Payment acceptPayment(float amount) throws NotEnoughFundsException
 	{
 		
-		if (amount < fare)
+		float change = 0;
+		
+		if (amount < this.fare)
 		{
 			throw new NotEnoughFundsException();
+		}
+		
+		if (amount > this.fare)
+		{
+			change = amount - this.fare;
 		}
 		
 		SetOfPayments setOfPayments = new SetOfPayments();
 		
 		Payment payment = new Payment.PaymentCreator(PaymentType.CASH, amount)
+				.setChange(change)
 				.create();
 		
 		setOfPayments.create(payment);
@@ -111,11 +122,9 @@ public class TokenMachineController
 	public Payment acceptPayment(SmartCard card) throws NotEnoughFundsException
 	{
 		
-		// todo: Singleton will be called to get the actual fare details
-		float fare = 0;
 		
 		// check if the balance is less than fare
-		if (card.balance < fare)
+		if (card.balance < this.fare)
 		{
 			
 			// if it is throw an exception
