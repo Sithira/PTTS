@@ -32,7 +32,9 @@ public class UserController
 	                      float salary, String permission_id, String username, String password)
 	{
 		
-		User user = new User(name, email, address, city, postalCode, salary, permission_id, username, password)		;
+		User user = new User.UserCreator(name, email, address, city, postalCode, username, password)
+				.addAsEmployee(salary, permission_id)
+				.create();
 		
 		return setOfUsers.create(user);
 	}
@@ -52,7 +54,9 @@ public class UserController
 	public boolean createUser(String name, String email, String address, String city,
 	                          String postalCode, String username, String password)
 	{
-		User user = new User(name, email, address, city, postalCode, username, password);
+		User user = new User.UserCreator(name, email, address, city, postalCode, username, password)
+				.setBalance(0)
+				.create();
 		
 		this.currentUser = user;
 		

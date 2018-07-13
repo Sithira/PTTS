@@ -46,13 +46,10 @@ public class User extends BaseModel
 	 * @param address
 	 * @param city
 	 * @param postalCode
-	 * @param salary
-	 * @param permission_id
 	 * @param username
 	 * @param password
 	 */
-	public User(String name, String email, String address, String city, String postalCode,
-	            float salary, String permission_id, String username, String password)
+	private User(String name, String email, String address, String city, String postalCode, String username, String password)
 	{
 		this.name = name;
 		this.email = email;
@@ -61,29 +58,6 @@ public class User extends BaseModel
 		this.postalCode = postalCode;
 		this.salary = salary;
 		this.permission_id = permission_id;
-		this.username = username;
-		this.password = password;
-	}
-	
-	/**
-	 * Create a new user in the system
-	 *
-	 * @param name
-	 * @param email
-	 * @param address
-	 * @param city
-	 * @param postalCode
-	 * @param username
-	 * @param password
-	 */
-	public User(String name, String email, String address, String city,
-	            String postalCode, String username, String password)
-	{
-		this.name = name;
-		this.email = email;
-		this.address = address;
-		this.city = city;
-		this.postalCode = postalCode;
 		this.username = username;
 		this.password = password;
 	}
@@ -161,6 +135,75 @@ public class User extends BaseModel
 		}
 		
 		return transactions;
+	}
+	
+	public static class UserCreator
+	{
+		// from user
+		private String name;
+		
+		private String email;
+		
+		private String address;
+		
+		private String city;
+		
+		private String postalCode;
+		
+		private float balance;
+		
+		// from employee
+		private float salary;
+		
+		private String permissionId;
+		
+		// from account
+		private String username;
+		
+		private String password;
+		
+		private String cardId;
+		
+		private String journeyId;
+		
+		public UserCreator(String name, String email, String address, String city, String postalCode, String username, String password)
+		{
+			this.name = name;
+			this.email = email;
+			this.address = address;
+			this.city = city;
+			this.postalCode = postalCode;
+			this.username = username;
+			this.password = password;
+		}
+		
+		public UserCreator addAsEmployee(float salary, String permissionId)
+		{
+			this.salary = salary;
+			this.permissionId = permissionId;
+			
+			return this;
+		}
+		
+		public UserCreator addCard(SmartCard card)
+		{
+			this.cardId = card.id;
+			
+			return this;
+		}
+		
+		public UserCreator setBalance(float balance)
+		{
+			this.balance = balance;
+			
+			return this;
+		}
+		
+		public User create()
+		{
+			return new User(name, email, address, city, postalCode, username, password);
+		}
+		
 	}
 	
 }
