@@ -5,8 +5,10 @@ public class SeedRunner {
     public static void main(String[] args)
     {
 
-        (new UserSeeder()).seed();
+        //(new PermissionLevelSeeder()).seed();
+        //(new UserSeeder()).seed();
 
+        (new PaymentSeeder()).seed();
     }
 
 }

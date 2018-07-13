@@ -15,18 +15,15 @@ public class SmartCard extends BaseModel
 	
 	public int cvc;
 	
-	public String holderName;
-	
 	public float balance = 0;
 
 	public Date expiryDate;
 	
-	public SmartCard(String userId, int pinCode, int cvc, String holderName, Date expiryDate)
+	public SmartCard(String userId, int pinCode, int cvc, Date expiryDate)
 	{
 		this.userId = userId;
 		this.pinCode = pinCode;
 		this.cvc = cvc;
-		this.holderName = holderName;
 		this.expiryDate = expiryDate;
 	}
 	
