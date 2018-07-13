@@ -5,6 +5,7 @@ import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.exceptions.NotEnoughFundsException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.helpers.CostCalculator;
 import shu.cssd.transportsystem.models.*;
 import shu.cssd.transportsystem.models.collections.*;
 
@@ -14,6 +15,10 @@ import java.util.Random;
 public class TokenMachineController
 {
 
+	public Stop origin, destination;
+	
+	public Route route;
+	
 	private SetOfStops setOfStops = new SetOfStops();
 	
 	private Stop currentStop;
@@ -55,12 +60,12 @@ public class TokenMachineController
 	/**
 	 * Create the token for the journey
 	 *
-	 * @param origin
-	 * @param destination
 	 * @return
 	 */
-	public Token createToken(Stop origin, Stop destination)
+	public Token createToken()
 	{
+		float fare = CostCalculator.getInstance().calculate(this.origin.id, this.destination.id, this.route.id);
+		
 		return null;
 	}
 	
@@ -71,9 +76,8 @@ public class TokenMachineController
 	 * @return
 	 * @throws NotEnoughFundsException
 	 */
-	public Payment acceptPayment(float amount) throws NotEnoughFundsException
+	public Payment acceptPayment(float fare, float amount) throws NotEnoughFundsException
 	{
-		float fare = 0;
 		
 		if (amount < fare)
 		{
