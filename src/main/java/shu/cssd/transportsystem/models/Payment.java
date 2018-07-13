@@ -40,9 +40,7 @@ public class Payment extends BaseModel
 	{
 		SetOfTransactions setOfTransactions = new SetOfTransactions();
 		
-		ArrayList<BaseModel> transactions = setOfTransactions.all();
-		
-		for (BaseModel model: transactions)
+		for (BaseModel model: setOfTransactions.all())
 		{
 			
 			Transaction transaction = (Transaction) model;

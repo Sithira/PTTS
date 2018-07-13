@@ -137,6 +137,9 @@ public class User extends BaseModel
 		return transactions;
 	}
 	
+	/**
+	 * The Builder Class for the user
+	 */
 	public static class UserCreator
 	{
 		// from user
@@ -166,6 +169,17 @@ public class User extends BaseModel
 		
 		private String journeyId;
 		
+		/**
+		 * Create the {@link UserCreator} object
+		 *
+		 * @param name
+		 * @param email
+		 * @param address
+		 * @param city
+		 * @param postalCode
+		 * @param username
+		 * @param password
+		 */
 		public UserCreator(String name, String email, String address, String city, String postalCode, String username, String password)
 		{
 			this.name = name;
@@ -177,6 +191,13 @@ public class User extends BaseModel
 			this.password = password;
 		}
 		
+		/**
+		 * Make the current user as an Employee
+		 *
+		 * @param salary
+		 * @param permissionId
+		 * @return
+		 */
 		public UserCreator addAsEmployee(float salary, String permissionId)
 		{
 			this.salary = salary;
@@ -185,6 +206,12 @@ public class User extends BaseModel
 			return this;
 		}
 		
+		/**
+		 * Add a smart card to the user
+		 *
+		 * @param card {@link SmartCard}
+		 * @return
+		 */
 		public UserCreator addCard(SmartCard card)
 		{
 			this.cardId = card.id;
@@ -192,6 +219,12 @@ public class User extends BaseModel
 			return this;
 		}
 		
+		/**
+		 * Set the balance amount in the user
+		 *
+		 * @param balance
+		 * @return
+		 */
 		public UserCreator setBalance(float balance)
 		{
 			this.balance = balance;
@@ -199,6 +232,11 @@ public class User extends BaseModel
 			return this;
 		}
 		
+		/**
+		 * Get the actual user object
+		 *
+		 * @return {@link User}
+		 */
 		public User create()
 		{
 			return new User(name, email, address, city, postalCode, username, password);
