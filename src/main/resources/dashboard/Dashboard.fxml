@@ -3,7 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.dashboard.DashboardController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.DashboardController">
    <children>
       <JFXButton fx:id="sayHello" layoutX="271.0" layoutY="187.0" mnemonicParsing="false" onAction="#sayHello" text="Wow Pren !!" />
    </children>

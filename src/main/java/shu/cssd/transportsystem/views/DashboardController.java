@@ -1,4 +1,4 @@
-package shu.cssd.transportsystem.dashboard;
+package shu.cssd.transportsystem.views;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
