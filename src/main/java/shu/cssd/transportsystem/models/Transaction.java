@@ -5,6 +5,7 @@ import shu.cssd.transportsystem.models.collections.SetOfPayments;
 import shu.cssd.transportsystem.models.collections.SetOfTokens;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Transaction extends BaseModel
@@ -16,9 +17,13 @@ public class Transaction extends BaseModel
 	
 	public String tokenId;
 	
-	public String transactionType;
-	
 	public String purchaseLocation;
+	
+	private Transaction(String userId, String paymentId)
+	{
+		this.userId = userId;
+		this.paymentId = paymentId;
+	}
 	
 	/**
 	 * Get the user of the transaction
@@ -93,6 +98,71 @@ public class Transaction extends BaseModel
 		}
 	
 		return null;
+	}
+	
+	/**
+	 * Builder class for the transaction
+	 */
+	public static class TransactionCreator implements Serializable
+	{
+		public String userId;
+		
+		public String paymentId;
+		
+		public String tokenId;
+		
+		public String transactionType;
+		
+		public String purchaseLocation;
+		
+		/**
+		 * Create an instance of the builder
+		 *
+		 * @param userId
+		 * @param paymentId
+		 */
+		public TransactionCreator(String userId, String paymentId)
+		{
+			this.userId = userId;
+			this.paymentId = paymentId;
+		}
+		
+		/**
+		 * Set the token for the transaction
+		 *
+		 * @param token
+		 * @return
+		 */
+		public TransactionCreator setTokenId(Token token)
+		{
+			this.tokenId = token.id;
+			
+			return this;
+		}
+		
+		/**
+		 * Set the location for the transaction
+		 *
+		 * @param location
+		 * @return
+		 */
+		public TransactionCreator setLocation(String location)
+		{
+			this.purchaseLocation = location;
+			
+			return this;
+		}
+		
+		/**
+		 * Return the transaction object
+		 *
+		 * @return {@link Transaction}
+		 */
+		public Transaction create()
+		{
+			return new Transaction(userId, paymentId);
+		}
+		
 	}
 	
 }

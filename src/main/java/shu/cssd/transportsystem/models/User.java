@@ -6,6 +6,7 @@ import shu.cssd.transportsystem.models.collections.SetOfJourney;
 import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class User extends BaseModel
@@ -140,7 +141,7 @@ public class User extends BaseModel
 	/**
 	 * The Builder Class for the user
 	 */
-	public static class UserCreator
+	public static class UserCreator implements Serializable
 	{
 		// from user
 		private String name;

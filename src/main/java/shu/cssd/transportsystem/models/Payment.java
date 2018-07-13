@@ -4,7 +4,7 @@ import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
 public class Payment extends BaseModel
 {
@@ -12,23 +12,14 @@ public class Payment extends BaseModel
 	
 	public String cardId;
 	
-	public String value;
+	public float value;
 	
-	public String change;
+	public float change;
 	
-	public Payment(PaymentType type, String cardId, String value, String change)
-	{
-		this.paymentType = type;
-		this.cardId = cardId;
-		this.value = value;
-		this.change = change;
-	}
-	
-	public Payment(PaymentType type, String value, String change)
+	private Payment(PaymentType type, float value)
 	{
 		this.paymentType = type;
 		this.value = value;
-		this.change = change;
 	}
 	
 	/**
@@ -53,6 +44,60 @@ public class Payment extends BaseModel
 		}
 		
 		return null;
+	}
+	
+	public static class PaymentCreator implements Serializable
+	{
+		public PaymentType paymentType;
+		
+		public String cardId;
+		
+		public float value;
+		
+		public float change;
+		
+		public PaymentCreator(PaymentType paymentType, float value)
+		{
+			this.paymentType = paymentType;
+			this.value = value;
+		}
+		
+		/**
+		 * Set the card for the payment
+		 *
+		 * @param card
+		 * @return
+		 */
+		public PaymentCreator setCard(SmartCard card)
+		{
+			this.cardId = card.id;
+			
+			return this;
+		}
+		
+		/**
+		 * Set the change for the payment
+		 *
+		 * @param change
+		 * @return
+		 */
+		public PaymentCreator setChange(float change)
+		{
+			this.change = change;
+			
+			return this;
+		}
+		
+		/**
+		 * Create the instance of the payment
+		 *
+		 * @return
+		 */
+		public Payment create()
+		{
+			return new Payment(paymentType, value);
+		}
+		
 	}
 }
 

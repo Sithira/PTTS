@@ -1,7 +1,13 @@
 package shu.cssd.transportsystem.controllers;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
+import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.models.Payment;
+import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.User;
+import shu.cssd.transportsystem.models.collections.SetOfPayments;
+import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
 import java.util.ArrayList;
@@ -120,6 +126,56 @@ public class UserController
 		return false;
 	}
 	
+	/**
+	 * Update the account balance of the current user.
+	 *
+	 * @param amount
+	 * @return
+	 */
+	public float topUpBalance(float amount)
+	{
+		float value = this.currentUser.balance += amount;
+		
+		
+		SetOfPayments setOfPayments = new SetOfPayments();
+		
+		Payment payment = new Payment.PaymentCreator(PaymentType.CASH, amount)
+				.create();
+		
+		setOfPayments.create(payment);
+		
+		SetOfTransactions setOfTransactions = new SetOfTransactions();
+		
+		Transaction transaction = new Transaction.TransactionCreator(this.currentUser.id, payment.id)
+				.create();
+		
+		setOfTransactions.create(transaction);
+		
+		return value;
+	}
+	
+	/**
+	 * Remove the smart card from the user.
+	 */
+	public void removeCard()
+	{
+		
+		// set the cardId to null
+		this.currentUser.cardId = null;
+		
+		try
+		{
+			// update the collection instance
+			this.setOfUsers.findByIdAndUpdate(currentUser.id, currentUser);
+			
+		} catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+		// remove the smart card from controller class
+		(new SmartCardController()).remove(this.currentUser.getCard());
+	}
 	
 
 }

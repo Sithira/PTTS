@@ -9,6 +9,8 @@ import java.util.Date;
 public class SmartCard extends BaseModel
 {
 
+	public String userId;
+	
 	public int pinCode;
 	
 	public int cvc;
@@ -19,8 +21,9 @@ public class SmartCard extends BaseModel
 
 	public Date expiryDate;
 	
-	public SmartCard(int pinCode, int cvc, String holderName, Date expiryDate)
+	public SmartCard(String userId, int pinCode, int cvc, String holderName, Date expiryDate)
 	{
+		this.userId = userId;
 		this.pinCode = pinCode;
 		this.cvc = cvc;
 		this.holderName = holderName;
