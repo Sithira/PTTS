@@ -9,7 +9,9 @@ public class Journey extends BaseModel
 {
 	
 	public String userId;
-	
+
+	public String routeId;
+
 	public String originId;
 	
 	public String destinationId;

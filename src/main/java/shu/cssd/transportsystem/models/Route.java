@@ -4,43 +4,46 @@ import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.models.collections.SetOfJourney;
 import shu.cssd.transportsystem.models.collections.SetOfStops;
 import shu.cssd.transportsystem.models.collections.SetOfVehicles;
+import shu.cssd.transportsystem.foundation.types.TransportType;
 
 import java.util.ArrayList;
 
 public class Route extends BaseModel {
 
-    public String stopId;
-
-    public String journeyId;
-
-    public String vehicleId;
-
     public String name;
 
-    public String transportType;
+    TransportType transportType;
+
+    public Route(String name, TransportType type)
+    {
+        this.name = name;
+        this.transportType = type;
+    }
 
     /**
      * Get all the stops for a route
      *
      * @return
      */
-    public Stop getStop()
+    public ArrayList<Stop> getStop()
     {
+        ArrayList<Stop> stops = new ArrayList<Stop>();
+
         SetOfStops setOfStops = new SetOfStops();
 
-        ArrayList<BaseModel> stops = setOfStops.all();
+        ArrayList<BaseModel> rows = setOfStops.all();
 
-        for (BaseModel model: stops)
+        for (BaseModel row: rows)
         {
-            Stop stop = (Stop) model;
+            Stop stop = (Stop) row;
 
-            if (stop.id.equals(stopId))
+            if (stop.routeId.equals(this.id))
             {
-                return stop;
+                stops.add(stop);
             }
         }
 
-        return null;
+        return stops;
     }
 
     /**
@@ -48,42 +51,51 @@ public class Route extends BaseModel {
      *
      * @return
      */
-    public Journey getJourney()
+    public ArrayList<Journey> getJourney()
     {
+        ArrayList<Journey> journeys = new ArrayList<Journey>();
+
         SetOfJourney setOfJourney = new SetOfJourney();
 
-        ArrayList<BaseModel> journeys = setOfJourney.all();
+        ArrayList<BaseModel> rows = setOfJourney.all();
 
-        for (BaseModel model: journeys)
+        for (BaseModel row: rows)
         {
-            Journey journey = (Journey) model;
+            Journey journey = (Journey) row;
 
-            if (journey.id.equals(journeyId))
+            if (journey.routeId.equals(this.id))
             {
-                return journey;
+                journeys.add(journey);
             }
         }
 
-        return null;
+        return journeys;
     }
 
 
-//    public Vehicle getVehicle()
-//    {
-//        SetOfVehicles setOfVehicles = new SetOfVehicles();
-//
-//        ArrayList<BaseModel> vehicles = setOfVehicles.all();
-//
-//        for (BaseModel model: vehicles)
-//        {
-//            Vehicle vehicle = (Vehicle) model;
-//
-//            if (Vehicle.id.equals(vehicleId))
-//            {
-//                return vehicle;
-//            }
-//        }
-//
-//        return null;
-//    }
+    /**
+     * Get Vehicles for a Route
+     *
+     * @return
+     */
+    public ArrayList<Vehicle> getVehicle()
+    {
+        ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+
+        SetOfVehicles setOfVehicles = new SetOfVehicles();
+
+        ArrayList<BaseModel> rows = setOfVehicles.all();
+
+        for (BaseModel row: rows)
+        {
+            Vehicle vehicle = (Vehicle) row;
+
+            if (vehicle.routeId.equals(this.id))
+            {
+                vehicles.add(vehicle);
+            }
+        }
+
+        return vehicles;
+    }
 }
