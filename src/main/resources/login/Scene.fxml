@@ -23,13 +23,13 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <Label layoutX="33.0" layoutY="233.0" text="Sign in to continue" textFill="#a7a4a4">
+            <Label layoutX="31.0" layoutY="233.0" text="Sign in to continue" textFill="#a7a4a4">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="username" layoutX="64.0" layoutY="295.0" prefHeight="25.0" prefWidth="243.0" promptText="Username" />
-            <JFXPasswordField fx:id="password" layoutX="64.0" layoutY="347.0" prefHeight="25.0" prefWidth="243.0" promptText="Password" />
+            <JFXTextField fx:id="username" layoutX="64.0" layoutY="295.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Username" />
+            <JFXPasswordField fx:id="password" layoutX="64.0" layoutY="347.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Password" />
             <Label layoutX="213.0" layoutY="389.0" text="Forgot Password?" textFill="#a7a4a4" />
             <JFXButton fx:id="login_button" buttonType="RAISED" layoutX="64.0" layoutY="427.0" mnemonicParsing="false" onAction="#login_buttonClick" prefHeight="41.0" prefWidth="243.0" styleClass="topPane" text="Login" textFill="WHITE">
                <font>
@@ -37,7 +37,7 @@
                </font>
             </JFXButton>
             <Label layoutX="133.0" layoutY="496.0" text="New User?" />
-            <Label layoutX="196.0" layoutY="496.0" text="SIgn Up" textFill="#3196de" />
+            <Label fx:id="signup_label" layoutX="194.0" layoutY="496.0" onMouseClicked="#signup_labelClick" text="Sign Up" textFill="#3196de" />
          </children>
       </AnchorPane>
    </children>

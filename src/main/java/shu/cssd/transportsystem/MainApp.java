@@ -6,10 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import shu.cssd.transportsystem.views.MetaData;
 
 
 public class MainApp extends Application {
 
+    public  static Stage stage = null;
     @Override
     public void start(Stage stage) throws Exception {
         
@@ -20,6 +22,8 @@ public class MainApp extends Application {
         
         stage.setTitle("Transport and Ticketing Management System");
         stage.setScene(scene);
+        this.stage = stage;
+        MetaData.parent = root;
         stage.show();
     }
 

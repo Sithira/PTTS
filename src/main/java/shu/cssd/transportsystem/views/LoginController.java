@@ -1,5 +1,6 @@
 package shu.cssd.transportsystem.views;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +28,8 @@ public class LoginController implements Initializable
 
 	@FXML
 	AnchorPane rootPane;
-	
+
+	// Goes to the Dashboard
 	@FXML
 	private void login_buttonClick(ActionEvent event) throws IOException
 	{
@@ -52,6 +54,21 @@ public class LoginController implements Initializable
 
 
 	}
+
+	// Goes to the Sign Up Page
+
+    @FXML
+    private void signup_labelClick(javafx.scene.input.MouseEvent event) throws IOException
+    {
+            Parent signupParent = FXMLLoader.load(getClass().getResource("/signup/signup.fxml"));
+            Scene signupScene = new Scene(signupParent);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+            window.setScene(signupScene);
+            window.show();
+
+    }
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb)
