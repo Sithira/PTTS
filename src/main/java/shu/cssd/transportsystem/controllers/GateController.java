@@ -1,17 +1,13 @@
 package shu.cssd.transportsystem.controllers;
 
-import org.apache.commons.lang.time.DateUtils;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.GateType;
+import shu.cssd.transportsystem.helpers.CostCalculator;
 import shu.cssd.transportsystem.models.*;
 import shu.cssd.transportsystem.models.collections.*;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import static shu.cssd.transportsystem.foundation.types.GateState.CLOSED;
 import static shu.cssd.transportsystem.foundation.types.GateState.OPEN;
 
@@ -78,10 +74,12 @@ public class GateController
 
             if(token.source_stop_id.equals(this.currentGate.stopId))
             {
+                currentGate.state = OPEN;
+
                 return true;
             }
             else{
-                System.out.println("Source stop is not valid");
+                System.out.println("Origin stop is not valid");
                 return false;
             }
         }
@@ -94,7 +92,7 @@ public class GateController
     }
 
     /**
-     * Read Smart Card
+     * Read Smart Card at the gate
      * @param smartCardId
      * @param gateId
      * @return
@@ -124,6 +122,10 @@ public class GateController
                     JourneyController journeyController = new JourneyController();
 
                     journeyController.createJourney(null, originId, null, null);
+
+                    currentGate.state = OPEN;
+
+                    return true;
                 }
                 else
                 {
@@ -143,9 +145,16 @@ public class GateController
 
                             currentjourney.routeId = currentStop.getRoute().id;
 
+                            currentjourney.cost = (double) CostCalculator.getInstance().calculate(currentjourney.originId, currentjourney.destinationId, currentjourney.routeId);
 
+                            setOfJourney.create(currentjourney);
+
+                            currentGate.state = OPEN;
+
+                            return true;
                         }
                     }
+                    return false;
                 }
             }
             else
@@ -153,12 +162,10 @@ public class GateController
                 System.out.println("Smart card has expired");
                 return false;
             }
-            return true;
         }
         catch (ModelNotFoundException e)
         {
             return false;
         }
-
     }
 }
