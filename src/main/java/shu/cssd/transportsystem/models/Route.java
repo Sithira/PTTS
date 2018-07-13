@@ -25,7 +25,7 @@ public class Route extends BaseModel {
      *
      * @return
      */
-    public ArrayList<Stop> getStop()
+    public ArrayList<Stop> getStops()
     {
         ArrayList<Stop> stops = new ArrayList<Stop>();
 
@@ -78,7 +78,7 @@ public class Route extends BaseModel {
      *
      * @return
      */
-    public ArrayList<Vehicle> getVehicle()
+    public ArrayList<Vehicle> getVehicles()
     {
         ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 

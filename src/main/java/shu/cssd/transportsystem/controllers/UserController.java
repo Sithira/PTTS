@@ -18,7 +18,7 @@ public class UserController
 	
 	private SetOfUsers setOfUsers = new SetOfUsers();
 	
-	private User currentUser;
+	public User currentUser;
 	
 	/**
 	 * Create a new Employee in the system
@@ -106,7 +106,7 @@ public class UserController
 	 * @param password
 	 * @return
 	 */
-	public boolean checkCredintials(String username, String password)
+	public boolean checkCredentials(String username, String password)
 	{
 		
 		ArrayList<BaseModel> users = this.setOfUsers.all();
