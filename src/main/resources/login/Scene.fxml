@@ -10,7 +10,7 @@
 <AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="750.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.LoginController">
    <children>
       <AnchorPane layoutX="-1.0" layoutY="-2.0" prefHeight="154.0" prefWidth="750.0" styleClass="topPane" stylesheets="@../styles/Styles.css" />
-      <AnchorPane layoutX="126.0" layoutY="74.0" prefHeight="343.0" prefWidth="496.0" styleClass="cardPane" stylesheets="@../styles/Styles.css">
+      <AnchorPane layoutX="126.0" layoutY="74.0" prefHeight="366.0" prefWidth="496.0" styleClass="cardPane" stylesheets="@../styles/Styles.css">
          <children>
             <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="199.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -27,6 +27,11 @@
                </font>
             </JFXTextField>
             <JFXButton buttonType="RAISED" layoutX="210.0" layoutY="245.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" styleClass="topPane" text="Login" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="210.0" layoutY="300.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" styleClass="topPane" text="Guest" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
