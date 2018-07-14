@@ -163,7 +163,7 @@ public class User extends BaseModel
 	/**
 	 * The Builder Class for the user
 	 */
-	public static class UserCreator implements Serializable
+	public static class Builder implements Serializable
 	{
 		// from user
 		private String name;
@@ -193,7 +193,7 @@ public class User extends BaseModel
 		private String journeyId;
 		
 		/**
-		 * Create the {@link UserCreator} object
+		 * Create the {@link Builder} object
 		 *
 		 * @param name
 		 * @param email
@@ -203,7 +203,7 @@ public class User extends BaseModel
 		 * @param username
 		 * @param password
 		 */
-		public UserCreator(String name, String email, String address, String city, String postalCode, String username, String password)
+		public Builder(String name, String email, String address, String city, String postalCode, String username, String password)
 		{
 			this.name = name;
 			this.email = email;
@@ -221,7 +221,7 @@ public class User extends BaseModel
 		 * @param permissionId
 		 * @return
 		 */
-		public UserCreator addAsEmployee(float salary, String permissionId)
+		public Builder addAsEmployee(float salary, String permissionId)
 		{
 			this.salary = salary;
 			this.permissionId = permissionId;
@@ -235,7 +235,7 @@ public class User extends BaseModel
 		 * @param card {@link SmartCard}
 		 * @return
 		 */
-		public UserCreator addCard(SmartCard card)
+		public Builder addCard(SmartCard card)
 		{
 			this.cardId = card.id;
 			
@@ -248,7 +248,7 @@ public class User extends BaseModel
 		 * @param balance
 		 * @return
 		 */
-		public UserCreator setBalance(float balance)
+		public Builder setBalance(float balance)
 		{
 			this.balance = balance;
 			

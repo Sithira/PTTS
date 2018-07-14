@@ -16,7 +16,7 @@ public class UserSeeder implements BaseSeeder {
     @Override
     public void seed()
     {
-        User user1 = new User.UserCreator(
+        User user1 = new User.Builder(
                 "Sithira",
                 "sithiraac@gmail.com",
                 "Rukmalgama",
@@ -25,7 +25,7 @@ public class UserSeeder implements BaseSeeder {
                 "sithira",
                 "admin").create();
 
-        User user2 = new User.UserCreator(
+        User user2 = new User.Builder(
                 "Sanura",
                 "sanuwijay94@gmail.com",
                 "Makumbura",
@@ -34,7 +34,7 @@ public class UserSeeder implements BaseSeeder {
                 "sanura",
                 "admin").create();
 
-        User user3 = new User.UserCreator(
+        User user3 = new User.Builder(
                 "Dinusha",
                 "dinusha.jayashan01@gmail.com",
                 "Hokandara Road, Pannipitiya",
@@ -43,7 +43,7 @@ public class UserSeeder implements BaseSeeder {
                 "dinusha",
                 "admin").create();
 
-        User user4 = new User.UserCreator(
+        User user4 = new User.Builder(
                 "Chathu",
                 "chathu@gmail.com",
                 "Bambalapiitya",
@@ -52,7 +52,7 @@ public class UserSeeder implements BaseSeeder {
                 "chathu",
                 "admin").addAsEmployee(35000, permissions[3]).create();
 
-        User user5 = new User.UserCreator(
+        User user5 = new User.Builder(
                 "Vindula",
                 "vindu@gmail.com",
                 "Kotte",

@@ -7,7 +7,6 @@ import shu.cssd.transportsystem.models.Payment;
 import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.User;
 import shu.cssd.transportsystem.models.collections.SetOfPayments;
-import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class UserController
 	                      float salary, String permission_id, String username, String password)
 	{
 		
-		User user = new User.UserCreator(name, email, address, city, postalCode, username, password)
+		User user = new User.Builder(name, email, address, city, postalCode, username, password)
 				.addAsEmployee(salary, permission_id)
 				.create();
 		
@@ -60,7 +59,7 @@ public class UserController
 	public boolean createUser(String name, String email, String address, String city,
 	                          String postalCode, String username, String password)
 	{
-		User user = new User.UserCreator(name, email, address, city, postalCode, username, password)
+		User user = new User.Builder(name, email, address, city, postalCode, username, password)
 				.setBalance(0)
 				.create();
 		
@@ -141,7 +140,7 @@ public class UserController
 		
 		Transaction transaction = (new TransactionController()).makeTransaction(this.currentUser, PaymentType.CASH, amount);
 		
-		Payment payment = new Payment.PaymentCreator(transaction, PaymentType.CASH, amount)
+		Payment payment = new Payment.Builder(transaction, PaymentType.CASH, amount)
 				.create();
 		
 		setOfPayments.create(payment);

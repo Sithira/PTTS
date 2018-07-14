@@ -9,7 +9,6 @@ import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.User;
 import shu.cssd.transportsystem.models.collections.SetOfPayments;
 import shu.cssd.transportsystem.models.collections.SetOfSmartCards;
-import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 
 public class SmartCardController
 {
@@ -89,7 +88,7 @@ public class SmartCardController
 		Transaction transaction = (new TransactionController()).makeTransaction(card.getUser(), PaymentType.CASH, amount);
 		
 		// create a new payment
-		Payment payment = new Payment.PaymentCreator(transaction, PaymentType.CASH, amount)
+		Payment payment = new Payment.Builder(transaction, PaymentType.CASH, amount)
 				.create();
 		
 		// add the payment to the collection

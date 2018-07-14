@@ -12,7 +12,6 @@ import shu.cssd.transportsystem.models.collections.SetOfSmartCards;
 import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TransactionSmardCardPaymentSeeder implements BaseSeeder
@@ -33,11 +32,11 @@ public class TransactionSmardCardPaymentSeeder implements BaseSeeder
 		Date date2 = new Date();
 
 		//Seed Transactions
-		Transaction transaction1 = new Transaction.TransactionCreator(users[0], payments[0]).create();
-		Transaction transaction2 = new Transaction.TransactionCreator(users[1], payments[1]).create();
-		Transaction transaction3 = new Transaction.TransactionCreator(users[2], payments[2]).create();
-		Transaction transaction4 = new Transaction.TransactionCreator(users[3], payments[3]).create();
-		Transaction transaction5 = new Transaction.TransactionCreator(users[4], payments[4]).create();
+		Transaction transaction1 = new Transaction.Builder(users[0], payments[0]).create();
+		Transaction transaction2 = new Transaction.Builder(users[1], payments[1]).create();
+		Transaction transaction3 = new Transaction.Builder(users[2], payments[2]).create();
+		Transaction transaction4 = new Transaction.Builder(users[3], payments[3]).create();
+		Transaction transaction5 = new Transaction.Builder(users[4], payments[4]).create();
 
 		//Seed SmartCards
 		SmartCard smartCard1 = new SmartCard(users[0], 1111, 111, date1);
@@ -47,11 +46,11 @@ public class TransactionSmardCardPaymentSeeder implements BaseSeeder
 		SmartCard smartCard5 = new SmartCard(users[4], 5555, 555, date2);
 
 		//Seed Paments
-		Payment payment1 = new Payment.PaymentCreator( transaction1, PaymentType.CASH, 200).setChange(65).create();
-		Payment payment2 = new Payment.PaymentCreator( transaction2, PaymentType.CARD, 175).setCard(smartCard1).create();
-		Payment payment3 = new Payment.PaymentCreator( transaction3, PaymentType.CASH, 50).setChange(0).create();
-		Payment payment4 = new Payment.PaymentCreator( transaction4, PaymentType.CARD, 300).setCard(smartCard2).create();
-		Payment payment5 = new Payment.PaymentCreator( transaction5, PaymentType.CARD, 250).setCard(smartCard3).create();
+		Payment payment1 = new Payment.Builder( transaction1, PaymentType.CASH, 200).setChange(65).create();
+		Payment payment2 = new Payment.Builder( transaction2, PaymentType.CARD, 175).setCard(smartCard1).create();
+		Payment payment3 = new Payment.Builder( transaction3, PaymentType.CASH, 50).setChange(0).create();
+		Payment payment4 = new Payment.Builder( transaction4, PaymentType.CARD, 300).setCard(smartCard2).create();
+		Payment payment5 = new Payment.Builder( transaction5, PaymentType.CARD, 250).setCard(smartCard3).create();
 
 
 		this.setOfTransactions.create(transaction1);

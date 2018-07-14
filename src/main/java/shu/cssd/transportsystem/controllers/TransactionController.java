@@ -29,14 +29,14 @@ public class TransactionController
 	public Transaction makeTransaction(User user, PaymentType paymentType, float amount)
 	{
 		
-		Transaction transaction = (new Transaction.TransactionCreator(user, paymentType, amount)).create();
+		Transaction transaction = (new Transaction.Builder(user, paymentType, amount)).create();
 		
 		// check if the payment is a CASH
 		if (paymentType.equals(PaymentType.CASH))
 		{
 			user.balance = (user.balance - amount);
 			
-			(new Payment.PaymentCreator(transaction, PaymentType.CASH, amount)).create();
+			(new Payment.Builder(transaction, PaymentType.CASH, amount)).create();
 		}
 		
 		// check if the payment is card

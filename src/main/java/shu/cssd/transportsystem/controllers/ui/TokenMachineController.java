@@ -106,7 +106,7 @@ public class TokenMachineController
 		
 		Transaction transaction = (new TransactionController()).makeTransaction(this.loggedInUser, paymentType, amount);
 		
-		Payment payment = new Payment.PaymentCreator(transaction, PaymentType.CASH, amount)
+		Payment payment = new Payment.Builder(transaction, PaymentType.CASH, amount)
 				.setChange(change)
 				.create();
 		

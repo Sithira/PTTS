@@ -31,7 +31,7 @@ public class JourneyCreator
 	 */
 	public Journey createJourney(Transaction transaction, Stop origin, Stop destination)
 	{
-		return  new Journey.Builder(transaction.getUser(), origin)
+		return new Journey.Builder(transaction.getUser(), origin)
 				.setDestination(destination)
 				.setCost(transaction.amount)
 				.create();

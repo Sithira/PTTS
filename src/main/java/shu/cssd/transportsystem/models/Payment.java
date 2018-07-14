@@ -47,7 +47,7 @@ public class Payment extends BaseModel
 		return null;
 	}
 	
-	public static class PaymentCreator implements Serializable
+	public static class Builder implements Serializable
 	{
 		public PaymentType paymentType;
 		
@@ -57,7 +57,7 @@ public class Payment extends BaseModel
 		
 		public float change;
 		
-		public PaymentCreator(Transaction transaction, PaymentType paymentType, float value)
+		public Builder(Transaction transaction, PaymentType paymentType, float value)
 		{
 			this.transaction = transaction; // this later sets its id to the real object as a string (UUID)
 			this.paymentType = paymentType;
@@ -70,7 +70,7 @@ public class Payment extends BaseModel
 		 * @param change
 		 * @return
 		 */
-		public PaymentCreator setChange(float change)
+		public Builder setChange(float change)
 		{
 			this.change = change;
 			

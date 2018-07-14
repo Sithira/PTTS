@@ -101,7 +101,7 @@ public class Transaction extends BaseModel
 	/**
 	 * Builder class for the transaction
 	 */
-	public static class TransactionCreator implements Serializable
+	public static class Builder implements Serializable
 	{
 		User user;
 		
@@ -118,7 +118,7 @@ public class Transaction extends BaseModel
 		 *
 		 * @param user
 		 */
-		public TransactionCreator(User user, PaymentType paymentType, float amount)
+		public Builder(User user, PaymentType paymentType, float amount)
 		{
 			this.user = user;
 			this.userId = user.id;
@@ -131,7 +131,7 @@ public class Transaction extends BaseModel
 		 *
 		 * @return
 		 */
-		public TransactionCreator fromSmartCard()
+		public Builder fromSmartCard()
 		{
 			this.smartCardId = this.user.getCard().id;
 			
