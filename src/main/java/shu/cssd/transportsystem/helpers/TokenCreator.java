@@ -41,7 +41,9 @@ public class TokenCreator
 	 */
 	public Token createToken(User user, PaymentType paymentType, Stop origin, Stop destination)
 	{
-		Transaction transaction = new Transaction.TransactionCreator(user, paymentType).create();
+		float amount = CostCalculator.getInstance().calculate(origin, destination, destination.getRoute());
+		
+		Transaction transaction = new Transaction.TransactionCreator(user, paymentType, amount).create();
 		
 		return new Token(transaction, origin, destination);
 	}
