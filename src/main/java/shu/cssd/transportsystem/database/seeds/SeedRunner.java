@@ -12,22 +12,22 @@ public class SeedRunner
 	/**
 	 * Set the debug logs
 	 */
-	private static boolean DEBUG = true;
+	private static boolean DEBUG = false;
 	
 	/**
 	 * Array of Classes that needs to be run while seeding
 	 */
 	private static Class[] seeders = {
 			OfferSeeder.class,
-			PermissionLevelSeeder.class,
 			ZoneSeeder.class,
 			RouteSeeder.class,
-
-
-			UserTransactionPaymentSeeder.class,
+			PermissionLevelSeeder.class,
+			UserSeeder.class,
 			SmartCardSeeder.class,
+			TransactionSeeder.class,
+			PaymentSeeder.class,
 
-			VehicleSeeder.class,
+			//VehicleSeeder.class,
 			//StopSeeder.class,
 			GateSeeder.class,
 			//JourneySeeder.class,
@@ -37,7 +37,7 @@ public class SeedRunner
 	/**
 	 * Method names that should be ran for
 	 */
-	private static String methodNames[] = {"relationships", "seed", "read"};
+	private static String methodNames[] = {"seed", "relationships", "read"};
 	
 	/**
 	 * Run the SeedRunner to seed the data into the data base

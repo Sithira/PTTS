@@ -19,9 +19,9 @@ public class SmartCard extends BaseModel
 
 	public Date expiryDate;
 	
-	public SmartCard(String userId, int pinCode, int cvc, Date expiryDate)
+	public SmartCard(User user, int pinCode, int cvc, Date expiryDate)
 	{
-		this.userId = userId;
+		this.userId = user.id;
 		this.pinCode = pinCode;
 		this.cvc = cvc;
 		this.expiryDate = expiryDate;
