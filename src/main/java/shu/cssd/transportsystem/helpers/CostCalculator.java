@@ -10,6 +10,11 @@ public class CostCalculator {
     private static CostCalculator ourInstance = new CostCalculator();
 
     public static CostCalculator getInstance() {
+        if (ourInstance == null)
+        {
+        	return new CostCalculator();
+        }
+        
         return ourInstance;
     }
 

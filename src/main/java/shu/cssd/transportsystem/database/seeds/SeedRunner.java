@@ -9,6 +9,9 @@ import java.lang.reflect.Method;
 public class SeedRunner
 {
 	
+	/**
+	 * Set the debug logs
+	 */
 	private static boolean DEBUG = false;
 	
 	/**
@@ -73,7 +76,10 @@ public class SeedRunner
 							// output debug information
 							if (DEBUG)
 							{
-								System.out.println("Class name: " + seeder.getSimpleName() + " Method name: " + method.getName());
+								System.out.println("Class name: "
+										+ seeder.getSimpleName() +
+										" Method name: "
+										+ method.getName());
 							}
 							
 							// invoke the method

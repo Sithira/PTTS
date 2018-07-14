@@ -10,14 +10,17 @@ public class Payment extends BaseModel
 {
 	public PaymentType paymentType;
 	
+	public String transactionId;
+	
 	public String cardId;
 	
 	public float value;
 	
 	public float change;
 	
-	private Payment(PaymentType type, float value)
+	private Payment(Transaction transaction, PaymentType type, float value)
 	{
+		this.transactionId = transaction.id;
 		this.paymentType = type;
 		this.value = value;
 	}
@@ -25,7 +28,7 @@ public class Payment extends BaseModel
 	/**
 	 * Get the transaction for the payment
 	 *
-	 * @return
+	 * @return get the list of transactions
 	 */
 	public Transaction getTransaction()
 	{
@@ -50,14 +53,17 @@ public class Payment extends BaseModel
 	{
 		public PaymentType paymentType;
 		
+		public Transaction transaction;
+		
 		public String cardId;
 		
 		public float value;
 		
 		public float change;
 		
-		public PaymentCreator(PaymentType paymentType, float value)
+		public PaymentCreator(Transaction transaction, PaymentType paymentType, float value)
 		{
+			this.transaction = transaction; // this later sets its id to the real object as a string (UUID)
 			this.paymentType = paymentType;
 			this.value = value;
 		}
@@ -95,7 +101,7 @@ public class Payment extends BaseModel
 		 */
 		public Payment create()
 		{
-			return new Payment(paymentType, value);
+			return new Payment(transaction, paymentType, value);
 		}
 		
 	}
