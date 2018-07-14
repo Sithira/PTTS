@@ -23,52 +23,57 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DashboardController extends Application
+public class DashboardController implements Initializable
 {
-	AnchorPane topPane;
+	AnchorPane rootPane;
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/dashboard/Dashboard.fxml"));
-        AnchorPane shadowPane = loader.load();
-        AnchorPane topPane = (AnchorPane) shadowPane.lookup("#topPane");
-        topPane.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);" +
-                "-fx-background-color: white;"); // Shadow effect
 
-        Scene scene = new Scene(shadowPane);
-        stage.setScene(scene);
 
-        shadowPane.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, null, null))); // Some borders for for clarity
-
-        shadowPane.setStyle("-fx-background-color: transparent;"); // Makes shadowPane transparent
-        scene.setFill(Color.TRANSPARENT); // Fill our scene with nothing
-        stage.initStyle(StageStyle.TRANSPARENT); // Important one!
-        stage.show();
-    }
-
-	/*@Override
+	@Override
 	public void initialize(URL location, ResourceBundle resources)
 	{
 		//topPane.setEffect(new DropShadow(2d, 0d, +2d, Color.BLACK));
-	}*/
+	}
 	
 	public void loadDashBoard(ActionEvent event) throws IOException
 	{
 		Parent parent = FXMLLoader.load(getClass().getResource("dashboard/Dashboard.fxml"));
-		
+
 		Scene scene = new Scene(parent);
-		
+
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		
+
 		window.setScene(scene);
-		
+
 		window.show();
-		
+
 	}
 
 	@FXML
 	private void logout_buttonClick(MouseEvent event) throws IOException {
 		Parent root =FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
 		MainApp.stage.getScene().setRoot(root);
+	}
+
+    @FXML
+    private void paymentButtonClick(MouseEvent event) throws IOException {
+        Parent paymentParent = FXMLLoader.load(getClass().getResource("/payment/Payment.fxml"));
+        Scene paymentScene = new Scene(paymentParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(paymentScene);
+        window.show();
+    }
+
+	@FXML
+	private void profileButtonClick(MouseEvent event) throws IOException {
+		Parent profileParent = FXMLLoader.load(getClass().getResource("/profile/profile.fxml"));
+		Scene profileScene = new Scene(profileParent);
+
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+		window.setScene(profileScene);
+		window.show();
 	}
 }

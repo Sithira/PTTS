@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.DashboardController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.DashboardController">
    <children>
       <AnchorPane fx:id="topPane" layoutY="-9.0" prefHeight="254.0" prefWidth="400.0" styleClass="dashboardTopPane" stylesheets="@../styles/Styles.css">
          <children>
@@ -111,7 +111,7 @@
          <children>
             <AnchorPane prefHeight="66.0" prefWidth="400.0">
                <children>
-                  <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="43.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="paymentButton" fitHeight="37.0" fitWidth="38.0" layoutX="43.0" layoutY="12.0" onMouseClicked="#paymentButtonClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/payment.png" />
                      </image>
@@ -126,7 +126,7 @@
                         <Image url="@../images/route.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="317.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileButton" fitHeight="37.0" fitWidth="38.0" layoutX="317.0" layoutY="11.0" onMouseClicked="#profileButtonClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/profile.png" />
                      </image>
