@@ -15,17 +15,15 @@ import java.util.Date;
 
 public class PaymentSeeder implements BaseSeeder
 {
-	
-	public String[] order = {};
-	
-	private SetOfPayments setOfPayments = new SetOfPayments();
-	private SetOfSmartCards setOfSmartCards = new SetOfSmartCards();
+    private SetOfSmartCards setOfSmartCards = new SetOfSmartCards();
+
+    private SetOfPayments setOfPayments = new SetOfPayments();
+
 	private  String [] users = new String[4];
 
 	@Override
 	public void seed()
 	{
-		
 		Date date1 = new Date();
 		Date date2 = new Date();
 		
@@ -57,6 +55,7 @@ public class PaymentSeeder implements BaseSeeder
 	@Override
 	public void read()
 	{
+
 		for (BaseModel model : this.setOfPayments.all())
 		{
 			Payment payment = (Payment) model;
@@ -77,7 +76,6 @@ public class PaymentSeeder implements BaseSeeder
 	public void relationships()
 	{
 		SetOfUsers setOfUsers = new SetOfUsers();
-		
 		
 		for (int i = 0; i < setOfUsers.all().size(); i++)
 		{
