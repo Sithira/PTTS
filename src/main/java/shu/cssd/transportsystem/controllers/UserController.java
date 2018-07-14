@@ -139,17 +139,12 @@ public class UserController
 		
 		SetOfPayments setOfPayments = new SetOfPayments();
 		
-		Payment payment = new Payment.PaymentCreator(PaymentType.CASH, amount)
+		Transaction transaction = (new TransactionController()).makeTransaction(this.currentUser, PaymentType.CASH, amount);
+		
+		Payment payment = new Payment.PaymentCreator(transaction, PaymentType.CASH, amount)
 				.create();
 		
 		setOfPayments.create(payment);
-		
-		SetOfTransactions setOfTransactions = new SetOfTransactions();
-		
-		Transaction transaction = new Transaction.TransactionCreator(this.currentUser.id, payment.id)
-				.create();
-		
-		setOfTransactions.create(transaction);
 		
 		return value;
 	}

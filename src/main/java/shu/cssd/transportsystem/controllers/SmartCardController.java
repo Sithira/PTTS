@@ -86,29 +86,17 @@ public class SmartCardController
 		// get the set of payments
 		SetOfPayments setOfPayments = new SetOfPayments();
 		
+		Transaction transaction = (new TransactionController()).makeTransaction(card.getUser(), PaymentType.CASH, amount);
+		
 		// create a new payment
-		Payment payment = new Payment.PaymentCreator(PaymentType.CASH, amount)
+		Payment payment = new Payment.PaymentCreator(transaction, PaymentType.CASH, amount)
 				.create();
 		
 		// add the payment to the collection
 		setOfPayments.create(payment);
 		
-		// get the set of transactions
-		SetOfTransactions setOfTransactions = new SetOfTransactions();
-		
-		// create the transaction
-		Transaction transaction = new Transaction.TransactionCreator(card.userId, payment.id)
-				.create();
-		
-		// add to the collection
-		setOfTransactions.create(transaction);
-	
-		// increment the amount
-		card.balance += amount;
-		
 		try
 		{
-			
 			// save in the model
 			this.smartCards.findByIdAndUpdate(card.id, card);
 			

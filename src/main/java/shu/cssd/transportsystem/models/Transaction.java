@@ -16,6 +16,8 @@ public class Transaction extends BaseModel
 	
 	public String smartCardId;
 	
+	public float amount;
+	
 	private Transaction(User user)
 	{
 		this.userId = user.id;
@@ -109,17 +111,18 @@ public class Transaction extends BaseModel
 		
 		public PaymentType paymentType;
 		
-		public String purchaseLocation;
+		public float amount;
 		
 		/**
 		 * Create an instance of the builder
 		 *
 		 * @param user
 		 */
-		public TransactionCreator(User user, PaymentType paymentType)
+		public TransactionCreator(User user, PaymentType paymentType, float amount)
 		{
 			this.user = user;
 			this.userId = user.id;
+			this.amount = amount;
 			this.paymentType =  paymentType;
 		}
 		

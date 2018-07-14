@@ -16,10 +16,11 @@ public class Token extends BaseModel
 	
 	public String transactionId;
 	
-	public Token(String originStopId, String destinationStopId)
+	public Token(Transaction transaction, Stop originStopId, Stop destinationStopId)
 	{
-		this.originStopId = originStopId;
-		this.destinationStopId = destinationStopId;
+		this.transactionId = transaction.id;
+		this.originStopId = originStopId.id;
+		this.destinationStopId = destinationStopId.id;
 	}
 	
 	/**

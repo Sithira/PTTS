@@ -1,5 +1,6 @@
 package shu.cssd.transportsystem.controllers.ui;
 
+import shu.cssd.transportsystem.controllers.TransactionController;
 import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
@@ -76,11 +77,12 @@ public class TokenMachineController
 	/**
 	 * Accept the payment by cash
 	 *
+	 * @param paymentType {@link PaymentType}
 	 * @param amount
-	 * @return
+	 * @return {@link Payment}
 	 * @throws NotEnoughFundsException
 	 */
-	public Payment acceptPayment(float amount) throws NotEnoughFundsException
+	public Payment acceptPayment(PaymentType paymentType, float amount) throws NotEnoughFundsException
 	{
 		
 		float change = 0;
@@ -97,66 +99,13 @@ public class TokenMachineController
 		
 		SetOfPayments setOfPayments = new SetOfPayments();
 		
-		Payment payment = new Payment.PaymentCreator(PaymentType.CASH, amount)
+		Transaction transaction = (new TransactionController()).makeTransaction(this.loggedInUser, paymentType, amount);
+		
+		Payment payment = new Payment.PaymentCreator(transaction, PaymentType.CASH, amount)
 				.setChange(change)
 				.create();
 		
 		setOfPayments.create(payment);
-		
-		SetOfTransactions setOfTransactions = new SetOfTransactions();
-		
-		Transaction transaction = new Transaction.TransactionCreator(this.loggedInUser.id, payment.id)
-				.create();
-		
-		setOfTransactions.create(transaction);
-		
-		return payment;
-	}
-	
-	/**
-	 * Accept the payment by card
-	 *
-	 * @param card
-	 * @return
-	 * @throws NotEnoughFundsException
-	 */
-	public Payment acceptPayment(SmartCard card) throws NotEnoughFundsException
-	{
-		
-		
-		// check if the balance is less than fare
-		if (card.balance < this.fare)
-		{
-			
-			// if it is throw an exception
-			throw new NotEnoughFundsException();
-		}
-		
-		SetOfPayments setOfPayments = new SetOfPayments();
-		
-		Payment payment = new Payment.PaymentCreator(PaymentType.CARD, fare)
-				.setCard(card)
-				.create();
-		
-		setOfPayments.create(payment);
-		
-		SetOfTransactions setOfTransactions = new SetOfTransactions();
-		
-		Transaction transaction = new Transaction.TransactionCreator(this.loggedInUser.id, payment.id)
-				.create();
-		
-		setOfTransactions.create(transaction);
-		
-		card.balance = card.balance - fare;
-		
-		try
-		{
-			(new SetOfSmartCards()).findByIdAndUpdate(card.id, card);
-			
-		} catch (ModelNotFoundException e)
-		{
-			e.printStackTrace();
-		}
 		
 		return payment;
 	}

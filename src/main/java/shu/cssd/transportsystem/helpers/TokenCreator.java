@@ -1,13 +1,23 @@
 package shu.cssd.transportsystem.helpers;
 
+import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.models.Stop;
 import shu.cssd.transportsystem.models.Token;
+import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.User;
+import shu.cssd.transportsystem.models.collections.SetOfTokens;
 
 public class TokenCreator
 {
 	private static TokenCreator ourInstance = new TokenCreator();
 	
+	private SetOfTokens setOfTokens = new SetOfTokens();
+	
+	/**
+	 * Get an instance of the token creator
+	 *
+	 * @return {@link TokenCreator}
+	 */
 	public static TokenCreator getInstance()
 	{
 		if (ourInstance == null)
@@ -20,8 +30,19 @@ public class TokenCreator
 	
 	private TokenCreator() { }
 	
-	public Token createToken(User user, Stop origin, Stop destination)
+	/**
+	 * Create an token for the user
+	 *
+	 * @param user user of the token
+	 * @param paymentType payment type
+	 * @param origin origin of the user
+	 * @param destination destination of the user
+	 * @return {@link Token}
+	 */
+	public Token createToken(User user, PaymentType paymentType, Stop origin, Stop destination)
 	{
-	    return null;
+		Transaction transaction = new Transaction.TransactionCreator(user, paymentType).create();
+		
+		return new Token(transaction, origin, destination);
 	}
 }
