@@ -1,7 +1,7 @@
 package shu.cssd.transportsystem.foundation.database;
 
 public interface BaseSeeder {
-	
+
 	/**
 	 * Seed the data into the data storage
 	 */

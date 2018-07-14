@@ -12,8 +12,9 @@ public class SeedRunner {
 	 * Array of Classes that needs to be run while seeding
 	 */
     private static Class[] seeders = {
-            PermissionLevelSeeder.class,
+            /*PermissionLevelSeeder.class,*/
             UserSeeder.class,
+            PaymentSeeder.class
     };
 	
 	/**
