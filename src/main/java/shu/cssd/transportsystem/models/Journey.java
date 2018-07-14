@@ -18,15 +18,12 @@ public class Journey extends BaseModel
 
 	public float cost;
 
-	public Journey(User user, Stop origin, Stop destination, float amount)
+	private Journey(User user, Stop origin)
 	{
 		this.userId = user.id;
-		this.routeId = destination.getRoute().id;
+		this.routeId = origin.getRoute().id;
 		this.originId = origin.id;
-		this.destinationId = destination.id;
-		this.cost = amount;
 	}
-
 
 	/**
 	 * Get the Origin
@@ -87,6 +84,51 @@ public class Journey extends BaseModel
 		}
 		
 		return null;
+	}
+	
+	public static class Builder
+	{
+		public String userId;
+		
+		public String routeId;
+		
+		public String originId;
+		
+		public String destinationId;
+		
+		public float cost;
+		
+		private User user;
+		private Stop origin;
+		
+		public Builder(User user, Stop origin)
+		{
+			this.userId = user.id;
+			this.originId = origin.id;
+			
+			this.user = user;
+			this.origin = origin;
+		}
+		
+		public Builder setDestination(Stop destination)
+		{
+			this.destinationId = destination.id;
+			
+			return this;
+		}
+		
+		public Builder setCost(float cost)
+		{
+			this.cost = cost;
+			
+			return this;
+		}
+		
+		public Journey create()
+		{
+			return new Journey(this.user, this.origin);
+		}
+		
 	}
 	
 }
