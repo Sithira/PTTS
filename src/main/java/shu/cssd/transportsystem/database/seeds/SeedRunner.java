@@ -20,6 +20,7 @@ public class SeedRunner
 	private static Class[] seeders = {
 			PermissionLevelSeeder.class,
 			UserSeeder.class,
+            PaymentSeeder.class
 	};
 	
 	/**

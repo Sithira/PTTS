@@ -7,14 +7,11 @@ import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
 public class UserSeeder implements BaseSeeder {
 
-    private SetOfUsers setOfUsers;
+    private SetOfUsers setOfUsers = new SetOfUsers();
 
     @Override
     public void seed()
     {
-        
-        this.setOfUsers = new SetOfUsers();
-        
         User user1 = new User.UserCreator(
                 "Sithira",
                 "sithiraac@gmail.com",
@@ -62,6 +59,7 @@ public class UserSeeder implements BaseSeeder {
     @Override
     public void read()
     {
+
         for (BaseModel model: this.setOfUsers.all())
         {
             User user = (User) model;
