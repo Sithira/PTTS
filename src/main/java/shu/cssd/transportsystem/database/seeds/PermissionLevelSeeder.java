@@ -9,11 +9,14 @@ import shu.cssd.transportsystem.models.collections.SetOfPermissions;
 
 public class PermissionLevelSeeder implements BaseSeeder {
 
-    private SetOfPermissions setOfPermissions = new SetOfPermissions();
+    private SetOfPermissions setOfPermissions;
 
     @Override
     public void seed()
     {
+        
+        this.setOfPermissions = new SetOfPermissions();
+        
         Permission permission1 = new Permission("Admin");
         Permission permission2 = new Permission("User");
         Permission permission3 = new Permission("User");
