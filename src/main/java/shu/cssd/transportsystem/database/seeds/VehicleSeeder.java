@@ -15,6 +15,8 @@ public class VehicleSeeder implements BaseSeeder {
     @Override
     public void seed()
     {
+        VehicleSeeder vehicleSeeder = new VehicleSeeder();
+
         Vehicle vehicle1 = new Vehicle(routes[0],false,50, 0f, "Maharagama", true );
         Vehicle vehicle2 = new Vehicle(routes[1],true,200,5f, "Kottawa", true );
         Vehicle vehicle3 = new Vehicle(routes[2],false,300, 0f, "Nugegoda", true );

@@ -12,7 +12,7 @@ public class SeedRunner
 	/**
 	 * Set the debug logs
 	 */
-	private static boolean DEBUG = false;
+	private static boolean DEBUG = true;
 	
 	/**
 	 * Array of Classes that needs to be run while seeding
@@ -20,14 +20,16 @@ public class SeedRunner
 	private static Class[] seeders = {
 			OfferSeeder.class,
 			PermissionLevelSeeder.class,
-			UserSeeder.class,
 			ZoneSeeder.class,
 			RouteSeeder.class,
-			VehicleSeeder.class,
-			StopSeeder.class,
-			GateSeeder.class
-            //TransactionSmardCardPaymentSeeder.class,
 
+
+			UserTransactionPaymentSeeder.class,
+			SmartCardSeeder.class,
+
+			VehicleSeeder.class,
+			//StopSeeder.class,
+			GateSeeder.class,
 			//JourneySeeder.class,
 			//TokenSeeder.class
 	};
