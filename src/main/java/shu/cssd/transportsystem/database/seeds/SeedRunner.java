@@ -6,16 +6,18 @@ import java.lang.reflect.Method;
 /**
  * Seed runner. Populates the data store
  */
-public class SeedRunner {
+public class SeedRunner
+{
+	
+	private static boolean DEBUG = false;
 	
 	/**
 	 * Array of Classes that needs to be run while seeding
 	 */
-    private static Class[] seeders = {
-            /*PermissionLevelSeeder.class,*/
-            UserSeeder.class,
-            PaymentSeeder.class
-    };
+	private static Class[] seeders = {
+			PermissionLevelSeeder.class,
+			UserSeeder.class,
+	};
 	
 	/**
 	 * Method names that should be ran for
@@ -27,35 +29,55 @@ public class SeedRunner {
 	 *
 	 * @param args
 	 */
-    public static void main(String[] args)
-    {
-    	
-	    // loop over all classes
-	    for (Class seeder : seeders)
-	    {
-	    	
-	    	// get method names
-		    Method[] methods = seeder.getMethods();
-		    
-		    // for all methods in the array
-		    for (String methodName: methodNames)
-		    {
-		    	
-		    	// loop over every method name
-			    for (Method method : methods)
-			    {
+	public static void main(String[] args)
+	{
+		
+		// loop over all classes
+		for (Class seeder : seeders)
+		{
+			
+			Object classInstance = null;
+			
+			try
+			{
+				classInstance = Class.forName(seeder.getName()).newInstance();
+			} catch (InstantiationException e)
+			{
+				e.printStackTrace();
+			} catch (IllegalAccessException e)
+			{
+				e.printStackTrace();
+			} catch (ClassNotFoundException e)
+			{
+				e.printStackTrace();
+			}
+			
+			// get method names
+			Method[] methods = seeder.getMethods();
+			
+			// for all methods in the array
+			for (String methodName : methodNames)
+			{
 				
-			    	// check for the method names
+				// loop over every method name
+				for (Method method : methods)
+				{
+					
+					// check for the method names
 					if (methodName.equals(method.getName()))
 					{
 						
 						try
 						{
 							
-							System.out.println("OnClass " + seeder.getSimpleName() + " Meth :" + method.getName());
+							// output debug information
+							if (DEBUG)
+							{
+								System.out.println("Class name: " + seeder.getSimpleName() + " Method name: " + method.getName());
+							}
 							
 							// invoke the method
-							method.invoke(Class.forName(seeder.getName()).newInstance());
+							method.invoke(classInstance);
 							
 						} catch (IllegalAccessException e)
 						{
@@ -63,20 +85,14 @@ public class SeedRunner {
 						} catch (InvocationTargetException e)
 						{
 							e.printStackTrace();
-						} catch (ClassNotFoundException e)
-						{
-							e.printStackTrace();
-						} catch (InstantiationException e)
-						{
-							e.printStackTrace();
 						}
 					}
-				
-			    }
-		    }
-		    
-		
-	    }
-    }
-
+					
+				}
+			}
+			
+			
+		}
+	}
+	
 }
