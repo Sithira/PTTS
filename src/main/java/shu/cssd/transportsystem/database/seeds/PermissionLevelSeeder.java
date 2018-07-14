@@ -39,4 +39,10 @@ public class PermissionLevelSeeder implements BaseSeeder {
 
         }
     }
+    
+    @Override
+    public void relationships()
+    {
+    
+    }
 }

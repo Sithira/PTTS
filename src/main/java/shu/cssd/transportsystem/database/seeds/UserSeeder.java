@@ -68,5 +68,11 @@ public class UserSeeder implements BaseSeeder {
 
         }
     }
-
+    
+    @Override
+    public void relationships()
+    {
+    
+    }
+    
 }

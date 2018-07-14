@@ -37,4 +37,10 @@ public class TransactionSeeder implements BaseSeeder {
 
         }
     }
+    
+    @Override
+    public void relationships()
+    {
+    
+    }
 }
