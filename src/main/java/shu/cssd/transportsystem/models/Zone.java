@@ -7,7 +7,12 @@ import java.util.ArrayList;
 
 public class Zone extends BaseModel
 {
-    public String Name;
+    public String name;
+
+    public Zone(String name)
+    {
+        this.name = name;
+    }
 
 
     /**
