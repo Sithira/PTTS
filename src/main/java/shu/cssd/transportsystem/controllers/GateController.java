@@ -72,7 +72,7 @@ public class GateController
 
             setCurrentGate(gateId);
 
-            if(token.source_stop_id.equals(this.currentGate.stopId))
+            if(token.destinationStopId.equals(this.currentGate.stopId))
             {
                 currentGate.state = OPEN;
 

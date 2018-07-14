@@ -34,6 +34,7 @@ public class TokenMachineController
 		
 		// getting an random stop from the list of stops.
 		this.currentStop = (Stop) this.setOfStops.all().get(new Random().nextInt((0 - size) + 1) + size);
+		
 	}
 	
 	/**

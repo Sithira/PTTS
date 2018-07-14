@@ -22,7 +22,7 @@ public class SeedRunner {
 	/**
 	 * Method names that should be ran for
 	 */
-	private static String methodNames[] = {"seed", "read", "relationships"};
+	private static String methodNames[] = {"relationships", "seed", "read"};
 	
 	/**
 	 * Run the SeedRunner to seed the data into the data base
@@ -36,10 +36,10 @@ public class SeedRunner {
 	    List<String> list = Arrays.asList(methodNames);
 	    
 	    // sort the array
-	    Collections.sort(list);
+	    //Collections.sort(list);
 	    
 	    // reverse the array
-	    Collections.reverse(list);
+	    //Collections.reverse(list);
 	    
 	    methodNames = (String[]) list.toArray();
 	    
@@ -61,6 +61,8 @@ public class SeedRunner {
 			    	// check for the method names
 					if (methodName.equals(method.getName()))
 					{
+						
+						System.out.println("Meth :" + method.getName());
 						
 						try
 						{

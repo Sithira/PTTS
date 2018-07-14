@@ -16,6 +16,8 @@ import java.util.Date;
 public class PaymentSeeder implements BaseSeeder
 {
 	
+	public String[] order = {};
+	
 	private SetOfPayments setOfPayments = new SetOfPayments();
 	private SetOfSmartCards setOfSmartCards = new SetOfSmartCards();
 	
@@ -86,4 +88,5 @@ public class PaymentSeeder implements BaseSeeder
 		}
 		
 	}
+	
 }

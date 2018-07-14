@@ -1,6 +1,8 @@
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
+import shu.cssd.transportsystem.models.collections.SetOfStops;
 import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 
 import java.util.ArrayList;
@@ -8,15 +10,15 @@ import java.util.ArrayList;
 public class Token extends BaseModel
 {
 	
-	public String origin_stop_id;
+	public String originStopId;
 	
-	public Token(String origin_stop_id, String source_stop_id)
+	public String destinationStopId;
+	
+	public Token(String originStopId, String destinationStopId)
 	{
-		this.origin_stop_id = origin_stop_id;
-		this.source_stop_id = source_stop_id;
+		this.originStopId = originStopId;
+		this.destinationStopId = destinationStopId;
 	}
-	
-	public String source_stop_id;
 	
 	/**
 	 * Get the transaction of a token
@@ -37,6 +39,42 @@ public class Token extends BaseModel
 			{
 				return transaction;
 			}
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Get the Origin Stop
+	 *
+	 * @return Get the stop ${@link Stop}
+	 */
+	public Stop getOrginStop()
+	{
+		try
+		{
+			return (Stop) (new SetOfStops()).findById(this.originStopId);
+		} catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Get the Destination Stop
+	 *
+	 * @return Get the stop ${@link Stop}
+	 */
+	public Stop getDestinationStop()
+	{
+		try
+		{
+			return (Stop) (new SetOfStops()).findById(this.destinationStopId);
+		} catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
 		}
 		
 		return null;
