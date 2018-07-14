@@ -1,6 +1,7 @@
 package shu.cssd.transportsystem.controllers;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.models.Payment;
 import shu.cssd.transportsystem.models.Transaction;
@@ -34,6 +35,25 @@ public class PaymentController
 	public Payment create(Transaction transaction, PaymentType paymentType, float amount)
 	{
 		return new Payment.PaymentCreator(transaction, paymentType, amount).create();
+	}
+	
+	/**
+	 * Get the Payment object
+	 *
+	 * @param paymentId UUID for a payment
+	 * @return {@link Payment}
+	 */
+	public Payment find(String paymentId)
+	{
+		try
+		{
+			return (Payment) this.setOfPayments.findById(paymentId);
+		} catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 }

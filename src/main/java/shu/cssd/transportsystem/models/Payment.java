@@ -104,6 +104,7 @@ public class Payment extends BaseModel
 			return new Payment(transaction, paymentType, value);
 		}
 		
+		
 	}
 }
 
