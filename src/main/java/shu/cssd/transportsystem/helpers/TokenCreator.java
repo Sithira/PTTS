@@ -22,6 +22,6 @@ public class TokenCreator
 	
 	public Token createToken(User user, Stop origin, Stop destination)
 	{
-	
+	    return null;
 	}
 }

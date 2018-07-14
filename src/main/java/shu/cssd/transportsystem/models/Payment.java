@@ -12,8 +12,6 @@ public class Payment extends BaseModel
 	
 	public String transactionId;
 	
-	public String cardId;
-	
 	public float value;
 	
 	public float change;
@@ -39,7 +37,7 @@ public class Payment extends BaseModel
 			
 			Transaction transaction = (Transaction) model;
 			
-			if (transaction.paymentId.equals(this.id))
+			if (transaction.id.equals(this.transactionId))
 			{
 				return transaction;
 			}
@@ -55,8 +53,6 @@ public class Payment extends BaseModel
 		
 		public Transaction transaction;
 		
-		public String cardId;
-		
 		public float value;
 		
 		public float change;
@@ -66,25 +62,6 @@ public class Payment extends BaseModel
 			this.transaction = transaction; // this later sets its id to the real object as a string (UUID)
 			this.paymentType = paymentType;
 			this.value = value;
-		}
-
-		public PaymentCreator(PaymentType paymentType, float value)
-		{
-			this.paymentType = paymentType;
-			this.value = value;
-		}
-
-		/**
-		 * Set the card for the payment
-		 *
-		 * @param card
-		 * @return
-		 */
-		public PaymentCreator setCard(SmartCard card)
-		{
-			this.cardId = card.id;
-			
-			return this;
 		}
 		
 		/**

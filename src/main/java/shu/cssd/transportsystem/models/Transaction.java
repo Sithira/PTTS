@@ -1,6 +1,7 @@
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.models.collections.SetOfPayments;
 import shu.cssd.transportsystem.models.collections.SetOfTokens;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
@@ -13,16 +14,11 @@ public class Transaction extends BaseModel
 	
 	public String userId;
 	
-	public String paymentId;
+	public String smartCardId;
 	
-	public String tokenId;
-	
-	public String purchaseLocation;
-	
-	private Transaction(String userId, String paymentId)
+	private Transaction(User user)
 	{
-		this.userId = userId;
-		this.paymentId = paymentId;
+		this.userId = user.id;
 	}
 	
 	/**
@@ -65,7 +61,7 @@ public class Transaction extends BaseModel
 			
 			Token token = (Token) model;
 			
-			if (this.tokenId.equals(token.id))
+			if (token.transactionId.equals(this.id))
 			{
 				return token;
 			}
@@ -91,7 +87,7 @@ public class Transaction extends BaseModel
 		{
 			Payment payment = (Payment) model;
 			
-			if (payment.id.equals(paymentId))
+			if (payment.transactionId.equals(id))
 			{
 				return payment;
 			}
@@ -105,50 +101,36 @@ public class Transaction extends BaseModel
 	 */
 	public static class TransactionCreator implements Serializable
 	{
+		User user;
+		
 		public String userId;
 		
-		public String paymentId;
+		public String smartCardId;
 		
-		public String tokenId;
-		
-		public String transactionType;
+		public PaymentType paymentType;
 		
 		public String purchaseLocation;
 		
 		/**
 		 * Create an instance of the builder
 		 *
-		 * @param userId
-		 * @param paymentId
+		 * @param user
 		 */
-		public TransactionCreator(String userId, String paymentId)
+		public TransactionCreator(User user, PaymentType paymentType)
 		{
-			this.userId = userId;
-			this.paymentId = paymentId;
+			this.user = user;
+			this.userId = user.id;
+			this.paymentType =  paymentType;
 		}
 		
 		/**
-		 * Set the token for the transaction
+		 * Set the SmartCard for the transaction
 		 *
-		 * @param token
 		 * @return
 		 */
-		public TransactionCreator setTokenId(Token token)
+		public TransactionCreator fromSmartCard()
 		{
-			this.tokenId = token.id;
-			
-			return this;
-		}
-		
-		/**
-		 * Set the location for the transaction
-		 *
-		 * @param location
-		 * @return
-		 */
-		public TransactionCreator setLocation(String location)
-		{
-			this.purchaseLocation = location;
+			this.smartCardId = this.user.getCard().id;
 			
 			return this;
 		}
@@ -160,7 +142,7 @@ public class Transaction extends BaseModel
 		 */
 		public Transaction create()
 		{
-			return new Transaction(userId, paymentId);
+			return new Transaction(user);
 		}
 		
 	}

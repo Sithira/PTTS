@@ -25,7 +25,7 @@ public class TransactionController
 		{
 			user.balance = (user.balance - amount);
 			
-			(new Transaction.TransactionCreator(user.id, ))
+			//(new Transaction.TransactionCreator(user.id, ))
 		}
 		
 		if (paymentType.equals(PaymentType.CARD))

@@ -14,6 +14,8 @@ public class Token extends BaseModel
 	
 	public String destinationStopId;
 	
+	public String transactionId;
+	
 	public Token(String originStopId, String destinationStopId)
 	{
 		this.originStopId = originStopId;
@@ -35,7 +37,7 @@ public class Token extends BaseModel
 		{
 			Transaction transaction = (Transaction) model;
 			
-			if (transaction.tokenId.equals(this.id))
+			if (transaction.id.equals(this.transactionId))
 			{
 				return transaction;
 			}
