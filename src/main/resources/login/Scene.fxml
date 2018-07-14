@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.LoginController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="cardPane" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.LoginController">
    <children>
-      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="574.0" prefWidth="372.0" styleClass="cardPane">
+      <AnchorPane fx:id="secondPane" layoutX="14.0" layoutY="14.0" prefHeight="574.0" prefWidth="372.0" styleClass="cardPane">
          <children>
             <ImageView fitHeight="95.0" fitWidth="105.0" layoutX="14.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                <image>

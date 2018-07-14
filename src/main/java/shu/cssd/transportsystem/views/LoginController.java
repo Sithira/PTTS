@@ -28,6 +28,7 @@ public class LoginController implements Initializable
 
 	@FXML
 	AnchorPane rootPane;
+	AnchorPane secondPane;
 
 	// Goes to the Dashboard
 	@FXML
@@ -60,13 +61,19 @@ public class LoginController implements Initializable
     @FXML
     private void signup_labelClick(javafx.scene.input.MouseEvent event) throws IOException
     {
-            Parent signupParent = FXMLLoader.load(getClass().getResource("/signup/signup.fxml"));
+        // This code opens up in the same Pane
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/signup/signup.fxml"));
+        rootPane.getChildren().setAll(pane);
+
+        // This code opens up in a new window
+
+        /* Parent signupParent = FXMLLoader.load(getClass().getResource("/signup/signup.fxml"));
             Scene signupScene = new Scene(signupParent);
 
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
             window.setScene(signupScene);
-            window.show();
+            window.show(); */
 
     }
 	

@@ -1,24 +1,56 @@
 package shu.cssd.transportsystem.views;
 
+import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import shu.cssd.transportsystem.MainApp;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DashboardController implements Initializable
+public class DashboardController extends Application
 {
-	@Override
+	AnchorPane topPane;
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/dashboard/Dashboard.fxml"));
+        AnchorPane shadowPane = loader.load();
+        AnchorPane topPane = (AnchorPane) shadowPane.lookup("#topPane");
+        topPane.setStyle("-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);" +
+                "-fx-background-color: white;"); // Shadow effect
+
+        Scene scene = new Scene(shadowPane);
+        stage.setScene(scene);
+
+        shadowPane.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, null, null))); // Some borders for for clarity
+
+        shadowPane.setStyle("-fx-background-color: transparent;"); // Makes shadowPane transparent
+        scene.setFill(Color.TRANSPARENT); // Fill our scene with nothing
+        stage.initStyle(StageStyle.TRANSPARENT); // Important one!
+        stage.show();
+    }
+
+	/*@Override
 	public void initialize(URL location, ResourceBundle resources)
 	{
-	
-	}
+		//topPane.setEffect(new DropShadow(2d, 0d, +2d, Color.BLACK));
+	}*/
 	
 	public void loadDashBoard(ActionEvent event) throws IOException
 	{
@@ -33,9 +65,10 @@ public class DashboardController implements Initializable
 		window.show();
 		
 	}
-	
-	public void sayHello()
-	{
-		System.out.println("Hello");
+
+	@FXML
+	private void logout_buttonClick(MouseEvent event) throws IOException {
+		Parent root =FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
+		MainApp.stage.getScene().setRoot(root);
 	}
 }
