@@ -3,12 +3,14 @@ package shu.cssd.transportsystem.controllers.ui;
 import shu.cssd.transportsystem.controllers.TransactionController;
 import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.BaseModel;
-import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.exceptions.NotEnoughFundsException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.helpers.CostCalculator;
+import shu.cssd.transportsystem.helpers.TokenCreator;
 import shu.cssd.transportsystem.models.*;
-import shu.cssd.transportsystem.models.collections.*;
+import shu.cssd.transportsystem.models.collections.SetOfPayments;
+import shu.cssd.transportsystem.models.collections.SetOfRoutes;
+import shu.cssd.transportsystem.models.collections.SetOfStops;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -61,17 +63,20 @@ public class TokenMachineController
 	}
 	
 	/**
-	 * Create the token for the journey
+	 * Create a token
 	 *
-	 * @return
+	 * @param paymentType Payment type
+	 * @param origin Origin of the user
+	 * @param destination Destination of the user
+	 * @return {@link Token}
 	 */
-	public Token createToken(Stop origin, Stop destination)
+	public Token createToken(PaymentType paymentType, Stop origin, Stop destination)
 	{
 		 this.fare = CostCalculator
 				.getInstance()
-				.calculate(origin.id, destination.id, this.route.id);
+				.calculate(origin, destination, this.route);
 		
-		return null;
+		return TokenCreator.getInstance().createToken(loggedInUser, paymentType, origin, destination);
 	}
 	
 	/**

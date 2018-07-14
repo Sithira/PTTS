@@ -16,22 +16,22 @@ public class Journey extends BaseModel
 	
 	public String destinationId;
 
-	public Double cost;
+	public float cost;
 
-	public Journey(String userId, String routeId, String originId, String destinationId, Double cost)
+	public Journey(User user, Stop origin, Stop destination, float amount)
 	{
-		this.userId = userId;
-		this.routeId = routeId;
-		this.originId = originId;
-		this.destinationId = destinationId;
-		this.cost = cost;
+		this.userId = user.id;
+		this.routeId = destination.getRoute().id;
+		this.originId = origin.id;
+		this.destinationId = destination.id;
+		this.cost = amount;
 	}
 
 
 	/**
 	 * Get the Origin
 	 *
-	 * @return
+	 * @return {@link Stop}
 	 */
 	public Stop getOrigin()
 	{
@@ -51,7 +51,7 @@ public class Journey extends BaseModel
 	/**
 	 * Get Destination
 	 *
-	 * @return
+	 * @return {@link Stop}
 	 */
 	public Stop getDestination()
 	{
@@ -72,7 +72,7 @@ public class Journey extends BaseModel
 	/**
 	 * Get the user of the journey
 	 *
-	 * @return
+	 * @return {@link User}
 	 */
 	public User getUser()
 	{

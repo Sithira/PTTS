@@ -1,6 +1,7 @@
 package shu.cssd.transportsystem.helpers;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.models.Route;
 import shu.cssd.transportsystem.models.Stop;
 import shu.cssd.transportsystem.models.collections.SetOfStops;
 
@@ -23,12 +24,12 @@ public class CostCalculator {
 	/**
 	 * Get the fees for the selected origin and destination
 	 *
-	 * @param originId
-	 * @param destinationId
-	 * @param routeId
+	 * @param origin
+	 * @param destination
+	 * @param route
 	 * @return
 	 */
-	public float calculate(String originId, String destinationId, String routeId)
+	public float calculate(Stop origin, Stop destination, Route route)
     {
         SetOfStops setOfStops = new SetOfStops();
 
@@ -38,7 +39,7 @@ public class CostCalculator {
         {
             Stop stop = (Stop) model;
 
-            if(stop.routeId.equals(routeId))
+            if(stop.routeId.equals(route.id))
             {
                 routeStops.add(stop);
             }
@@ -50,7 +51,7 @@ public class CostCalculator {
 	    {
 		    Stop stop = (Stop) routeStops.get(i);
 		
-		    if(stop.id.equals(originId))
+		    if(stop.id.equals(origin.id))
 		    {
 				originIdIndex = i;
 				
@@ -64,7 +65,7 @@ public class CostCalculator {
 	    {
 		    Stop stop = (Stop) routeStops.get(i);
 		
-		    if(!stop.id.equals(destinationId))
+		    if(!stop.id.equals(destination.id))
 		    {
 				hops++;
 		    }
