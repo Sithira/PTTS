@@ -18,9 +18,13 @@ public class SeedRunner
 	 * Array of Classes that needs to be run while seeding
 	 */
 	private static Class[] seeders = {
+			OfferSeeder.class,
 			PermissionLevelSeeder.class,
 			UserSeeder.class,
-            PaymentSeeder.class
+            TransactionSmardCardPaymentSeeder.class,
+
+			//JourneySeeder.class,
+			//TokenSeeder.class
 	};
 	
 	/**

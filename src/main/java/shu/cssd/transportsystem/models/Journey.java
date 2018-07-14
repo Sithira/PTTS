@@ -18,8 +18,9 @@ public class Journey extends BaseModel
 
 	public Double cost;
 
-	public Journey(String routeId, String originId, String destinationId, Double cost)
+	public Journey(String userId, String routeId, String originId, String destinationId, Double cost)
 	{
+		this.userId = userId;
 		this.routeId = routeId;
 		this.originId = originId;
 		this.destinationId = destinationId;
@@ -69,7 +70,7 @@ public class Journey extends BaseModel
 	}
 	
 	/**
-	 * Get the user of the dynamic journey
+	 * Get the user of the journey
 	 *
 	 * @return
 	 */

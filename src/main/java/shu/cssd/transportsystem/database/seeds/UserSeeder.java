@@ -2,12 +2,16 @@ package shu.cssd.transportsystem.database.seeds;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.database.BaseSeeder;
+import shu.cssd.transportsystem.models.Permission;
 import shu.cssd.transportsystem.models.User;
+import shu.cssd.transportsystem.models.collections.SetOfPermissions;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
 public class UserSeeder implements BaseSeeder {
 
     private SetOfUsers setOfUsers = new SetOfUsers();
+
+    private  String [] permissions = new String[5];
 
     @Override
     public void seed()
@@ -46,13 +50,23 @@ public class UserSeeder implements BaseSeeder {
                 "Colombo",
                 "10230",
                 "chathu",
-                "admin").addAsEmployee(35000,
-                                                 "e0e6c973-b419-48cd-8280-aac0bb5f190c").create();
+                "admin").addAsEmployee(35000, permissions[3]).create();
+
+        User user5 = new User.UserCreator(
+                "Vindula",
+                "vindu@gmail.com",
+                "Kotte",
+                "Colombo",
+                "10230",
+                "vindula",
+                "admin").create();
+
 
         this.setOfUsers.create(user1);
         this.setOfUsers.create(user2);
         this.setOfUsers.create(user3);
         this.setOfUsers.create(user4);
+        this.setOfUsers.create(user5);
 
     }
 
@@ -66,13 +80,25 @@ public class UserSeeder implements BaseSeeder {
 
             System.out.println("UserID: " + user.id + " Name: " + user.name);
 
+            System.out.println("Employee_PermissionID: " + user.permission_id);
+
         }
     }
     
     @Override
     public void relationships()
     {
-    
+        SetOfPermissions setOfPermissions = new SetOfPermissions();
+
+
+        for (int i = 0; i < setOfPermissions.all().size(); i++)
+        {
+
+            Permission permission = (Permission) setOfPermissions.all().get(i);
+
+            this.permissions[i] = permission.id;
+
+        }
     }
     
 }

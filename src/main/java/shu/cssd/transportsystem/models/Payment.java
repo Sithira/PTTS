@@ -67,7 +67,13 @@ public class Payment extends BaseModel
 			this.paymentType = paymentType;
 			this.value = value;
 		}
-		
+
+		public PaymentCreator(PaymentType paymentType, float value)
+		{
+			this.paymentType = paymentType;
+			this.value = value;
+		}
+
 		/**
 		 * Set the card for the payment
 		 *
