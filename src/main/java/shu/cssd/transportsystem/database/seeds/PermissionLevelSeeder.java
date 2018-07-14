@@ -24,8 +24,7 @@ public class PermissionLevelSeeder implements BaseSeeder {
         this.setOfPermissions.create(permission2);
         this.setOfPermissions.create(permission3);
         this.setOfPermissions.create(permission4);
-
-        read();
+        
     }
 
     @Override

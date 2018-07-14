@@ -54,7 +54,6 @@ public class UserSeeder implements BaseSeeder {
         this.setOfUsers.create(user3);
         this.setOfUsers.create(user4);
 
-        read();
     }
 
     @Override

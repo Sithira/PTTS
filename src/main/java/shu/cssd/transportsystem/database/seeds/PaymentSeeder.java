@@ -49,7 +49,6 @@ public class PaymentSeeder implements BaseSeeder
 		this.setOfPayments.create(payment3);
 		this.setOfPayments.create(payment4);
 		
-		read();
 	}
 	
 	@Override

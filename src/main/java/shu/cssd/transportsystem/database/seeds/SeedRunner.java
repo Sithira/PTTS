@@ -23,7 +23,12 @@ public class SeedRunner {
 	 * Method names that should be ran for
 	 */
 	private static String methodNames[] = {"seed", "read", "relationships"};
-    
+	
+	/**
+	 * Run the SeedRunner to seed the data into the data base
+	 *
+	 * @param args
+	 */
     public static void main(String[] args)
     {
 	
@@ -38,20 +43,29 @@ public class SeedRunner {
 	    
 	    methodNames = (String[]) list.toArray();
 	    
+	    // loop over all classes
 	    for (Class seeder : seeders)
 	    {
+	    	
+	    	// get method names
 		    Method[] methods = seeder.getMethods();
 		    
+		    // for all methods in the array
 		    for (String methodName: methodNames)
 		    {
+		    	
+		    	// loop over every method name
 			    for (Method method : methods)
 			    {
 				
+			    	// check for the method names
 					if (methodName.equals(method.getName()))
 					{
+						
 						try
 						{
 							
+							// invoke the method
 							method.invoke(Class.forName(seeder.getName()).newInstance());
 							
 						} catch (IllegalAccessException e)

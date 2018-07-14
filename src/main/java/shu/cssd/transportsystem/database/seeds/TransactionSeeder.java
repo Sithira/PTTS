@@ -22,8 +22,7 @@ public class TransactionSeeder implements BaseSeeder {
         this.setOfTransactions.create(transaction2);
         this.setOfTransactions.create(transaction3);
         this.setOfTransactions.create(transaction4);
-
-        read();
+        
     }
 
     @Override
