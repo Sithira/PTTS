@@ -52,6 +52,8 @@ public class SeedRunner {
 						try
 						{
 							
+							System.out.println("OnClass " + seeder.getSimpleName() + " Meth :" + method.getName());
+							
 							// invoke the method
 							method.invoke(Class.forName(seeder.getName()).newInstance());
 							
