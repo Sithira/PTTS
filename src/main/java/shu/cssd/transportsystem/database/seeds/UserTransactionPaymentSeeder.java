@@ -32,7 +32,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 	{
 
 		//Seed Users
-		User user1 = new User.UserCreator(
+		User user1 = new User.Builder(
 				"Sithira",
 				"sithiraac@gmail.com",
 				"Rukmalgama",
@@ -41,7 +41,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 				"sithira",
 				"admin").create();
 
-		User user2 = new User.UserCreator(
+		User user2 = new User.Builder(
 				"Sanura",
 				"sanuwijay94@gmail.com",
 				"Makumbura",
@@ -50,7 +50,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 				"sanura",
 				"admin").create();
 
-		User user3 = new User.UserCreator(
+		User user3 = new User.Builder(
 				"Dinusha",
 				"dinusha.jayashan01@gmail.com",
 				"Hokandara Road, Pannipitiya",
@@ -59,7 +59,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 				"dinusha",
 				"admin").create();
 
-		User user4 = new User.UserCreator(
+		User user4 = new User.Builder(
 				"Chathu",
 				"chathu@gmail.com",
 				"Bambalapiitya",
@@ -68,7 +68,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 				"chathu",
 				"admin").addAsEmployee(35000, permissions[3]).create();
 
-		User user5 = new User.UserCreator(
+		User user5 = new User.Builder(
 				"Vindula",
 				"vindu@gmail.com",
 				"Kotte",
@@ -79,18 +79,18 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 
 
 		//Seed Transactions
-		Transaction transaction1 = new Transaction.TransactionCreator(user1, PaymentType.CASH, 135).create();
-		Transaction transaction2 = new Transaction.TransactionCreator(user2, PaymentType.CARD, 175f).fromSmartCard().create();
-		Transaction transaction3 = new Transaction.TransactionCreator(user3, PaymentType.CASH, 50f).create();
-		Transaction transaction4 = new Transaction.TransactionCreator(user4, PaymentType.CARD, 300f).fromSmartCard().create();
-		Transaction transaction5 = new Transaction.TransactionCreator(user4, PaymentType.CARD, 250f).fromSmartCard().create();
+		Transaction transaction1 = new Transaction.Builder(user1, PaymentType.CASH, 135).create();
+		Transaction transaction2 = new Transaction.Builder(user2, PaymentType.CARD, 175f).fromSmartCard().create();
+		Transaction transaction3 = new Transaction.Builder(user3, PaymentType.CASH, 50f).create();
+		Transaction transaction4 = new Transaction.Builder(user4, PaymentType.CARD, 300f).fromSmartCard().create();
+		Transaction transaction5 = new Transaction.Builder(user4, PaymentType.CARD, 250f).fromSmartCard().create();
 
 		//Seed Payments
-		Payment payment1 = new Payment.PaymentCreator( transaction1, PaymentType.CASH, 200).setChange(65).create();
-		Payment payment2 = new Payment.PaymentCreator( transaction2, PaymentType.CARD, 175).create();
-		Payment payment3 = new Payment.PaymentCreator( transaction3, PaymentType.CASH, 50).setChange(0).create();
-		Payment payment4 = new Payment.PaymentCreator( transaction4, PaymentType.CARD, 300).create();
-		Payment payment5 = new Payment.PaymentCreator( transaction5, PaymentType.CARD, 250).create();
+		Payment payment1 = new Payment.Builder( transaction1, PaymentType.CASH, 200).setChange(65).create();
+		Payment payment2 = new Payment.Builder( transaction2, PaymentType.CARD, 175).create();
+		Payment payment3 = new Payment.Builder( transaction3, PaymentType.CASH, 50).setChange(0).create();
+		Payment payment4 = new Payment.Builder( transaction4, PaymentType.CARD, 300).create();
+		Payment payment5 = new Payment.Builder( transaction5, PaymentType.CARD, 250).create();
 
 		//Seed Stops
 		Stop stop1 = new Stop(zones[0], routes[0],"Maharagama", "6.927079", "79.861244");
