@@ -10,5 +10,12 @@ public class Offer extends BaseModel
 	public int criteria;
 	
 	public Float discount;
+
+	public Offer(String name, int criteria, Float discount)
+	{
+		this.name = name;
+		this.criteria = criteria;
+		this.discount = discount;
+	}
 	
 }

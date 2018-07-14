@@ -19,14 +19,12 @@ public class PermissionLevelSeeder implements BaseSeeder {
         
         Permission permission1 = new Permission("Admin");
         Permission permission2 = new Permission("User");
-        Permission permission3 = new Permission("User");
-        Permission permission4 = new Permission("Employee");
+        Permission permission3 = new Permission("Employee");
 
 
         this.setOfPermissions.create(permission1);
         this.setOfPermissions.create(permission2);
         this.setOfPermissions.create(permission3);
-        this.setOfPermissions.create(permission4);
         
     }
 

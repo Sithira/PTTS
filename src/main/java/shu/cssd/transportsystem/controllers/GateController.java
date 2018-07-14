@@ -121,7 +121,7 @@ public class GateController
 
                     JourneyController journeyController = new JourneyController();
 
-                    journeyController.createJourney(null, originId, null, null);
+                    journeyController.createJourney(smartCard.userId, null, originId, null, null);
 
                     currentGate.state = OPEN;
 

@@ -18,9 +18,9 @@ public class JourneyController
      * @param cost
      * @return Returns a boolean depending on the status of creation
      */
-    public boolean createJourney(String routeId, String originId, String destinationId, Double cost)
+    public boolean createJourney(String userId, String routeId, String originId, String destinationId, Double cost)
     {
-        Journey journey = new Journey(routeId, originId, destinationId, cost);
+        Journey journey = new Journey(userId, routeId, originId, destinationId, cost);
 
         this.currentJourney = journey;
 
