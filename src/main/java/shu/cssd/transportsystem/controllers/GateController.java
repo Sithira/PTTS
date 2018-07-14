@@ -3,7 +3,9 @@ package shu.cssd.transportsystem.controllers;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.GateType;
+import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.helpers.CostCalculator;
+import shu.cssd.transportsystem.helpers.JourneyCreator;
 import shu.cssd.transportsystem.models.*;
 import shu.cssd.transportsystem.models.collections.*;
 import java.util.ArrayList;
@@ -102,6 +104,8 @@ public class GateController
         Journey currentjourney;
         SetOfStops setOfStops = new SetOfStops();
         Stop currentStop;
+        Stop originStop;
+        Route currentRoute;
 
         try
         {
@@ -135,19 +139,21 @@ public class GateController
 
                     for (BaseModel model: journeys) {
                         Journey journey = (Journey) model;
-                        if (journey.routeId == null && journey.destinationId == null && journey.cost == null)
+                        if (journey.routeId == null && journey.destinationId == null && journey.cost == 0)
                         {
                             currentjourney = journey;
 
-                            currentjourney.destinationId = currentGate.stopId;
-
                             currentStop = (Stop) setOfStops.findById(currentGate.stopId);
 
-                            currentjourney.routeId = currentStop.getRoute().id;
+                            originStop = (Stop) setOfStops.findById(currentjourney.originId);
 
-                            currentjourney.cost = (double) CostCalculator.getInstance().calculate(currentjourney.originId, currentjourney.destinationId, currentjourney.routeId);
+                            currentRoute = currentStop.getRoute();
 
-                            setOfJourney.create(currentjourney);
+                            currentjourney.cost = CostCalculator.getInstance().calculate(originStop, currentStop, currentRoute);
+
+                            Transaction smartCardTransaction = (new TransactionController()).makeTransaction(smartCard.getUser(),PaymentType.CARD, currentjourney.cost);
+
+                            JourneyCreator.getInstance().createJouney(smartCardTransaction, originStop, currentStop);
 
                             currentGate.state = OPEN;
 
