@@ -2,9 +2,6 @@ package shu.cssd.transportsystem.database.seeds;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Seed runner. Populates the data store
@@ -31,18 +28,7 @@ public class SeedRunner {
 	 */
     public static void main(String[] args)
     {
-	
-    	// get the string array to list of strings
-	    List<String> list = Arrays.asList(methodNames);
-	    
-	    // sort the array
-	    //Collections.sort(list);
-	    
-	    // reverse the array
-	    //Collections.reverse(list);
-	    
-	    methodNames = (String[]) list.toArray();
-	    
+    	
 	    // loop over all classes
 	    for (Class seeder : seeders)
 	    {
@@ -61,8 +47,6 @@ public class SeedRunner {
 			    	// check for the method names
 					if (methodName.equals(method.getName()))
 					{
-						
-						System.out.println("Meth :" + method.getName());
 						
 						try
 						{
