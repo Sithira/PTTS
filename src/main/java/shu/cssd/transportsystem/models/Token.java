@@ -9,13 +9,28 @@ import java.util.ArrayList;
 
 public class Token extends BaseModel
 {
-	
+	/**
+	 * Id of the Origin Stop of the Token
+	 */
 	public String originStopId;
-	
+
+	/**
+	 * Id of the Destination Stop of the Token
+	 */
 	public String destinationStopId;
-	
+
+	/**
+	 * Id of the Transaction that created the Token
+	 */
 	public String transactionId;
-	
+
+
+	/**
+	 * Create new Token in the system
+	 * @param transaction
+	 * @param originStopId
+	 * @param destinationStopId
+	 */
 	public Token(Transaction transaction, Stop originStopId, Stop destinationStopId)
 	{
 		this.transactionId = transaction.id;
@@ -30,20 +45,12 @@ public class Token extends BaseModel
 	 */
 	public Transaction getTransaction()
 	{
-		SetOfTransactions setOfTransactions = new SetOfTransactions();
-		
-		ArrayList<BaseModel> transactions = setOfTransactions.all();
-		
-		for (BaseModel model: transactions)
-		{
-			Transaction transaction = (Transaction) model;
-			
-			if (transaction.id.equals(this.transactionId))
-			{
-				return transaction;
-			}
+		try {
+			return (Transaction) (new SetOfTransactions()).findById(this.transactionId);
+		} catch (ModelNotFoundException e) {
+			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 	

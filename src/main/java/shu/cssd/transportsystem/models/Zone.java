@@ -7,20 +7,27 @@ import java.util.ArrayList;
 
 public class Zone extends BaseModel
 {
+    /**
+     * Name of the Zone
+     */
     public String name;
 
+
+    /**
+     * Create a new Zone in the system
+     * @param name
+     */
     public Zone(String name)
     {
         this.name = name;
     }
-
 
     /**
      * Get the Stops of a Zone
      *
      * @return
      */
-    public ArrayList<Stop> getVehicle()
+    public ArrayList<Stop> getStops()
     {
         ArrayList<Stop> stops = new ArrayList<Stop>();
 
@@ -37,7 +44,6 @@ public class Zone extends BaseModel
                 stops.add(stop);
             }
         }
-
         return stops;
     }
 }

@@ -14,31 +14,58 @@ public class User extends BaseModel
 {
 	
 	// from user
+	/**
+	 * Name of the User
+	 */
 	public String name;
-	
+
+	/**
+	 * Email of the User
+	 */
 	public String email;
-	
+
+	/**
+	 * Address of the User
+	 */
 	public String address;
-	
+
+	/**
+	 * City of the User
+	 */
 	public String city;
-	
+
+	/**
+	 * Postal code of the User
+	 */
 	public String postalCode;
-	
+
+	/**
+	 * Balance of the User Account
+	 */
 	public float balance;
 	
 	// from employee
+	/**
+	 * Salary of the Employee
+	 */
 	public float salary;
-	
+
+	/**
+	 * Id of the System Permissions of the Employee
+	 */
 	public String permissionId;
 	
 	// from account
+	/**
+	 * Username of the User's Account
+	 */
 	public String username;
-	
+
+	/**
+	 * Password of the User's Account
+	 */
 	public String password;
-	
-	public String cardId;
-	
-	public String journeyId;
+
 	
 	/**
 	 * Creates a new user object
@@ -65,38 +92,46 @@ public class User extends BaseModel
 	 */
 	public SmartCard getCard()
 	{
-		SetOfSmartCards setOfCards = new SetOfSmartCards();
-		
-		try
+		SetOfSmartCards setOfSmartCards = new SetOfSmartCards();
+
+		ArrayList<BaseModel> rows = setOfSmartCards.all();
+
+		for (BaseModel row: rows)
 		{
-			return (SmartCard) setOfCards.findById(this.cardId);
-		} catch (ModelNotFoundException e)
-		{
-			e.printStackTrace();
+			SmartCard smartCard = (SmartCard) row;
+
+			if (smartCard.userId.equals(this.id))
+			{
+				return smartCard;
+			}
 		}
 		
 		return null;
 	}
 	
 	/**
-	 * Get the Journey of an User
+	 * Get the Journeys of an User
 	 *
 	 * @return {@link SmartCard}
 	 */
-	public Journey getJourney()
+	public ArrayList<Journey> getJourney()
 	{
+		ArrayList<Journey> journeys = new ArrayList<Journey>();
 		
-		SetOfJourney setOfDynamicJourney = new SetOfJourney();
-		
-		try
+		SetOfJourney setOfJourney = new SetOfJourney();
+
+		ArrayList<BaseModel> rows = setOfJourney.all();
+
+		for (BaseModel row: rows)
 		{
-			return (Journey) setOfDynamicJourney.findById(this.journeyId);
-		} catch (ModelNotFoundException e)
-		{
-			e.printStackTrace();
+			Journey journey = (Journey) row;
+
+			if (journey.userId.equals(this.id))
+			{
+				journeys.add(journey);
+			}
 		}
-		
-		return null;
+		return journeys;
 	}
 	
 	/**

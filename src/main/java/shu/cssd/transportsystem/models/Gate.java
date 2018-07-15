@@ -1,6 +1,7 @@
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.GateType;
 import shu.cssd.transportsystem.foundation.types.GateState;
 import shu.cssd.transportsystem.models.collections.SetOfStops;
@@ -29,19 +30,15 @@ public class Gate extends BaseModel
      */
     public Stop getStop()
     {
-        SetOfStops setOfStops = new SetOfStops();
-
-        ArrayList<BaseModel> stops = setOfStops.all();
-
-        for (BaseModel model: stops)
+        try
         {
-            Stop stop = (Stop) model;
-
-            if (stop.id.equals(this.stopId))
-            {
-                return stop;
-            }
+            return (Stop) (new SetOfStops()).findById(this.stopId);
         }
+        catch (ModelNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
