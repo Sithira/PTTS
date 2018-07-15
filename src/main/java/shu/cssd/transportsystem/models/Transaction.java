@@ -25,7 +25,12 @@ public class Transaction extends BaseModel
 	 * Transaction Amount
 	 */
 	public float amount;
-	
+
+	/**
+	 * Create new Transaction
+	 *
+	 * @param builder {@link Builder}
+	 */
 	private Transaction(Builder builder)
 	{
 		this.userId = builder.userId;
@@ -115,11 +120,13 @@ public class Transaction extends BaseModel
 		public PaymentType paymentType;
 		
 		public float amount;
-		
+
 		/**
-		 * Create an instance of the builder
+		 * Create an instance of the builder {@link Builder}
 		 *
 		 * @param user
+		 * @param paymentType
+		 * @param amount
 		 */
 		public Builder(User user, PaymentType paymentType, float amount)
 		{

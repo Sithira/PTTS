@@ -41,6 +41,7 @@ public class Vehicle extends BaseModel
 
     /**
      * Create new Vehicle in the system
+     *
      * @param routeId
      * @param isDelayed
      * @param capacity
@@ -61,7 +62,7 @@ public class Vehicle extends BaseModel
     /**
      * Get the Route of a Vehicle
      *
-     * @return
+     * @return {@link Route}
      */
     public Route getRoute()
     {

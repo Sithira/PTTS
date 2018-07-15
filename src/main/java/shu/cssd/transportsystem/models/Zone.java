@@ -25,7 +25,7 @@ public class Zone extends BaseModel
     /**
      * Get the Stops of a Zone
      *
-     * @return
+     * @return {@link ArrayList<Stop>}
      */
     public ArrayList<Stop> getStops()
     {

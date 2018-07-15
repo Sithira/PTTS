@@ -27,9 +27,9 @@ public class Token extends BaseModel
 
 	/**
 	 * Create new Token in the system
-	 * @param transaction
-	 * @param originStopId
-	 * @param destinationStopId
+	 * @param transaction {@link Transaction}
+	 * @param originStopId {@link Stop}
+	 * @param destinationStopId {@link Stop}
 	 */
 	public Token(Transaction transaction, Stop originStopId, Stop destinationStopId)
 	{
@@ -41,7 +41,7 @@ public class Token extends BaseModel
 	/**
 	 * Get the transaction of a token
 	 *
-	 * @return
+	 * @return {@link Transaction}
 	 */
 	public Transaction getTransaction()
 	{
@@ -57,7 +57,7 @@ public class Token extends BaseModel
 	/**
 	 * Get the Origin Stop
 	 *
-	 * @return Get the stop ${@link Stop}
+	 * @return Get the stop {@link Stop}
 	 */
 	public Stop getOrginStop()
 	{
@@ -75,7 +75,7 @@ public class Token extends BaseModel
 	/**
 	 * Get the Destination Stop
 	 *
-	 * @return Get the stop ${@link Stop}
+	 * @return Get the stop {@link Stop}
 	 */
 	public Stop getDestinationStop()
 	{
