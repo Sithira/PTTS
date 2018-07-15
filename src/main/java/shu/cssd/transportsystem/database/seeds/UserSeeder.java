@@ -80,7 +80,7 @@ public class UserSeeder implements BaseSeeder {
 
             System.out.println("UserID: " + user.id + " Name: " + user.name);
 
-            System.out.println("Employee_PermissionID: " + user.permission_id);
+            System.out.println("Employee_PermissionID: " + user.permissionId);
 
         }
     }
@@ -101,7 +101,7 @@ public class UserSeeder implements BaseSeeder {
             Permission permission = (Permission) setOfPermissions.all().get(i);
 
 			this.permissions[i] = permission.id;
-			//user.permission_id = setOfPermissions.all().get(i).id;
+			//user.permissionId = setOfPermissions.all().get(i).id;
 			
         }
     }

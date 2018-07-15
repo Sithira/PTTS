@@ -1,7 +1,7 @@
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
-import shu.cssd.transportsystem.models.collections.SetOfPermissions;
+import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
 import java.util.ArrayList;
 
@@ -22,26 +22,21 @@ public class Permission extends BaseModel
 	 */
 	public ArrayList<User> getUsers()
 	{
+		// get the all the users
+		SetOfUsers setOfUsers = new SetOfUsers();
 		
-		// get the all permissions
-		SetOfPermissions setOfPermissions = new SetOfPermissions();
+		ArrayList<User> users = new ArrayList<>();
 		
-		// make an empty array
-		ArrayList<User> userList = new ArrayList<User>();
-		
-		// loop throgh array
-		for (BaseModel model: setOfPermissions.all())
+		for (BaseModel model: setOfUsers.all())
 		{
 			User user = (User) model;
 			
-			if (user.permission_id.equals(this.id))
+			if (user.permissionId.equals(this.id))
 			{
-				// add to the empty array
-				userList.add(user);
+				users.add(user);
 			}
 		}
 		
-		// return the array
-		return userList;
+		return users;
 	}
 }

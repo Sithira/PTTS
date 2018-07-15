@@ -18,15 +18,15 @@ public class Transaction extends BaseModel
 	
 	public float amount;
 	
-	private Transaction(User user)
+	private Transaction(Builder builder)
 	{
-		this.userId = user.id;
+		this.userId = builder.userId;
 	}
 	
 	/**
 	 * Get the user of the transaction
 	 *
-	 * @return
+	 * @return {@link User}
 	 */
 	public User getUser()
 	{
@@ -50,7 +50,7 @@ public class Transaction extends BaseModel
 	/**
 	 * Get the token of the transaction.
 	 *
-	 * @return
+	 * @return {@link Token}
 	 */
 	public Token getToken()
 	{
@@ -76,7 +76,7 @@ public class Transaction extends BaseModel
 	/**
 	 * Get Payment
 	 *
-	 * @return
+	 * @return {@link Payment}
 	 */
 	public Payment getPayment()
 	{
@@ -129,7 +129,7 @@ public class Transaction extends BaseModel
 		/**
 		 * Set the SmartCard for the transaction
 		 *
-		 * @return
+		 * @return {@link Builder}
 		 */
 		public Builder fromSmartCard()
 		{
@@ -145,7 +145,7 @@ public class Transaction extends BaseModel
 		 */
 		public Transaction create()
 		{
-			return new Transaction(user);
+			return new Transaction(this);
 		}
 		
 	}

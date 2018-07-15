@@ -6,7 +6,6 @@ import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.models.*;
 import shu.cssd.transportsystem.models.collections.*;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UserTransactionPaymentSeeder implements BaseSeeder
@@ -195,8 +194,14 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 			User user = (User) model;
 
 			System.out.println("UserID: " + user.id + " Name: " + user.name);
-
-			//System.out.println("Employee_PermissionID: " + user.getPermission().name);
+			
+			System.out.println("EMP_PER " + user.permissionId);
+			
+			if (user.getPermission() != null)
+			{
+				System.out.println("Employee_PermissionID: " + user.getPermission().name);
+			}
+			
 
 		}
 
@@ -244,7 +249,10 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		{
 			Journey journey = (Journey) model;
 
-			System.out.println("JourneyID: " + journey.id + " ,JourneyUser: " + journey.getUser().name + " ,JourneyOrigin: " + journey.getOrigin().name + " ,JourneyDestination: " + journey.destinationId);
+			System.out.println("JourneyID: " + journey.id + " ,JourneyUser: "
+					+ journey.getUser().name + " ,JourneyOrigin: "
+					+ journey.getOrigin().name + " ,JourneyDestination: "
+					+ journey.destinationId);
 
 		}
 	}

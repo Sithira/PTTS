@@ -16,17 +16,17 @@ public class Payment extends BaseModel
 	
 	public float change;
 	
-	private Payment(Transaction transaction, PaymentType type, float value)
+	private Payment(Builder builder)
 	{
-		this.transactionId = transaction.id;
-		this.paymentType = type;
-		this.value = value;
+		this.transactionId = builder.transaction.id;
+		this.paymentType = builder.paymentType;
+		this.value = builder.value;
 	}
 	
 	/**
 	 * Get the transaction for the payment
 	 *
-	 * @return get the list of transactions
+	 * @return {@link Transaction}
 	 */
 	public Transaction getTransaction()
 	{
@@ -57,6 +57,13 @@ public class Payment extends BaseModel
 		
 		public float change;
 		
+		/**
+		 * Generates a new {@link Payment} object
+		 *
+		 * @param transaction {@link Transaction}
+		 * @param paymentType {@link PaymentType}
+		 * @param value value of the transaction
+		 */
 		public Builder(Transaction transaction, PaymentType paymentType, float value)
 		{
 			this.transaction = transaction; // this later sets its id to the real object as a string (UUID)
@@ -67,8 +74,8 @@ public class Payment extends BaseModel
 		/**
 		 * Set the change for the payment
 		 *
-		 * @param change
-		 * @return
+		 * @param change Remaining value
+		 * @return {@link Builder}
 		 */
 		public Builder setChange(float change)
 		{
@@ -80,11 +87,11 @@ public class Payment extends BaseModel
 		/**
 		 * Create the instance of the payment
 		 *
-		 * @return
+		 * @return {@link Payment}
 		 */
 		public Payment create()
 		{
-			return new Payment(transaction, paymentType, value);
+			return new Payment(this);
 		}
 		
 		

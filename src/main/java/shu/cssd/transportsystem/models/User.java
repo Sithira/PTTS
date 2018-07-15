@@ -29,7 +29,7 @@ public class User extends BaseModel
 	// from employee
 	public float salary;
 	
-	public String permission_id;
+	public String permissionId;
 	
 	// from account
 	public String username;
@@ -41,33 +41,27 @@ public class User extends BaseModel
 	public String journeyId;
 	
 	/**
-	 * Create a new employee in the system
+	 * Creates a new user object
 	 *
-	 * @param name
-	 * @param email
-	 * @param address
-	 * @param city
-	 * @param postalCode
-	 * @param username
-	 * @param password
+	 * @param builder {@link Builder}
 	 */
-	private User(String name, String email, String address, String city, String postalCode, String username, String password)
+	private User(Builder builder)
 	{
-		this.name = name;
-		this.email = email;
-		this.address = address;
-		this.city = city;
-		this.postalCode = postalCode;
-		this.salary = salary;
-		this.permission_id = permission_id;
-		this.username = username;
-		this.password = password;
+		this.name = builder.name;
+		this.email = builder.email;
+		this.address = builder.address;
+		this.city = builder.city;
+		this.postalCode = builder.postalCode;
+		this.salary = builder.salary;
+		this.permissionId = builder.permissionId;
+		this.username = builder.username;
+		this.password = builder.password;
 	}
 	
 	/**
 	 * Get the card
 	 *
-	 * @return
+	 * @return {@link SmartCard}
 	 */
 	public SmartCard getCard()
 	{
@@ -87,7 +81,7 @@ public class User extends BaseModel
 	/**
 	 * Get the Journey of an User
 	 *
-	 * @return
+	 * @return {@link SmartCard}
 	 */
 	public Journey getJourney()
 	{
@@ -108,28 +102,33 @@ public class User extends BaseModel
 	/**
 	 * Get the permission that might be belong to a user
 	 *
-	 * @return
+	 * @return {@link Permission}
 	 */
 	public Permission getPermission()
 	{
 		SetOfPermissions setOfPermissions = new SetOfPermissions();
 		
+		if (this.permissionId == null)
+		{
+			return null;
+		}
+		
 		try
 		{
-			return (Permission) setOfPermissions.findById(this.permission_id);
-			
+			return (Permission) setOfPermissions.findById(this.permissionId);
 		} catch (ModelNotFoundException e)
 		{
 			e.printStackTrace();
 		}
 		
 		return null;
+		
 	}
 	
 	/**
 	 * Get transactions for the account.
 	 *
-	 * @return
+	 * @return {@link ArrayList<Transaction>}
 	 */
 	public ArrayList<Transaction> getTransactions()
 	{
@@ -189,8 +188,6 @@ public class User extends BaseModel
 		private String password;
 		
 		private String cardId;
-		
-		private String journeyId;
 		
 		/**
 		 * Create the {@link Builder} object
@@ -262,7 +259,7 @@ public class User extends BaseModel
 		 */
 		public User create()
 		{
-			return new User(name, email, address, city, postalCode, username, password);
+			return new User(this);
 		}
 		
 	}

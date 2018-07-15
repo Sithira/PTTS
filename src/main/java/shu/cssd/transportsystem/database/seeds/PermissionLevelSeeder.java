@@ -35,7 +35,7 @@ public class PermissionLevelSeeder implements BaseSeeder {
         {
             Permission permission = (Permission) model;
 
-            System.out.println("PermissionID: " + permission.id + " PermissionUser: " +permission.getUsers());
+            System.out.println("PermissionID: " + permission.id);
 
         }
     }

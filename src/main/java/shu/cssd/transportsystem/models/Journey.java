@@ -17,12 +17,16 @@ public class Journey extends BaseModel
 	public String destinationId;
 
 	public float cost;
-
-	private Journey(User user, Stop origin)
+	
+	/**
+	 * Create a new journey
+	 *
+	 * @param builder {@link Builder}
+	 */
+	private Journey(Builder builder)
 	{
-		this.userId = user.id;
-		this.routeId = origin.getRoute().id;
-		this.originId = origin.id;
+		this.userId = builder.userId;
+		this.originId = builder.originId;
 	}
 
 	/**
@@ -58,6 +62,7 @@ public class Journey extends BaseModel
 		try
 		{
 			return (Stop) setOfStops.findById(this.destinationId);
+			
 		} catch (ModelNotFoundException e)
 		{
 			e.printStackTrace();
@@ -86,6 +91,9 @@ public class Journey extends BaseModel
 		return null;
 	}
 	
+	/**
+	 * Builder Class for the Journey
+	 */
 	public static class Builder
 	{
 		public String userId;
@@ -101,15 +109,26 @@ public class Journey extends BaseModel
 		private User user;
 		private Stop origin;
 		
+		/**
+		 *
+		 * @param user User of the journey
+		 * @param origin Stop of the journey
+		 */
 		public Builder(User user, Stop origin)
 		{
 			this.userId = user.id;
 			this.originId = origin.id;
-			
+			this.routeId = origin.getRoute().id;
 			this.user = user;
 			this.origin = origin;
 		}
 		
+		/**
+		 * Set the destination
+		 *
+		 * @param destination Destination of journey
+		 * @return {@link Builder}
+		 */
 		public Builder setDestination(Stop destination)
 		{
 			this.destinationId = destination.id;
@@ -117,6 +136,12 @@ public class Journey extends BaseModel
 			return this;
 		}
 		
+		/**
+		 * Set the cost for the journey
+		 *
+		 * @param cost
+		 * @return {@link Builder}
+		 */
 		public Builder setCost(float cost)
 		{
 			this.cost = cost;
@@ -124,9 +149,14 @@ public class Journey extends BaseModel
 			return this;
 		}
 		
+		/**
+		 * Create the actual journey object
+		 *
+		 * @return {@link Journey}
+		 */
 		public Journey create()
 		{
-			return new Journey(this.user, this.origin);
+			return new Journey(this);
 		}
 		
 	}
