@@ -8,19 +8,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.tokenMachine.HomeController">
    <children>
-      <VBox layoutX="52.0" layoutY="150.0" prefHeight="200.0" prefWidth="272.0">
+      <VBox layoutX="52.0" layoutY="150.0" onMouseClicked="#ticketsButtonClick" prefHeight="200.0" prefWidth="272.0">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                <children>
                   <ImageView fitHeight="118.0" fitWidth="103.0" layoutX="85.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/tickets2.png" />
+                        <Image url="@../../images/atm.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="65.0" layoutY="143.0" text="Buy Tickets">
+                  <Label layoutX="67.0" layoutY="144.0" text="Smart Card">
                      <font>
                         <Font name="Open Sans ExtraBold" size="24.0" />
                      </font>
@@ -41,7 +40,7 @@
                         <Image url="@../../images/token.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="65.0" layoutY="142.0" text="Buy Tokens">
+                  <Label layoutX="91.0" layoutY="144.0" text="Tokens">
                      <font>
                         <Font name="Open Sans ExtraBold" size="24.0" />
                      </font>
@@ -63,7 +62,7 @@
             <Font name="Open Sans ExtraBold" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="232.0" layoutY="376.0" text="Please Choose an Option" textFill="#a7a4a4">
+      <Label layoutX="224.0" layoutY="376.0" text="Please Choose an Option" textFill="#a7a4a4">
          <font>
             <Font name="Open Sans SemiBold" size="20.0" />
          </font>

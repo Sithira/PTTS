@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.tokenMachine.TokensController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.tokenMachine.SmartCardController">
     <children>
         <VBox layoutX="52.0" layoutY="150.0" prefHeight="200.0" prefWidth="272.0">
             <children>
@@ -16,10 +16,10 @@
                     <children>
                         <ImageView fitHeight="118.0" fitWidth="103.0" layoutX="85.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/tickets2.png" />
+                                <Image url="@../../images/cash.png" />
                             </image>
                         </ImageView>
-                        <Label layoutX="65.0" layoutY="143.0" text="Buy Tickets">
+                        <Label layoutX="34.0" layoutY="145.0" text="Buy Tickets Now">
                             <font>
                                 <Font name="Open Sans ExtraBold" size="24.0" />
                             </font>
@@ -31,16 +31,16 @@
                 <DropShadow />
             </effect>
         </VBox>
-        <VBox layoutX="376.0" layoutY="150.0" prefHeight="200.0" prefWidth="272.0">
+        <VBox layoutX="376.0" layoutY="150.0" onMouseClicked="#smartCardButtonClick" prefHeight="200.0" prefWidth="272.0">
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>
-                        <ImageView fitHeight="118.0" fitWidth="103.0" layoutX="85.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="118.0" fitWidth="103.0" layoutX="93.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/token.png" />
+                                <Image url="@../../images/atm.png" />
                             </image>
                         </ImageView>
-                        <Label layoutX="65.0" layoutY="142.0" text="Buy Tokens">
+                        <Label layoutX="65.0" layoutY="142.0" text="Smart Card">
                             <font>
                                 <Font name="Open Sans ExtraBold" size="24.0" />
                             </font>
@@ -54,10 +54,10 @@
         </VBox>
         <ImageView fitHeight="97.0" fitWidth="103.0" layoutX="52.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../images/home.png" />
+                <Image url="@../../images/tickets2.png" />
             </image>
         </ImageView>
-        <Label layoutX="259.0" layoutY="38.0" text="Tokens">
+        <Label layoutX="263.0" layoutY="38.0" text="Tickets">
             <font>
                 <Font name="Open Sans ExtraBold" size="48.0" />
             </font>

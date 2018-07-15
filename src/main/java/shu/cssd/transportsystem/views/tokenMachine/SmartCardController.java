@@ -10,15 +10,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomeController {
+public class SmartCardController {
     @FXML
-    private void ticketsButtonClick(MouseEvent event) throws IOException {
-        Parent ticketsParent = FXMLLoader.load(getClass().getResource("/tokenMachine/smartcard/smartcard.fxml"));
-        Scene ticketsScene = new Scene(ticketsParent);
+    private void smartCardButtonClick(MouseEvent event) throws IOException {
+        Parent smcParent = FXMLLoader.load(getClass().getResource("/tokenMachine/login/login.fxml"));
+        Scene smcScene = new Scene(smcParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(ticketsScene);
+        window.setScene(smcScene);
         window.show();
     }
 }
