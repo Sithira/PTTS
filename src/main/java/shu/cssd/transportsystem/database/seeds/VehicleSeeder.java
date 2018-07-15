@@ -15,7 +15,6 @@ public class VehicleSeeder implements BaseSeeder {
     @Override
     public void seed()
     {
-        VehicleSeeder vehicleSeeder = new VehicleSeeder();
 
         Vehicle vehicle1 = new Vehicle(routes[0],false,50, 0f, "Maharagama", true );
         Vehicle vehicle2 = new Vehicle(routes[1],true,200,5f, "Kottawa", true );
@@ -27,7 +26,7 @@ public class VehicleSeeder implements BaseSeeder {
         this.setOfVehicles.create(vehicle3);
         this.setOfVehicles.create(vehicle4);
 
-        read();
+        //read();
     }
 
     @Override

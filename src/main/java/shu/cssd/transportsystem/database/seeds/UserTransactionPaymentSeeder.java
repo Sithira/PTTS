@@ -15,6 +15,8 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 
     private SetOfPayments setOfPayments = new SetOfPayments();
 
+    private SetOfSmartCards setOfSmartCards = new SetOfSmartCards();
+
     private SetOfTransactions setOfTransactions = new SetOfTransactions();
 
 	private SetOfTokens setOfTokens = new SetOfTokens();
@@ -23,7 +25,10 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 
 	private SetOfJourney setOfJourney = new SetOfJourney();
 
+	private SetOfPermissions setOfPermissions = new SetOfPermissions();
+
 	private  String [] permissions = new String[5];
+	private  String [] users = new String[5];
 	private String [] routes = new String[4];
 	private String [] zones = new String[4];
 
@@ -78,12 +83,21 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 				"admin").create();
 
 
+		Date date = new Date();
+
+		SmartCard smartCard1 = new SmartCard(user1, 1111, 111, date);
+		SmartCard smartCard2 = new SmartCard(user2, 2222, 222, date);
+		SmartCard smartCard3 = new SmartCard(user3, 3333, 333, date);
+		SmartCard smartCard4 = new SmartCard(user4, 4444, 444, date);
+		SmartCard smartCard5 = new SmartCard(user5, 5555, 555, date);
+
+
 		//Seed Transactions
 		Transaction transaction1 = new Transaction.Builder(user1, PaymentType.CASH, 135).create();
-		Transaction transaction2 = new Transaction.Builder(user2, PaymentType.CARD, 175f).fromSmartCard().create();
+		Transaction transaction2 = new Transaction.Builder(user2, PaymentType.CARD, 175f).create();
 		Transaction transaction3 = new Transaction.Builder(user3, PaymentType.CASH, 50f).create();
-		Transaction transaction4 = new Transaction.Builder(user4, PaymentType.CARD, 300f).fromSmartCard().create();
-		Transaction transaction5 = new Transaction.Builder(user4, PaymentType.CARD, 250f).fromSmartCard().create();
+		Transaction transaction4 = new Transaction.Builder(user5, PaymentType.CARD, 300f).create();
+		Transaction transaction5 = new Transaction.Builder(user5, PaymentType.CARD, 250f).create();
 
 		//Seed Payments
 		Payment payment1 = new Payment.Builder( transaction1, PaymentType.CASH, 200).setChange(65).create();
@@ -112,9 +126,9 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		Journey journey1 = new Journey.Builder(user1, stop1).setDestination(stop5).setCost(135f).create();
 		Journey journey2 = new Journey.Builder(user2, stop2).setDestination(stop10).setCost(175f).create();
 		Journey journey3 = new Journey.Builder(user3, stop3).setDestination(stop7).setCost(50f).create();
-		Journey journey4 = new Journey.Builder(user4, stop4).setDestination(stop8).setCost(300f).create();
-		Journey journey5 = new Journey.Builder(user4, stop10).setDestination(stop6).setCost(250f).create();
-		Journey journey6 = new Journey.Builder(user4, stop3).setDestination(stop10).setCost(250f).create();
+		Journey journey4 = new Journey.Builder(user5, stop4).setDestination(stop8).setCost(300f).create();
+		Journey journey5 = new Journey.Builder(user5, stop10).setDestination(stop6).setCost(250f).create();
+		Journey journey6 = new Journey.Builder(user5, stop3).setDestination(stop10).setCost(250f).create();
 
 
 
@@ -124,6 +138,13 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		this.setOfUsers.create(user3);
 		this.setOfUsers.create(user4);
 		this.setOfUsers.create(user5);
+
+		//Create SmartCards
+		this.setOfSmartCards.create(smartCard1);
+		this.setOfSmartCards.create(smartCard2);
+		this.setOfSmartCards.create(smartCard3);
+		this.setOfSmartCards.create(smartCard4);
+		this.setOfSmartCards.create(smartCard5);
 
 		//Create Transactions
 		this.setOfTransactions.create(transaction1);
@@ -175,7 +196,31 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 
 			System.out.println("UserID: " + user.id + " Name: " + user.name);
 
-			System.out.println("Employee_PermissionID: " + user.permission_id);
+			//System.out.println("Employee_PermissionID: " + user.getPermission().name);
+
+		}
+
+		for (BaseModel model: this.setOfSmartCards.all())
+		{
+			SmartCard smartCard = (SmartCard) model;
+
+			System.out.println("SmartCardUser: " + smartCard.getUser().name);
+
+		}
+
+		for (BaseModel model: this.setOfTransactions.all())
+		{
+			Transaction transaction = (Transaction) model;
+
+			System.out.println("TransactionUser: " + transaction.getUser().name);
+
+		}
+
+		for (BaseModel model: this.setOfStops.all())
+		{
+			Stop stop = (Stop) model;
+
+			System.out.println("StopID: " + stop.id);
 
 		}
 
@@ -187,19 +232,11 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 			
 		}
 
-		for (BaseModel model: this.setOfTransactions.all())
-		{
-			Transaction transaction = (Transaction) model;
-
-			System.out.println("TransactionID: " + transaction.userId);
-
-		}
-
 		for (BaseModel model: this.setOfTokens.all())
 		{
 			Token token = (Token) model;
 
-			System.out.println("TokenID: " + token.id);
+			System.out.println("TokenID: " + token.id + " TokenTransaction: " + token.getTransaction().id);
 
 		}
 
@@ -207,7 +244,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		{
 			Journey journey = (Journey) model;
 
-			System.out.println("JourneyID: " + journey.id);
+			System.out.println("JourneyID: " + journey.id + " ,JourneyUser: " + journey.getUser().name + " ,JourneyOrigin: " + journey.getOrigin().name + " ,JourneyDestination: " + journey.destinationId);
 
 		}
 	}
@@ -230,7 +267,8 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		}
 
 
-		for (int i = 0; i < setOfRoutes.all().size(); i++) {
+		for (int i = 0; i < setOfRoutes.all().size(); i++)
+		{
 			Route route = (Route) setOfRoutes.all().get(i);
 
 			this.routes[i] = route.id;

@@ -58,7 +58,7 @@ public class GateSeeder implements BaseSeeder
         {
             Gate gate = (Gate) model;
 
-            System.out.println("GateID: " + gate.id  );
+            System.out.println("GateID: " + gate.id + " GateStop: " + gate.getStop().id);
         }
     }
 
@@ -73,7 +73,7 @@ public class GateSeeder implements BaseSeeder
 
             this.stops[i] = stop.id;
 
-            System.out.println("relationship: "+stop.id);
+            //System.out.println("relationship: "+stop.id);
         }
     }
 }

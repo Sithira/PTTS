@@ -89,15 +89,19 @@ public class UserSeeder implements BaseSeeder {
     public void relationships()
     {
         SetOfPermissions setOfPermissions = new SetOfPermissions();
-	
+        SetOfUsers setOfUsers = new SetOfUsers();
+
 	    System.out.println("PERM SIZE: " + setOfPermissions.all().size());
 
-        for (int i = 0; i < setOfPermissions.all().size(); i++)
+        for (int i = 0; i < setOfUsers.all().size(); i++)
         {
 
-			User user = (User) this.setOfUsers.all().get(i);
+			//User user = (User) this.setOfUsers.all().get(i);
 
-			user.permission_id = setOfPermissions.all().get(i).id;
+            Permission permission = (Permission) setOfPermissions.all().get(i);
+
+			this.permissions[i] = permission.id;
+			//user.permission_id = setOfPermissions.all().get(i).id;
 			
         }
     }

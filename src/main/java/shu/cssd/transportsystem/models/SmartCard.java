@@ -42,7 +42,12 @@ public class SmartCard extends BaseModel
 		{
 			User user = (User) model;
 			
-			if (user.cardId.equals(this.id))
+//			if (user.cardId.equals(this.id))
+//			{
+//				return user;
+//			}
+
+			if(this.userId.equals(user.id))
 			{
 				return user;
 			}

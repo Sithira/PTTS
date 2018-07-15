@@ -22,12 +22,13 @@ public class SeedRunner
 			ZoneSeeder.class,
 			RouteSeeder.class,
 			PermissionLevelSeeder.class,
-			UserSeeder.class,
-			SmartCardSeeder.class,
-			TransactionSeeder.class,
-			PaymentSeeder.class,
+			UserTransactionPaymentSeeder.class,
+			//UserSeeder.class,
+			//SmartCardSeeder.class,
+			//TransactionSeeder.class,
+			//PaymentSeeder.class,
 
-			//VehicleSeeder.class,
+			VehicleSeeder.class,
 			//StopSeeder.class,
 			GateSeeder.class,
 			//JourneySeeder.class,
@@ -37,7 +38,7 @@ public class SeedRunner
 	/**
 	 * Method names that should be ran for
 	 */
-	private static String methodNames[] = {"seed", "relationships", "read"};
+	private static String methodNames[] = {"relationships", "seed", "read"};
 	
 	/**
 	 * Run the SeedRunner to seed the data into the data base
