@@ -41,6 +41,8 @@ public class Journey extends BaseModel
 	{
 		this.userId = builder.userId;
 		this.originId = builder.originId;
+		this.destinationId = builder.destinationId;
+		this.routeId = builder.routeId;
 	}
 
 	/**
