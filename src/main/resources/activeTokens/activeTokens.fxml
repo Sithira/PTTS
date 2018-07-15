@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.RouteController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.ActiveTokensController">
     <children>
         <AnchorPane fx:id="topPane" layoutY="-9.0" prefHeight="67.0" prefWidth="400.0" styleClass="dashboardTopPane" stylesheets="@../styles/Styles.css">
             <children>
@@ -36,12 +36,12 @@
                                 <Image url="@../images/payment.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" onMouseClicked="#journeyButtonClick" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/journey.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="225.0" layoutY="11.0" onMouseClicked="#routeButtonClick" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="routeButton" fitHeight="37.0" fitWidth="38.0" layoutX="225.0" layoutY="11.0" onMouseClicked="#routeButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/route.png" />
                             </image>
@@ -58,92 +58,102 @@
                 </AnchorPane>
             </children>
         </VBox>
-        <VBox layoutX="15.0" layoutY="136.0" prefHeight="107.0" prefWidth="371.0">
-            <children>
-                <AnchorPane fx:id="busRouteButton" onMouseClicked="#busRouteButtonClick" prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
-                    <children>
-                        <ImageView fx:id="busButton" fitHeight="67.0" fitWidth="90.0" layoutX="25.0" layoutY="20.0" onMouseClicked="#busRouteButtonClick" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/bus.png" />
-                            </image>
-                        </ImageView>
-                        <Label fx:id="busRouteLabel" layoutX="132.0" layoutY="29.0" onMouseClicked="#busRouteButtonClick" text="Bus">
-                            <font>
-                                <Font name="Open Sans SemiBold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="132.0" layoutY="54.0" text="Bus Route Information" textFill="#a7a4a4">
-                            <font>
-                                <Font name="Calibri" size="14.0" />
-                            </font>
-                        </Label>
-                    </children></AnchorPane>
-            </children>
+        <VBox layoutX="15.0" layoutY="143.0" prefHeight="60.0" prefWidth="371.0">
             <effect>
                 <DropShadow />
             </effect>
-        </VBox>
-        <VBox layoutX="15.0" layoutY="257.0" onMouseClicked="#trainRouteButtonClick" prefHeight="107.0" prefWidth="371.0">
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>
-                        <ImageView fitHeight="67.0" fitWidth="90.0" layoutX="25.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/tickets.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="68.0" layoutY="7.0" text="Colombo - Airport" textFill="#a7a4a4">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="319.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/train.png" />
                             </image>
                         </ImageView>
-                        <Label layoutX="126.0" layoutY="33.0" text="Train">
-                            <font>
-                                <Font name="Open Sans SemiBold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="126.0" layoutY="58.0" text="Train Route Information" textFill="#a7a4a4">
-                            <font>
-                                <Font name="Calibri" size="14.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </AnchorPane>
+                  <Label layoutX="68.0" layoutY="29.0" text="Active" textFill="LIME">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                  </Label>
+                    </children></AnchorPane>
             </children>
+        </VBox>
+        <Label layoutX="36.0" layoutY="65.0" text="Active Tokens" textFill="#398ede">
+            <font>
+                <Font name="Open Sans ExtraBold" size="48.0" />
+            </font>
+        </Label>
+        <VBox layoutX="15.0" layoutY="213.0" prefHeight="60.0" prefWidth="371.0">
             <effect>
                 <DropShadow />
             </effect>
-        </VBox>
-        <VBox fx:id="metroButton" layoutX="15.0" layoutY="379.0" onMouseClicked="#metroRouteButtonClick" prefHeight="107.0" prefWidth="371.0">
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>
-                        <ImageView fitHeight="67.0" fitWidth="90.0" layoutX="22.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/tickets.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="68.0" layoutY="9.0" text="Battaramulla - CMB 4" textFill="#a7a4a4">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="319.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/metro.png" />
                             </image>
                         </ImageView>
-                        <Label layoutX="127.0" layoutY="33.0" text="Metro">
-                            <font>
-                                <Font name="Open Sans SemiBold" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="127.0" layoutY="58.0" text="Metro Route Information" textFill="#a7a4a4">
-                            <font>
-                                <Font name="Calibri" size="14.0" />
-                            </font>
-                        </Label>
+                  <Label layoutX="69.0" layoutY="30.0" text="Not Active" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                  </Label>
                     </children>
                 </AnchorPane>
             </children>
+        </VBox>
+        <VBox layoutX="15.0" layoutY="284.0" prefHeight="60.0" prefWidth="371.0">
             <effect>
                 <DropShadow />
             </effect>
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
+                    <children>
+                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/tickets.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="72.0" layoutY="8.0" text="Colombo - Galle" textFill="#a7a4a4">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="317.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/bus.png" />
+                            </image>
+                        </ImageView>
+                  <Label layoutX="72.0" layoutY="29.0" text="Active" textFill="RED">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </AnchorPane>
+            </children>
         </VBox>
-      <Label layoutX="69.0" layoutY="61.0" text="Route Info" textFill="#398ede">
-         <font>
-            <Font name="Open Sans ExtraBold" size="48.0" />
-         </font>
-      </Label>
-      <Label layoutX="175.0" layoutY="507.0" text="Contact Us" textFill="#398ede">
-         <font>
-            <Font name="Open Sans Light" size="10.0" />
-         </font>
-      </Label>
     </children>
 </AnchorPane>

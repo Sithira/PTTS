@@ -14,12 +14,12 @@ public class TokenController {
 
     @FXML
     private void backButtonClick(MouseEvent event) throws IOException {
-        Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
-        Scene dashboardScene = new Scene(dashboardParent);
+        Parent purchaseParent = FXMLLoader.load(getClass().getResource("/purchase/purchase.fxml"));
+        Scene purchaseScene = new Scene(purchaseParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(dashboardScene);
+        window.setScene(purchaseScene);
         window.show();
     }
 
@@ -42,6 +42,61 @@ public class TokenController {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(profileScene);
+        window.show();
+    }
+
+    @FXML
+    private void buyTokenButtonClick(MouseEvent event) throws IOException {
+        Parent profileParent = FXMLLoader.load(getClass().getResource("/buyToken/buyToken.fxml"));
+        Scene profileScene = new Scene(profileParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(profileScene);
+        window.show();
+    }
+
+    @FXML
+    private void tokenWalletButtonClick(MouseEvent event) throws IOException {
+        Parent profileParent = FXMLLoader.load(getClass().getResource("/tokenWallet/tokenWallet.fxml"));
+        Scene profileScene = new Scene(profileParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(profileScene);
+        window.show();
+    }
+
+    @FXML
+    private void activeTokenButtonClick(MouseEvent event) throws IOException {
+        Parent profileParent = FXMLLoader.load(getClass().getResource("/activeTokens/activeTokens.fxml"));
+        Scene profileScene = new Scene(profileParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(profileScene);
+        window.show();
+    }
+
+    @FXML
+    private void routeButtonClick(MouseEvent event) throws IOException {
+        Parent routeParent = FXMLLoader.load(getClass().getResource("/route/route.fxml"));
+        Scene routeScene = new Scene(routeParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(routeScene);
+        window.show();
+    }
+
+    @FXML
+    private void journeyButtonClick(MouseEvent event) throws IOException {
+        Parent journeyParent = FXMLLoader.load(getClass().getResource("/journey/journey.fxml"));
+        Scene journeyScene = new Scene(journeyParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(journeyScene);
         window.show();
     }
 }

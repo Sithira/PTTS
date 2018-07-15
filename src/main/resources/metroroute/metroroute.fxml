@@ -36,7 +36,7 @@
                                 <Image url="@../images/payment.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" onMouseClicked="#journeyButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/journey.png" />
                             </image>
@@ -120,7 +120,7 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="88.0" layoutY="34.0" text="Red Line" textFill="LIME">
+                  <Label layoutX="88.0" layoutY="34.0" text="Green Line" textFill="LIME">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -155,7 +155,7 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="91.0" layoutY="35.0" text="Red Line" textFill="BLUE">
+                  <Label layoutX="91.0" layoutY="35.0" text="Blue Line" textFill="BLUE">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -227,7 +227,7 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="94.0" layoutY="34.0" text="Red Line" textFill="YELLOW">
+                  <Label layoutX="94.0" layoutY="34.0" text="Yellow Line" textFill="YELLOW">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>

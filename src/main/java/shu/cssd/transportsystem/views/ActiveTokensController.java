@@ -10,7 +10,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MetrorouteController {
+public class ActiveTokensController {
+    @FXML
+    private void backButtonClick(MouseEvent event) throws IOException {
+        Parent tokenParent = FXMLLoader.load(getClass().getResource("/token/token.fxml"));
+        Scene tokenScene = new Scene(tokenParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(tokenScene);
+        window.show();
+    }
+
     @FXML
     private void paymentButtonClick(MouseEvent event) throws IOException {
         Parent paymentParent = FXMLLoader.load(getClass().getResource("/payment/Payment.fxml"));
@@ -33,16 +44,7 @@ public class MetrorouteController {
         window.show();
     }
 
-    @FXML
-    private void backButtonClick(MouseEvent event) throws IOException {
-        Parent dashboardParent = FXMLLoader.load(getClass().getResource("/route/route.fxml"));
-        Scene dashboardScene = new Scene(dashboardParent);
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(dashboardScene);
-        window.show();
-    }
 
     @FXML
     private void routeButtonClick(MouseEvent event) throws IOException {
@@ -52,28 +54,6 @@ public class MetrorouteController {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(routeScene);
-        window.show();
-    }
-
-    @FXML
-    private void bookTicketButtonClick(MouseEvent event) throws IOException {
-        Parent bkParent = FXMLLoader.load(getClass().getResource("/bookticket/bookticket.fxml"));
-        Scene bkScene = new Scene(bkParent);
-
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(bkScene);
-        window.show();
-    }
-
-    @FXML
-    private void journeyButtonClick(MouseEvent event) throws IOException {
-        Parent journeyParent = FXMLLoader.load(getClass().getResource("/journey/journey.fxml"));
-        Scene journeyScene = new Scene(journeyParent);
-
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(journeyScene);
         window.show();
     }
 }

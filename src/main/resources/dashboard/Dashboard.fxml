@@ -49,7 +49,7 @@
                      </children>
                   </AnchorPane>
                </children></VBox>
-            <JFXButton fx:id="top" buttonType="RAISED" layoutX="273.0" layoutY="123.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="94.0" styleClass="dasboardButton" stylesheets="@../styles/Styles.css" text="Top Up" textFill="WHITE">
+            <JFXButton fx:id="top" buttonType="RAISED" layoutX="273.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#paymentButtonClick" prefHeight="37.0" prefWidth="94.0" styleClass="dasboardButton" stylesheets="@../styles/Styles.css" text="Top Up" textFill="WHITE">
                <font>
                   <Font name="Open Sans SemiBold" size="18.0" />
                </font></JFXButton>
@@ -69,7 +69,7 @@
                         <Font name="Open Sans SemiBold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="29.0" layoutY="138.0" text="Transport Timetable">
+                  <Label layoutX="29.0" layoutY="138.0" onMouseClicked="#timetableButtonClick" text="Transport Timetable">
                      <font>
                         <Font name="Open Sans SemiBold" size="18.0" />
                      </font>
@@ -79,12 +79,12 @@
                         <Font name="Calibri" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="29.0" layoutY="169.0" text="Do you want to know when your preferred" textFill="#a7a4a4">
+                  <Label layoutX="29.0" layoutY="169.0" onMouseClicked="#timetableButtonClick" text="Do you want to know when your preferred" textFill="#a7a4a4">
                      <font>
                         <Font name="Calibri" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="29.0" layoutY="186.0" text="mode of tranport is scheduled to arrive?" textFill="#a7a4a4">
+                  <Label layoutX="29.0" layoutY="186.0" onMouseClicked="#timetableButtonClick" text="mode of tranport is scheduled to arrive?" textFill="#a7a4a4">
                      <font>
                         <Font name="Calibri" size="12.0" />
                      </font>
@@ -94,7 +94,7 @@
                         <Image url="@../images/route2.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="77.0" fitWidth="106.0" layoutX="252.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="77.0" fitWidth="106.0" layoutX="252.0" layoutY="145.0" onMouseClicked="#timetableButtonClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/timetable.png" />
                      </image>
@@ -116,7 +116,7 @@
                         <Image url="@../images/payment.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" onMouseClicked="#journeyButtonClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/journey.png" />
                      </image>

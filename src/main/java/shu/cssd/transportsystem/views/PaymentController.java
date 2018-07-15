@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import shu.cssd.transportsystem.MainApp;
 
 import java.io.IOException;
 import java.net.URL;
@@ -60,7 +59,7 @@ public class PaymentController implements Initializable {
 
     @FXML
     private void tokenButtonClick(MouseEvent event) throws IOException {
-        Parent tokenParent = FXMLLoader.load(getClass().getResource("/tokens/token.fxml"));
+        Parent tokenParent = FXMLLoader.load(getClass().getResource("/token/token.fxml"));
         Scene tokenScene = new Scene(tokenParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -77,6 +76,28 @@ public class PaymentController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(routeScene);
+        window.show();
+    }
+
+    @FXML
+    private void purchaseButtonClick(MouseEvent event) throws IOException {
+        Parent purchaseParent = FXMLLoader.load(getClass().getResource("/purchase/purchase.fxml"));
+        Scene purchaseScene = new Scene(purchaseParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(purchaseScene);
+        window.show();
+    }
+
+    @FXML
+    private void journeyButtonClick(MouseEvent event) throws IOException {
+        Parent journeyParent = FXMLLoader.load(getClass().getResource("/journey/journey.fxml"));
+        Scene journeyScene = new Scene(journeyParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(journeyScene);
         window.show();
     }
 }
