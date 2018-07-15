@@ -31,7 +31,7 @@
             <DropShadow />
          </effect>
       </VBox>
-      <VBox layoutX="376.0" layoutY="150.0" prefHeight="200.0" prefWidth="272.0">
+      <VBox layoutX="376.0" layoutY="150.0" onMouseClicked="#tokensButtonClick" prefHeight="200.0" prefWidth="272.0">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                <children>
@@ -77,5 +77,10 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <ImageView fitHeight="97.0" fitWidth="103.0" layoutX="551.0" layoutY="24.0" onMouseClicked="#logoutButtonClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/exit.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
