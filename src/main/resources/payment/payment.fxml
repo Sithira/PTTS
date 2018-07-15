@@ -65,7 +65,7 @@
                                 <Font name="Open Sans SemiBold" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="29.0" layoutY="138.0" text="Buy Tokens">
+                        <Label fx:id="buyTokenTextButton" layoutX="29.0" layoutY="138.0" onMouseClicked="#tokenButtonClick" text="Buy Tokens">
                             <font>
                                 <Font name="Open Sans SemiBold" size="18.0" />
                             </font>
@@ -75,7 +75,7 @@
                                 <Font name="Calibri" size="12.0" />
                             </font>
                         </Label>
-                        <Label layoutX="29.0" layoutY="169.0" text="Tokens can be purchased here" textFill="#a7a4a4">
+                        <Label fx:id="tokenTextButton" layoutX="29.0" layoutY="169.0" onMouseClicked="#tokenButtonClick" text="Tokens can be purchased here" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri" size="12.0" />
                             </font>
@@ -85,7 +85,7 @@
                                 <Image url="@../images/visa.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="77.0" fitWidth="106.0" layoutX="252.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="tokenImageButton" fitHeight="77.0" fitWidth="106.0" layoutX="252.0" layoutY="145.0" onMouseClicked="#tokenButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/token.png" />
                             </image>
