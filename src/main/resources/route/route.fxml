@@ -83,7 +83,7 @@
                 <DropShadow />
             </effect>
         </VBox>
-        <VBox layoutX="15.0" layoutY="257.0" prefHeight="107.0" prefWidth="371.0">
+        <VBox layoutX="15.0" layoutY="257.0" onMouseClicked="#trainRouteButtonClick" prefHeight="107.0" prefWidth="371.0">
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>
@@ -109,7 +109,7 @@
                 <DropShadow />
             </effect>
         </VBox>
-        <VBox layoutX="15.0" layoutY="379.0" prefHeight="107.0" prefWidth="371.0">
+        <VBox fx:id="metroButton" layoutX="15.0" layoutY="379.0" onMouseClicked="#metroRouteButtonClick" prefHeight="107.0" prefWidth="371.0">
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>

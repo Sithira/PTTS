@@ -127,7 +127,7 @@
                                 <Image url="@../images/journey.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="225.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="routeButton" fitHeight="37.0" fitWidth="38.0" layoutX="225.0" layoutY="11.0" onMouseClicked="#routeButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/route.png" />
                             </image>

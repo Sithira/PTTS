@@ -68,4 +68,15 @@ public class PaymentController implements Initializable {
         window.setScene(tokenScene);
         window.show();
     }
+
+    @FXML
+    private void routeButtonClick(MouseEvent event) throws IOException {
+        Parent routeParent = FXMLLoader.load(getClass().getResource("/route/route.fxml"));
+        Scene routeScene = new Scene(routeParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(routeScene);
+        window.show();
+    }
 }
