@@ -2,7 +2,7 @@
 <project name="transportsystem" default="all">
   
   
-  <property file="transportsystem.properties"/>
+  <property file="build.properties"/>
   <!-- Uncomment the following property if no tests compilation is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>
@@ -112,28 +112,22 @@
     <pathelement location="${path.variable.maven_repository}/de/jensd/fontawesomefx-fontawesome/4.7.0-9.1.2/fontawesomefx-fontawesome-4.7.0-9.1.2.jar"/>
   </path>
   
-  <path id="library.maven:_junit:junit:4.12.classpath">
-    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+  <path id="library.maven:_org.apiguardian:apiguardian-api:1.0.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar"/>
   </path>
   
-  <path id="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath">
-    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+  <path id="library.maven:_org.junit.jupiter:junit-jupiter-api:5.2.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/junit/jupiter/junit-jupiter-api/5.2.0/junit-jupiter-api-5.2.0.jar"/>
   </path>
-  <!-- Register Custom Compiler Taskdefs -->
-  <property name="javac2.home" value="${idea.home}/lib"/>
-  <path id="javac2.classpath">
-    <fileset dir="${javac2.home}">
-      <include name="javac2.jar"/>
-      <include name="jdom.jar"/>
-      <include name="asm-all*.jar"/>
-      <include name="jgoodies-forms.jar"/>
-    </fileset>
-  </path>
-  <target name="register.custom.compilers">
-    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
-    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
-  </target>
   
+  <path id="library.maven:_org.junit.platform:junit-platform-commons:1.2.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/junit/platform/junit-platform-commons/1.2.0/junit-platform-commons-1.2.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.opentest4j:opentest4j:1.1.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/opentest4j/opentest4j/1.1.0/opentest4j-1.1.0.jar"/>
+  </path>
+
   <!-- Modules -->
   
   <import file="${basedir}/.idea/module_transportsystem.xml"/>

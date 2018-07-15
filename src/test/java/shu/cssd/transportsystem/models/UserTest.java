@@ -22,7 +22,7 @@ class UserTest
 	
 	@Test
 	@DisplayName("Test the builder pattern of user")
-	void createNewUser()
+	void createNewUserAsEmployee()
 	{
 		
 		// get the permission from the Data store
@@ -52,4 +52,30 @@ class UserTest
 		
 	}
 	
+	@Test
+	@DisplayName("A User can be create with out permissions")
+	void createANewUser()
+	{
+		// create a new user and assign the permission at the same time
+		User user = new User.Builder("Test", "dfdsdfs", "fdsfsdfd", "fdsfdsf", "fsfsdf", "fsfsdf", "sfsdfd")
+				.setBalance(100).create();
+		
+		// save the user into the database
+		setOfUsers.create(user);
+		
+		try
+		{
+			
+			// get the user by id
+			User get = (User) this.setOfUsers.findById(user.id);
+			
+			// check if the user permission is equal to the actual permission id
+			assertEquals(user.id, get.id);
+			
+		} catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
 }

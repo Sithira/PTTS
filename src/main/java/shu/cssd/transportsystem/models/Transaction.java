@@ -34,6 +34,8 @@ public class Transaction extends BaseModel
 	private Transaction(Builder builder)
 	{
 		this.userId = builder.userId;
+		this.smartCardId = builder.smartCardId;
+		this.amount = builder.amount;
 	}
 	
 	/**

@@ -3,6 +3,7 @@ package shu.cssd.transportsystem.controllers;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.models.Payment;
 import shu.cssd.transportsystem.models.SmartCard;
 import shu.cssd.transportsystem.models.Transaction;
@@ -85,7 +86,8 @@ public class SmartCardController
 		// get the set of payments
 		SetOfPayments setOfPayments = new SetOfPayments();
 		
-		Transaction transaction = (new TransactionController()).makeTransaction(card.getUser(), PaymentType.CASH, amount);
+		Transaction transaction = (new TransactionController())
+				.makeTransaction(card.getUser(), PaymentType.CASH, TransactionType.ADD, amount);
 		
 		// create a new payment
 		Payment payment = new Payment.Builder(transaction, PaymentType.CASH, amount)

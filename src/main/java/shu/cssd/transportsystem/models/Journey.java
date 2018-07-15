@@ -43,6 +43,7 @@ public class Journey extends BaseModel
 		this.originId = builder.originId;
 		this.destinationId = builder.destinationId;
 		this.routeId = builder.routeId;
+		this.cost = builder.cost;
 	}
 
 	/**

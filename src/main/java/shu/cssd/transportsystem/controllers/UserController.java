@@ -3,6 +3,7 @@ package shu.cssd.transportsystem.controllers;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.models.Payment;
 import shu.cssd.transportsystem.models.Permission;
 import shu.cssd.transportsystem.models.Transaction;
@@ -130,23 +131,17 @@ public class UserController
 	 * Update the account balance of the current user.
 	 *
 	 * @param amount
-	 * @return
 	 */
 	public float topUpBalance(float amount)
 	{
-		float value = this.currentUser.balance += amount;
+		
+		Transaction transaction = (new TransactionController())
+				.makeTransaction(this.currentUser, PaymentType.CASH, TransactionType.ADD, amount);
+		
+		new PaymentController().create(transaction, PaymentType.CASH, amount);
 		
 		
-		SetOfPayments setOfPayments = new SetOfPayments();
-		
-		Transaction transaction = (new TransactionController()).makeTransaction(this.currentUser, PaymentType.CASH, amount);
-		
-		Payment payment = new Payment.Builder(transaction, PaymentType.CASH, amount)
-				.create();
-		
-		setOfPayments.create(payment);
-		
-		return value;
+		return amount;
 	}
 	
 	/**

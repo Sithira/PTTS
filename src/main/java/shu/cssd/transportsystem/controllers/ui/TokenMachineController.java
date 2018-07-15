@@ -5,6 +5,7 @@ import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.NotEnoughFundsException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.helpers.CostCalculator;
 import shu.cssd.transportsystem.helpers.TokenCreator;
 import shu.cssd.transportsystem.models.*;
@@ -104,7 +105,8 @@ public class TokenMachineController
 		
 		SetOfPayments setOfPayments = new SetOfPayments();
 		
-		Transaction transaction = (new TransactionController()).makeTransaction(this.loggedInUser, paymentType, amount);
+		Transaction transaction = (new TransactionController())
+				.makeTransaction(this.loggedInUser, paymentType, TransactionType.SUBSTRACT,amount);
 		
 		Payment payment = new Payment.Builder(transaction, PaymentType.CASH, amount)
 				.setChange(change)
