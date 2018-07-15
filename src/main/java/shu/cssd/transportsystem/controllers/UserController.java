@@ -1,14 +1,11 @@
 package shu.cssd.transportsystem.controllers;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
-import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.foundation.types.TransactionType;
-import shu.cssd.transportsystem.models.Payment;
 import shu.cssd.transportsystem.models.Permission;
 import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.User;
-import shu.cssd.transportsystem.models.collections.SetOfPayments;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
 import java.util.ArrayList;
@@ -19,9 +16,9 @@ public class UserController
 	
 	private SetOfUsers setOfUsers = new SetOfUsers();
 	
-	public static User currentUser;
-	
 	private static UserController userController;
+	
+	public static User currentUser;
 	
 	private UserController() { }
 	
@@ -91,7 +88,7 @@ public class UserController
 	 */
 	public float getBalanace()
 	{
-		return this.currentUser.balance;
+		return currentUser.balance;
 	}
 	
 	/**
@@ -101,7 +98,7 @@ public class UserController
 	 */
 	public float getCardBalance()
 	{
-		return this.currentUser.getCard().balance;
+		return currentUser.getCard().balance;
 	}
 	
 	/**
@@ -132,7 +129,7 @@ public class UserController
 			
 			if (user.username.equals(username) && user.password.equals(password))
 			{
-				this.currentUser = user;
+				currentUser = user;
 				
 				return true;
 			}
@@ -150,11 +147,11 @@ public class UserController
 	{
 		
 		Transaction transaction = (new TransactionController())
-				.makeTransaction(this.currentUser, PaymentType.CASH, TransactionType.ADD, amount);
+				.makeTransaction(currentUser, PaymentType.CASH, TransactionType.ADD, amount);
 		
 		new PaymentController().create(transaction, PaymentType.CASH, amount);
 		
-		return amount;
+		return currentUser.balance;
 	}
 	
 	/**
@@ -163,7 +160,7 @@ public class UserController
 	public void removeCard()
 	{
 		// remove the smart card from controller class
-		(new SmartCardController()).remove(this.currentUser.getCard());
+		(new SmartCardController()).remove(currentUser.getCard());
 	}
 	
 

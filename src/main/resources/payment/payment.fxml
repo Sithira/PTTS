@@ -24,7 +24,7 @@
                         <Image url="@../images/back-white.png" />
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" layoutX="24.0" layoutY="62.0" text="PAYMENT" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="24.0" layoutY="62.0" text="SMART CARD" textFill="WHITE">
                     <font>
                         <Font name="Open Sans SemiBold" size="36.0" />
                     </font>
