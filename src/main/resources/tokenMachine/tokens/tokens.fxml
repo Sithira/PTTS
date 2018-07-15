@@ -88,5 +88,10 @@
             </AnchorPane>
          </children>
       </VBox>
+      <ImageView fitHeight="97.0" fitWidth="103.0" layoutX="571.0" layoutY="16.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/back.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

@@ -77,5 +77,10 @@
                 <Font size="14.0" />
             </font>
         </Label>
+      <ImageView fitHeight="97.0" fitWidth="103.0" layoutX="581.0" layoutY="26.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/back.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

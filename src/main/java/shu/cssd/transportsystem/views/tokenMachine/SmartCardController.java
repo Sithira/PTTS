@@ -21,4 +21,15 @@ public class SmartCardController {
         window.setScene(smcScene);
         window.show();
     }
+
+    @FXML
+    private void backButtonClick(MouseEvent event) throws IOException {
+        Parent homeParent = FXMLLoader.load(getClass().getResource("/tokenMachine/home/home.fxml"));
+        Scene homeScene = new Scene(homeParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(homeScene);
+        window.show();
+    }
 }
