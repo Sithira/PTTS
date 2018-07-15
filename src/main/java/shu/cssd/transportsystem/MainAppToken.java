@@ -13,7 +13,7 @@ public class MainAppToken extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/mobileApp/login/Scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/tokenMachine/home/home.fxml"));
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
