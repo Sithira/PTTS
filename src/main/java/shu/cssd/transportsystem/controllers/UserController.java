@@ -140,7 +140,6 @@ public class UserController
 		
 		new PaymentController().create(transaction, PaymentType.CASH, amount);
 		
-		
 		return amount;
 	}
 	
