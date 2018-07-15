@@ -53,7 +53,7 @@
                <font>
                   <Font name="Open Sans SemiBold" size="18.0" />
                </font></JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="273.0" layoutY="174.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="94.0" styleClass="dasboardButton" stylesheets="@../styles/Styles.css" text="Tokens" textFill="WHITE">
+            <JFXButton fx:id="tokenButton" buttonType="RAISED" layoutX="273.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#tokenButtonClick" prefHeight="37.0" prefWidth="94.0" styleClass="dasboardButton" stylesheets="@../styles/Styles.css" text="Tokens" textFill="WHITE">
                <font>
                   <Font name="Open Sans SemiBold" size="18.0" />
                </font>

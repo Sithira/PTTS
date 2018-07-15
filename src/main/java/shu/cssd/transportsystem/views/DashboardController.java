@@ -76,4 +76,15 @@ public class DashboardController implements Initializable
 		window.setScene(profileScene);
 		window.show();
 	}
+
+    @FXML
+    private void tokenButtonClick(MouseEvent event) throws IOException {
+        Parent tokenParent = FXMLLoader.load(getClass().getResource("/tokens/token.fxml"));
+        Scene tokenScene = new Scene(tokenParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(tokenScene);
+        window.show();
+    }
 }
