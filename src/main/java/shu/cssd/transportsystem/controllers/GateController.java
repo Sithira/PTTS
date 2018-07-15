@@ -82,12 +82,14 @@ public class GateController
 				currentGate.state = OPEN;
 				
 				return true;
-			} else
+			}
+			else
 			{
 				System.out.println("Origin stop is not valid");
 				return false;
 			}
-		} catch (ModelNotFoundException e)
+		}
+		catch (ModelNotFoundException e)
 		{
 			e.printStackTrace();
 			
@@ -163,12 +165,14 @@ public class GateController
 					}
 					return false;
 				}
-			} else
+			}
+			else
 			{
 				System.out.println("Smart card has expired");
 				return false;
 			}
-		} catch (ModelNotFoundException e)
+		}
+		catch (ModelNotFoundException e)
 		{
 			return false;
 		}

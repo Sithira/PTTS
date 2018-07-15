@@ -1,6 +1,7 @@
 package shu.cssd.transportsystem.models;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
 import java.util.ArrayList;
@@ -34,25 +35,16 @@ public class SmartCard extends BaseModel
 	 */
 	public User getUser()
 	{
-		SetOfUsers setOfUsers = new SetOfUsers();
-		
-		ArrayList<BaseModel> rows = setOfUsers.all();
-		
-		for (BaseModel model: rows)
+		try
 		{
-			User user = (User) model;
-			
-//			if (user.cardId.equals(this.id))
-//			{
-//				return user;
-//			}
-
-			if(this.userId.equals(user.id))
-			{
-				return user;
-			}
+			return (User) (new SetOfUsers()).findById(this.userId);
 		}
-		
+		catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+
+
 		return null;
 	}
 	

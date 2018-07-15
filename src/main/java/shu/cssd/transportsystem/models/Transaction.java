@@ -11,11 +11,19 @@ import java.util.ArrayList;
 
 public class Transaction extends BaseModel
 {
-	
+	/**
+	 * Id of the User that performs the Transaction
+	 */
 	public String userId;
-	
+
+	/**
+	 * Id of the Smart Card used to this Transaction
+	 */
 	public String smartCardId;
-	
+
+	/**
+	 * Transaction Amount
+	 */
 	public float amount;
 	
 	private Transaction(Builder builder)
@@ -60,16 +68,13 @@ public class Transaction extends BaseModel
 		
 		for (BaseModel model: tokens)
 		{
-			
 			Token token = (Token) model;
 			
 			if (token.transactionId.equals(this.id))
 			{
 				return token;
 			}
-			
 		}
-		
 		return null;
 	}
 	
@@ -80,7 +85,6 @@ public class Transaction extends BaseModel
 	 */
 	public Payment getPayment()
 	{
-		
 		SetOfPayments setOfPayments = new SetOfPayments();
 		
 		ArrayList<BaseModel> payments = setOfPayments.all();
@@ -94,7 +98,6 @@ public class Transaction extends BaseModel
 				return payment;
 			}
 		}
-	
 		return null;
 	}
 	
@@ -147,7 +150,5 @@ public class Transaction extends BaseModel
 		{
 			return new Transaction(this);
 		}
-		
 	}
-	
 }
