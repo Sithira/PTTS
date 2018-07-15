@@ -8,8 +8,15 @@ import java.util.ArrayList;
 public class Permission extends BaseModel
 {
 
+	/**
+	 * Name of the Permission
+	 */
 	public String name;
-	
+
+	/**
+	 * Create a new Permission in the System
+	 * @param name
+	 */
 	public Permission(String name)
 	{
 		this.name = name;

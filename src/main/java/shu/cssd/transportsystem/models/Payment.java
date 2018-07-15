@@ -8,14 +8,31 @@ import java.io.Serializable;
 
 public class Payment extends BaseModel
 {
+	/**
+	 * Payment Type(Card or Cash) of the payment
+	 */
 	public PaymentType paymentType;
-	
+
+	/**
+	 * Id of the Transaaction this payment belongs to
+	 */
 	public String transactionId;
-	
+
+	/**
+	 * Value of the Payment
+	 */
 	public float value;
-	
+
+	/**
+	 * Change of the Payment
+	 */
 	public float change;
-	
+
+
+	/**
+	 *Create new Payment in the System
+	 * @param builder {@link Builder}
+	 */
 	private Payment(Builder builder)
 	{
 		this.transactionId = builder.transaction.id;
