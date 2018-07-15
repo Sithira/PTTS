@@ -154,20 +154,6 @@ public class UserController
 	 */
 	public void removeCard()
 	{
-		
-		// set the cardId to null
-		this.currentUser.cardId = null;
-		
-		try
-		{
-			// update the collection instance
-			this.setOfUsers.findByIdAndUpdate(currentUser.id, currentUser);
-			
-		} catch (ModelNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		
 		// remove the smart card from controller class
 		(new SmartCardController()).remove(this.currentUser.getCard());
 	}

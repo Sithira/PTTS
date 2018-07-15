@@ -26,14 +26,20 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 
 	private SetOfPermissions setOfPermissions = new SetOfPermissions();
 
-	private  String [] permissions = new String[5];
-	private  String [] users = new String[5];
+//	private  String [] permissions = new String[5];
+//	private  String [] users = new String[5];
 	private String [] routes = new String[4];
 	private String [] zones = new String[4];
 
 	@Override
 	public void seed()
 	{
+
+		//Seed Permissions
+		Permission permission1 = new Permission("Admin");
+		Permission permission2 = new Permission("User");
+		Permission permission3 = new Permission("Employee");
+
 
 		//Seed Users
 		User user1 = new User.Builder(
@@ -70,7 +76,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 				"Colombo",
 				"10230",
 				"chathu",
-				"admin").addAsEmployee(35000, null).create();
+				"admin").addAsEmployee(35000, permission3).create();
 		
 		User user5 = new User.Builder(
 				"Vindula",
@@ -82,6 +88,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 				"admin").create();
 
 
+		//Seed SmardCards
 		Date date = new Date();
 
 		SmartCard smartCard1 = new SmartCard(user1, 1111, 111, date);
@@ -90,13 +97,31 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		SmartCard smartCard4 = new SmartCard(user4, 4444, 444, date);
 		SmartCard smartCard5 = new SmartCard(user5, 5555, 555, date);
 
+		//Create Permissions
+		this.setOfPermissions.create(permission1);
+		this.setOfPermissions.create(permission2);
+		this.setOfPermissions.create(permission3);
+
+		//Create Users
+		this.setOfUsers.create(user1);
+		this.setOfUsers.create(user2);
+		this.setOfUsers.create(user3);
+		this.setOfUsers.create(user4);
+		this.setOfUsers.create(user5);
+
+		//Create SmartCards
+		this.setOfSmartCards.create(smartCard1);
+		this.setOfSmartCards.create(smartCard2);
+		this.setOfSmartCards.create(smartCard3);
+		this.setOfSmartCards.create(smartCard4);
+		this.setOfSmartCards.create(smartCard5);
 
 		//Seed Transactions
 		Transaction transaction1 = new Transaction.Builder(user1, PaymentType.CASH, 135).create();
-		Transaction transaction2 = new Transaction.Builder(user2, PaymentType.CARD, 175f).create();
+		Transaction transaction2 = new Transaction.Builder(user2, PaymentType.CARD, 175f).fromSmartCard().create();
 		Transaction transaction3 = new Transaction.Builder(user3, PaymentType.CASH, 50f).create();
-		Transaction transaction4 = new Transaction.Builder(user5, PaymentType.CARD, 300f).create();
-		Transaction transaction5 = new Transaction.Builder(user5, PaymentType.CARD, 250f).create();
+		Transaction transaction4 = new Transaction.Builder(user5, PaymentType.CARD, 300f).fromSmartCard().create();
+		Transaction transaction5 = new Transaction.Builder(user5, PaymentType.CARD, 250f).fromSmartCard().create();
 
 		//Seed Payments
 		Payment payment1 = new Payment.Builder( transaction1, PaymentType.CASH, 200).setChange(65).create();
@@ -131,19 +156,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 
 
 
-		//Create Users
-		this.setOfUsers.create(user1);
-		this.setOfUsers.create(user2);
-		this.setOfUsers.create(user3);
-		this.setOfUsers.create(user4);
-		this.setOfUsers.create(user5);
 
-		//Create SmartCards
-		this.setOfSmartCards.create(smartCard1);
-		this.setOfSmartCards.create(smartCard2);
-		this.setOfSmartCards.create(smartCard3);
-		this.setOfSmartCards.create(smartCard4);
-		this.setOfSmartCards.create(smartCard5);
 
 		//Create Transactions
 		this.setOfTransactions.create(transaction1);
@@ -189,17 +202,25 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 	public void read()
 	{
 
+		for (BaseModel model: this.setOfPermissions.all())
+		{
+			Permission permission = (Permission) model;
+
+			System.out.println("PermissionID: " + permission.id);
+
+		}
+
 		for (BaseModel model: this.setOfUsers.all())
 		{
 			User user = (User) model;
 
 			System.out.println("UserID: " + user.id + " Name: " + user.name);
-			
+			System.out.println("Smart Card: " + user.getCard().id);
 			System.out.println("EMP_PER " + user.permissionId);
 			
 			if (user.getPermission() != null)
 			{
-				System.out.println("Employee_PermissionID: " + user.getPermission().name);
+				System.out.println("Employee_Permission: " + user.getPermission().name);
 			}
 			
 
@@ -217,7 +238,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		{
 			Transaction transaction = (Transaction) model;
 
-			System.out.println("TransactionUser: " + transaction.getUser().name);
+			System.out.println("TransactionUser: " + transaction.getUser().name + " T_SmartCard: " + transaction.smartCardId);
 
 		}
 
@@ -249,10 +270,12 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		{
 			Journey journey = (Journey) model;
 
+
 			System.out.println("JourneyID: " + journey.id + " ,JourneyUser: "
 					+ journey.getUser().name + " ,JourneyOrigin: "
 					+ journey.getOrigin().name + " ,JourneyDestination: "
-					+ journey.destinationId);
+					+ journey.destinationId
+			);
 
 		}
 	}
@@ -260,19 +283,8 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 	@Override
 	public void relationships()
 	{
-		SetOfPermissions setOfPermissions = new SetOfPermissions();
 		SetOfRoutes setOfRoutes = new SetOfRoutes();
 		SetOfZones setOfZones = new SetOfZones();
-
-
-		for (int i = 0; i < setOfPermissions.all().size(); i++)
-		{
-
-			Permission permission = (Permission) setOfPermissions.all().get(i);
-
-			this.permissions[i] = permission.id;
-
-		}
 
 
 		for (int i = 0; i < setOfRoutes.all().size(); i++)

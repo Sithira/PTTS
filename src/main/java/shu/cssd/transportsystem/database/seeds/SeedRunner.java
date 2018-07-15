@@ -21,7 +21,7 @@ public class SeedRunner
 			OfferSeeder.class,
 			ZoneSeeder.class,
 			RouteSeeder.class,
-			PermissionLevelSeeder.class,
+			//PermissionLevelSeeder.class,
 			UserTransactionPaymentSeeder.class,
 			//UserSeeder.class,
 			//SmartCardSeeder.class,

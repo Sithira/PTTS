@@ -106,7 +106,7 @@ public class Transaction extends BaseModel
 	 */
 	public static class Builder implements Serializable
 	{
-		User user;
+		public User user;
 		
 		public String userId;
 		
