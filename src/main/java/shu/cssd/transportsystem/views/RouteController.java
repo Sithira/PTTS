@@ -43,4 +43,15 @@ public class RouteController {
         window.setScene(dashboardScene);
         window.show();
     }
+
+    @FXML
+    private void busRouteButtonClick(MouseEvent event) throws IOException {
+        Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
+        Scene dashboardScene = new Scene(dashboardParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(dashboardScene);
+        window.show();
+    }
 }

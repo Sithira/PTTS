@@ -60,14 +60,14 @@
         </VBox>
         <VBox layoutX="15.0" layoutY="136.0" prefHeight="107.0" prefWidth="371.0">
             <children>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
+                <AnchorPane fx:id="busRouteButton" onMouseClicked="#busRouteButtonClick" prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>
-                        <ImageView fitHeight="67.0" fitWidth="90.0" layoutX="25.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="busButton" fitHeight="67.0" fitWidth="90.0" layoutX="25.0" layoutY="20.0" onMouseClicked="#busRouteButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/bus.png" />
                             </image>
                         </ImageView>
-                        <Label layoutX="132.0" layoutY="29.0" text="Bus">
+                        <Label fx:id="busRouteLabel" layoutX="132.0" layoutY="29.0" onMouseClicked="#busRouteButtonClick" text="Bus">
                             <font>
                                 <Font name="Open Sans SemiBold" size="18.0" />
                             </font>

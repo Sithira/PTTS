@@ -41,3 +41,8 @@
     -fx-background-color: white;
 }
 
+.topCardPane{
+    -fx-background-color: #f2F2F2;
+    -fx-background-radius: 8px;
+}
+

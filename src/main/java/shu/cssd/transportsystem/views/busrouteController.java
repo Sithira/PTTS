@@ -35,12 +35,23 @@ public class busrouteController {
 
     @FXML
     private void backButtonClick(MouseEvent event) throws IOException {
-        Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
+        Parent dashboardParent = FXMLLoader.load(getClass().getResource("/route/route.fxml"));
         Scene dashboardScene = new Scene(dashboardParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(dashboardScene);
+        window.show();
+    }
+
+    @FXML
+    private void routeButtonClick(MouseEvent event) throws IOException {
+        Parent routeParent = FXMLLoader.load(getClass().getResource("/route/route.fxml"));
+        Scene routeScene = new Scene(routeParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(routeScene);
         window.show();
     }
 }
