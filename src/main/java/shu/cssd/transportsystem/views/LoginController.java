@@ -16,6 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import shu.cssd.transportsystem.controllers.UserController;
 
 public class LoginController implements Initializable
 {
@@ -34,7 +35,11 @@ public class LoginController implements Initializable
 	@FXML
 	private void login_buttonClick(ActionEvent event) throws IOException
 	{
-        if (username.getText().equals("admin") && password.getText().equals("admin")){
+        UserController user = new UserController();
+        String currentUsername = username.getText();
+        String currentPassword = password.getText();
+
+        if (user.checkCredentials(currentUsername,currentPassword)){
             Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
             Scene dashboardScene = new Scene(dashboardParent);
 
