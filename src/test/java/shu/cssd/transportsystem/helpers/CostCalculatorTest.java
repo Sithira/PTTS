@@ -1,26 +1,50 @@
 package shu.cssd.transportsystem.helpers;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.models.Stop;
+import shu.cssd.transportsystem.models.collections.SetOfStops;
 
-import static org.junit.Assert.*;
+import java.util.ArrayList;
 
-public class CostCalculatorTest
+import static org.junit.jupiter.api.Assertions.*;
+
+class CostCalculatorTest
 {
 	
+	private CostCalculator costCalculator;
+	
+	@BeforeEach
+	void setUp()
+	{
+		costCalculator = CostCalculator.getInstance();
+	}
+	
 	@Test
-	public void getInstance()
+	@DisplayName("Check Singleton returns same instance")
+	void getInstance()
 	{
 		
-		CostCalculator calculator = CostCalculator.getInstance();
-		
-		CostCalculator calculator1 = CostCalculator.getInstance();
-		
-		assertEquals("Should be the same object of the CostCalculator Class", calculator1, calculator);
+		assertEquals(costCalculator, CostCalculator.getInstance());
 		
 	}
 	
 	@Test
-	public void calculate()
+	@DisplayName("Check if the cost between two stops are minimum")
+	void calculate()
 	{
+		
+		ArrayList<BaseModel> stopes = new SetOfStops().all();
+	
+		assertNotEquals(stopes.size(), 0);
+		
+		Stop origin = (Stop) stopes.get(0);
+		
+		Stop destination = (Stop) stopes.get(1);
+		
+		//assertEquals(costCalculator.calculate(origin, destination, destination.getRoute()), 12);
+	
 	}
 }
