@@ -36,7 +36,7 @@
                                 <Image url="@../images/payment.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" onMouseClicked="#journeyButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/journey.png" />
                             </image>
@@ -58,7 +58,7 @@
                 </AnchorPane>
             </children>
         </VBox>
-        <VBox layoutX="15.0" layoutY="143.0" onMouseClicked="#bookTicketButtonClick" prefHeight="60.0" prefWidth="371.0">
+        <VBox layoutX="15.0" layoutY="143.0" prefHeight="60.0" prefWidth="371.0">
             <effect>
                 <DropShadow />
             </effect>
@@ -88,7 +88,7 @@
                 <Font name="Open Sans ExtraBold" size="48.0" />
             </font>
         </Label>
-      <VBox layoutX="15.0" layoutY="213.0" onMouseClicked="#bookTicketButtonClick" prefHeight="60.0" prefWidth="371.0">
+      <VBox layoutX="15.0" layoutY="213.0" prefHeight="60.0" prefWidth="371.0">
          <effect>
             <DropShadow />
          </effect>
@@ -114,7 +114,7 @@
             </AnchorPane>
          </children>
       </VBox>
-      <VBox layoutX="15.0" layoutY="284.0" onMouseClicked="#bookTicketButtonClick" prefHeight="60.0" prefWidth="371.0">
+      <VBox layoutX="15.0" layoutY="284.0" prefHeight="60.0" prefWidth="371.0">
          <effect>
             <DropShadow />
          </effect>

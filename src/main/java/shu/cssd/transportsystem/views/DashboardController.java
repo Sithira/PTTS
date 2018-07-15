@@ -67,6 +67,28 @@ public class DashboardController implements Initializable
     }
 
 	@FXML
+	private void journeyButtonClick(MouseEvent event) throws IOException {
+		Parent journeyParent = FXMLLoader.load(getClass().getResource("/journey/journey.fxml"));
+		Scene journeyScene = new Scene(journeyParent);
+
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+		window.setScene(journeyScene);
+		window.show();
+	}
+
+	@FXML
+	private void timetableButtonClick(MouseEvent event) throws IOException {
+		Parent timetableParent = FXMLLoader.load(getClass().getResource("/timetable/timetable.fxml"));
+		Scene timetableScene = new Scene(timetableParent);
+
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+		window.setScene(timetableScene);
+		window.show();
+	}
+
+	@FXML
 	private void profileButtonClick(MouseEvent event) throws IOException {
 		Parent profileParent = FXMLLoader.load(getClass().getResource("/profile/profile.fxml"));
 		Scene profileScene = new Scene(profileParent);

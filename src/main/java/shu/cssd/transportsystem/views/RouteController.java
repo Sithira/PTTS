@@ -77,4 +77,26 @@ public class RouteController {
         window.setScene(metroScene);
         window.show();
     }
+
+    @FXML
+    private void journeyButtonClick(MouseEvent event) throws IOException {
+        Parent journeyParent = FXMLLoader.load(getClass().getResource("/journey/journey.fxml"));
+        Scene journeyScene = new Scene(journeyParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(journeyScene);
+        window.show();
+    }
+
+    @FXML
+    private void routeButtonClick(MouseEvent event) throws IOException {
+        Parent routeParent = FXMLLoader.load(getClass().getResource("/route/route.fxml"));
+        Scene routeScene = new Scene(routeParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(routeScene);
+        window.show();
+    }
 }

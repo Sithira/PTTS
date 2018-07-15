@@ -66,4 +66,15 @@ public class BookTicketController {
         window.setScene(routeScene);
         window.show();
     }
+
+    @FXML
+    private void journeyButtonClick(MouseEvent event) throws IOException {
+        Parent journeyParent = FXMLLoader.load(getClass().getResource("/journey/journey.fxml"));
+        Scene journeyScene = new Scene(journeyParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(journeyScene);
+        window.show();
+    }
 }
