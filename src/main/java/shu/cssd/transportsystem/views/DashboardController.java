@@ -6,11 +6,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import shu.cssd.transportsystem.MainApp;
+import shu.cssd.transportsystem.controllers.UserController;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -18,26 +23,34 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable
 {
+	@FXML
+	public TextField topUpAmount;
+
+	@FXML
+	public Label balanceLbl;
+
+	@FXML
 	AnchorPane rootPane;
 
-
+	private UserController user = new UserController();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources)
 	{
+		System.out.println(Float.toString(user.getBalanace()));
+
+		balanceLbl.setText("LKR "+Float.toString(user.getBalanace()));
 		//topPane.setEffect(new DropShadow(2d, 0d, +2d, Color.BLACK));
 	}
-	
-	public void loadDashBoard(ActionEvent event) throws IOException
+	@FXML
+	public void loadDashBoard(javafx.event.ActionEvent event) throws IOException
 	{
-		Parent parent = FXMLLoader.load(getClass().getResource("dashboard/Dashboard.fxml"));
+		Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
+		Scene dashboardScene = new Scene(dashboardParent);
 
-		Scene scene = new Scene(parent);
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-		window.setScene(scene);
-
+		window.setScene(dashboardScene);
 		window.show();
 
 	}
@@ -49,7 +62,7 @@ public class DashboardController implements Initializable
 	}
 
     @FXML
-    private void paymentButtonClick(MouseEvent event) throws IOException {
+    private void smartCardButtonClick(MouseEvent event) throws IOException {
         Parent paymentParent = FXMLLoader.load(getClass().getResource("/payment/Payment.fxml"));
         Scene paymentScene = new Scene(paymentParent);
 
@@ -114,4 +127,19 @@ public class DashboardController implements Initializable
 		window.show();
 	}
 
+	public void topupButtonClick(MouseEvent mouseEvent)
+	{
+		//UserController user = new UserController();
+
+		System.out.println(user.currentUser.name);
+
+		float amount = Float.valueOf(topUpAmount.getText());
+
+		float newBalance = user.topUpBalance(amount);
+
+		System.out.println(Float.toString(newBalance));
+
+		balanceLbl.setText("LKR "+Float.toString(newBalance));
+
+	}
 }

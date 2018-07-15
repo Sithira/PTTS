@@ -19,7 +19,7 @@ public class UserController
 	
 	private SetOfUsers setOfUsers = new SetOfUsers();
 	
-	public User currentUser;
+	public static User currentUser;
 	
 	/**
 	 * Create a new Employee in the system
@@ -140,7 +140,7 @@ public class UserController
 		
 		new PaymentController().create(transaction, PaymentType.CASH, amount);
 		
-		return amount;
+		return currentUser.balance;
 	}
 	
 	/**

@@ -40,13 +40,16 @@ public class LoginController implements Initializable
         String currentPassword = password.getText();
 
         if (user.checkCredentials(currentUsername,currentPassword)){
-            Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
+            /*Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
             Scene dashboardScene = new Scene(dashboardParent);
 
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
             window.setScene(dashboardScene);
-            window.show();
+            window.show();*/
+
+            DashboardController dashboardController = new DashboardController();
+            dashboardController.loadDashBoard(event);
         }
         else{
             Parent dashboardParent = FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
