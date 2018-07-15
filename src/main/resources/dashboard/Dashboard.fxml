@@ -49,7 +49,7 @@
                      </children>
                   </AnchorPane>
                </children></VBox>
-            <JFXButton fx:id="top" buttonType="RAISED" layoutX="273.0" layoutY="123.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="94.0" styleClass="dasboardButton" stylesheets="@../styles/Styles.css" text="Top Up" textFill="WHITE">
+            <JFXButton fx:id="top" buttonType="RAISED" layoutX="273.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#paymentButtonClick" prefHeight="37.0" prefWidth="94.0" styleClass="dasboardButton" stylesheets="@../styles/Styles.css" text="Top Up" textFill="WHITE">
                <font>
                   <Font name="Open Sans SemiBold" size="18.0" />
                </font></JFXButton>

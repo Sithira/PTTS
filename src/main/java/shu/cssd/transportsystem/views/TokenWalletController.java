@@ -10,16 +10,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TokenController {
-
+public class TokenWalletController {
     @FXML
     private void backButtonClick(MouseEvent event) throws IOException {
-        Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
-        Scene dashboardScene = new Scene(dashboardParent);
+        Parent tokenParent = FXMLLoader.load(getClass().getResource("/token/token.fxml"));
+        Scene tokenScene = new Scene(tokenParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(dashboardScene);
+        window.setScene(tokenScene);
         window.show();
     }
 
@@ -45,36 +44,17 @@ public class TokenController {
         window.show();
     }
 
+
+
     @FXML
-    private void buyTokenButtonClick(MouseEvent event) throws IOException {
-        Parent profileParent = FXMLLoader.load(getClass().getResource("/buyToken/buyToken.fxml"));
-        Scene profileScene = new Scene(profileParent);
+    private void routeButtonClick(MouseEvent event) throws IOException {
+        Parent routeParent = FXMLLoader.load(getClass().getResource("/route/route.fxml"));
+        Scene routeScene = new Scene(routeParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(profileScene);
+        window.setScene(routeScene);
         window.show();
     }
 
-    @FXML
-    private void tokenWalletButtonClick(MouseEvent event) throws IOException {
-        Parent profileParent = FXMLLoader.load(getClass().getResource("/tokenWallet/tokenWallet.fxml"));
-        Scene profileScene = new Scene(profileParent);
-
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(profileScene);
-        window.show();
-    }
-
-    @FXML
-    private void activeTokenButtonClick(MouseEvent event) throws IOException {
-        Parent profileParent = FXMLLoader.load(getClass().getResource("/activeTokens/activeTokens.fxml"));
-        Scene profileScene = new Scene(profileParent);
-
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(profileScene);
-        window.show();
-    }
 }
