@@ -60,7 +60,7 @@
                 <AnchorPane prefHeight="255.0" prefWidth="363.0">
                     <children>
                         <Separator layoutX="29.0" layoutY="126.0" prefWidth="300.0" />
-                        <Label layoutX="29.0" layoutY="20.0" text="Purchase a Ticket">
+                        <Label layoutX="29.0" layoutY="20.0" onMouseClicked="#purchaseButtonClick" text="Purchase a Ticket">
                             <font>
                                 <Font name="Open Sans SemiBold" size="18.0" />
                             </font>
@@ -70,7 +70,7 @@
                                 <Font name="Open Sans SemiBold" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="29.0" layoutY="45.0" text="Pay with a Card or via Mobile Payments" textFill="#a7a4a4">
+                        <Label layoutX="29.0" layoutY="45.0" onMouseClicked="#purchaseButtonClick" text="Pay with a Card or via Mobile Payments" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri" size="12.0" />
                             </font>
@@ -80,7 +80,7 @@
                                 <Font name="Calibri" size="12.0" />
                             </font>
                         </Label>
-                        <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="241.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="241.0" layoutY="22.0" onMouseClicked="#purchaseButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/visa.png" />
                             </image>
@@ -90,17 +90,17 @@
                                 <Image url="@../images/token.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="294.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="294.0" layoutY="22.0" onMouseClicked="#purchaseButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/mastercard.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="243.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="243.0" layoutY="74.0" onMouseClicked="#purchaseButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/apple-pay.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="296.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="296.0" layoutY="74.0" onMouseClicked="#purchaseButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/google-wallet.png" />
                             </image>

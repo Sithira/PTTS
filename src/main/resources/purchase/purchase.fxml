@@ -63,7 +63,7 @@
                 </AnchorPane>
             </children>
         </VBox>
-        <VBox layoutX="15.0" layoutY="143.0" onMouseClicked="#bookTicketButtonClick" prefHeight="381.0" prefWidth="371.0">
+        <VBox layoutX="15.0" layoutY="143.0" prefHeight="381.0" prefWidth="371.0">
             <effect>
                 <DropShadow />
             </effect>

@@ -1,21 +1,14 @@
 package shu.cssd.transportsystem.views;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import shu.cssd.transportsystem.MainApp;
 
 import java.awt.event.ActionEvent;
@@ -101,7 +94,7 @@ public class DashboardController implements Initializable
 
     @FXML
     private void tokenButtonClick(MouseEvent event) throws IOException {
-        Parent tokenParent = FXMLLoader.load(getClass().getResource("/tokens/token.fxml"));
+        Parent tokenParent = FXMLLoader.load(getClass().getResource("/token/token.fxml"));
         Scene tokenScene = new Scene(tokenParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

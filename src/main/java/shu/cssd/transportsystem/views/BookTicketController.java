@@ -47,7 +47,7 @@ public class BookTicketController {
 
     @FXML
     private void tokenButtonClick(MouseEvent event) throws IOException {
-        Parent tokenParent = FXMLLoader.load(getClass().getResource("/tokens/token.fxml"));
+        Parent tokenParent = FXMLLoader.load(getClass().getResource("/token/token.fxml"));
         Scene tokenScene = new Scene(tokenParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -75,6 +75,18 @@ public class BookTicketController {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(journeyScene);
+        window.show();
+    }
+
+
+    @FXML
+    private void purchaseButtonClick(MouseEvent event) throws IOException {
+        Parent purchaseParent = FXMLLoader.load(getClass().getResource("/purchase/purchase.fxml"));
+        Scene purchaseScene = new Scene(purchaseParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(purchaseScene);
         window.show();
     }
 }

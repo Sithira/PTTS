@@ -14,12 +14,12 @@ public class TokenController {
 
     @FXML
     private void backButtonClick(MouseEvent event) throws IOException {
-        Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
-        Scene dashboardScene = new Scene(dashboardParent);
+        Parent purchaseParent = FXMLLoader.load(getClass().getResource("/purchase/purchase.fxml"));
+        Scene purchaseScene = new Scene(purchaseParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(dashboardScene);
+        window.setScene(purchaseScene);
         window.show();
     }
 

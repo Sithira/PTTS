@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import shu.cssd.transportsystem.MainApp;
 
 import java.io.IOException;
 import java.net.URL;
@@ -60,7 +59,7 @@ public class PaymentController implements Initializable {
 
     @FXML
     private void tokenButtonClick(MouseEvent event) throws IOException {
-        Parent tokenParent = FXMLLoader.load(getClass().getResource("/tokens/token.fxml"));
+        Parent tokenParent = FXMLLoader.load(getClass().getResource("/token/token.fxml"));
         Scene tokenScene = new Scene(tokenParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

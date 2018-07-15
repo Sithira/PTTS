@@ -120,7 +120,7 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="88.0" layoutY="34.0" text="Red Line" textFill="LIME">
+                  <Label layoutX="88.0" layoutY="34.0" text="Green Line" textFill="LIME">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -155,7 +155,7 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="91.0" layoutY="35.0" text="Red Line" textFill="BLUE">
+                  <Label layoutX="91.0" layoutY="35.0" text="Blue Line" textFill="BLUE">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
