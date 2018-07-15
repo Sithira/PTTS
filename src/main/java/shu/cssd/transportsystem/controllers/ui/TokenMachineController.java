@@ -51,7 +51,7 @@ public class TokenMachineController
 	public boolean login(String username, String password)
 	{
 		
-		UserController userController = new UserController();
+		UserController userController = UserController.getInstance();
 		
 		if (userController.checkCredentials(username, password))
 		{

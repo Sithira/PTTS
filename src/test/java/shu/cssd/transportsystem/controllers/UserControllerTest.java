@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserControllerTest
 {
 	
-	private UserController userController  = new UserController();
+	private UserController userController  = UserController.getInstance();
 	
 	@Test
 	@DisplayName("A User can be created with the user controller")

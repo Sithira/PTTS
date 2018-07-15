@@ -6,10 +6,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import shu.cssd.transportsystem.MainApp;
+import shu.cssd.transportsystem.controllers.UserController;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -20,12 +22,19 @@ public class DashboardController implements Initializable
 {
 	AnchorPane rootPane;
 
-
+	private UserController userController;
+	
+	@FXML
+	private Label balance;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources)
 	{
+		this.userController =  UserController.getInstance();
+		
 		//topPane.setEffect(new DropShadow(2d, 0d, +2d, Color.BLACK));
+		
+		balance.setText(Float.toString(UserController.currentUser.balance));
 	}
 	
 	public void loadDashBoard(ActionEvent event) throws IOException
@@ -33,18 +42,17 @@ public class DashboardController implements Initializable
 		Parent parent = FXMLLoader.load(getClass().getResource("dashboard/Dashboard.fxml"));
 
 		Scene scene = new Scene(parent);
-
+		
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
 		window.setScene(scene);
 
 		window.show();
-
 	}
 
 	@FXML
 	private void logout_buttonClick(MouseEvent event) throws IOException {
-		Parent root =FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
 		MainApp.stage.getScene().setRoot(root);
 	}
 

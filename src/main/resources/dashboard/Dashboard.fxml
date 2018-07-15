@@ -41,7 +41,7 @@
                               <Font name="Open Sans Light" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="14.0" layoutY="34.0" text="\$ 400" textFill="WHITE">
+                        <Label fx:id="balance" layoutX="14.0" layoutY="34.0" text="\$ 400" textFill="WHITE">
                            <font>
                               <Font name="Open Sans ExtraBold" size="36.0" />
                            </font>

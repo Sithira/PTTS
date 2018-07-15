@@ -19,7 +19,21 @@ public class UserController
 	
 	private SetOfUsers setOfUsers = new SetOfUsers();
 	
-	public User currentUser;
+	public static User currentUser;
+	
+	private static UserController userController;
+	
+	private UserController() { }
+	
+	public static UserController getInstance()
+	{
+		if (userController == null)
+		{
+			return new UserController();
+		}
+		
+		return userController;
+	}
 	
 	/**
 	 * Create a new Employee in the system

@@ -27,21 +27,24 @@ public class JourneyCreator
 	/**
 	 * Create a journey
 	 *
-	 * @param transaction
-	 * @param origin
-	 * @param destination
+	 * @param transaction Transaction object
+	 * @param origin Origin of the journey
+	 * @param destination Destination of the journey
 	 * @return {@link Journey}
 	 */
 	public Journey createJourney(Transaction transaction, Stop origin, Stop destination)
 	{
 		
+		// create a journey object
 		Journey journey = new Journey.Builder(transaction.getUser(), origin)
 				.setDestination(destination)
 				.setCost(transaction.amount)
 				.create();
 		
+		// add to the data store
 		this.setOfJourney.create(journey);
 		
+		// return the journey
 		return journey;
 	}
 	

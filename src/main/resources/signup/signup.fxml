@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="cardPane" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.SignupController">
     <children>
-        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="574.0" prefWidth="372.0" styleClass="cardPane">
+        <AnchorPane fx:id="anchorpane" layoutX="14.0" layoutY="14.0" prefHeight="574.0" prefWidth="372.0" styleClass="cardPane">
             <children>
                 <ImageView fitHeight="95.0" fitWidth="105.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -29,49 +29,61 @@
                     </font>
                 </Label>
                 <JFXTextField fx:id="email" layoutX="64.0" layoutY="260.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Email">
-               <font>
-                  <Font size="11.0" />
-               </font></JFXTextField>
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </JFXTextField>
                 <JFXPasswordField fx:id="password" layoutX="64.0" layoutY="298.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Password">
-               <font>
-                  <Font size="11.0" />
-               </font></JFXPasswordField>
-                <JFXButton fx:id="signup_button" buttonType="RAISED" layoutX="64.0" layoutY="461.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="243.0" styleClass="topPane" text="Sign Up" textFill="WHITE">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </JFXPasswordField>
+                <JFXPasswordField fx:id="password_confirm" layoutX="63.0" layoutY="339.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Password Confirm">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </JFXPasswordField>
+                <JFXButton fx:id="signup_button" buttonType="RAISED" layoutX="64.0" layoutY="486.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="41.0" prefWidth="243.0" styleClass="topPane" text="Sign Up" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </JFXButton>
-                <Label layoutX="109.0" layoutY="527.0" text="By signing up, you agree to our" textFill="#a7a4a4" />
-            <JFXTextField fx:id="name" layoutX="64.0" layoutY="180.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Name">
-               <font>
-                  <Font size="11.0" />
-               </font></JFXTextField>
-            <JFXTextField fx:id="username" layoutX="63.0" layoutY="219.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Username">
-               <font>
-                  <Font size="11.0" />
-               </font></JFXTextField>
-            <JFXTextField fx:id="address" layoutX="63.0" layoutY="333.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Your Address">
-               <font>
-                  <Font size="11.0" />
-               </font></JFXTextField>
-            <Label layoutX="126.0" layoutY="544.0" text="Terms &amp; Privacy Policy" textFill="#a7a4a4">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="city" layoutX="64.0" layoutY="368.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Your City">
-               <font>
-                  <Font size="11.0" />
-               </font></JFXTextField>
-            <JFXTextField fx:id="postalCode" layoutX="65.0" layoutY="403.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Your Postal Code">
-               <font>
-                  <Font size="11.0" />
-               </font></JFXTextField>
-            <ImageView fx:id="back_button" fitHeight="41.0" fitWidth="37.0" layoutX="320.0" layoutY="14.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/back.png" />
-               </image>
-            </ImageView>
+                <Label layoutX="89.0" layoutY="536.0" text="By signing up, you agree to our" textFill="#a7a4a4" />
+                <JFXTextField fx:id="name" layoutX="64.0" layoutY="180.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Name">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="username" layoutX="63.0" layoutY="219.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Username">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="address" layoutX="65.0" layoutY="373.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Your Address">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </JFXTextField>
+                <Label layoutX="122.0" layoutY="553.0" text="Terms &amp; Privacy Policy" textFill="#a7a4a4">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <JFXTextField fx:id="city" layoutX="66.0" layoutY="408.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Your City">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="postalCode" layoutX="67.0" layoutY="443.0" opacity="0.5" prefHeight="25.0" prefWidth="243.0" promptText="Enter Your Postal Code">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </JFXTextField>
+                <ImageView fx:id="back_button" fitHeight="41.0" fitWidth="37.0" layoutX="320.0" layoutY="14.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/back.png" />
+                    </image>
+                </ImageView>
             </children>
         </AnchorPane>
     </children>
