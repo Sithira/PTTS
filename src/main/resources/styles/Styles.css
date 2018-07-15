@@ -1,1 +1,48 @@
-.btn
+.root{
+    -fx-background-color: #f7f7f7;
+}
+
+.cardPane{
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+}
+
+.topPane{
+    -fx-background-color: #3196DE;
+}
+
+.dashboardTopPane{
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+}
+
+.dashboardBottomPane{
+    -fx-background-color: grey;
+}
+
+.dashboardBalance{
+    -fx-background-color: #f9ba5b;
+}
+
+.dashboardTopPane{
+    -fx-background-color: #398ede;
+    -fx-background-radius: 1px;
+}
+
+.dasboardButton{
+    -fx-background-color: #007aff;
+}
+
+.seperator{
+    -fx-background-color: #757676;
+}
+
+.randomwhite{
+    -fx-background-color: white;
+}
+
+.topCardPane{
+    -fx-background-color: #f2F2F2;
+    -fx-background-radius: 8px;
+}
+
