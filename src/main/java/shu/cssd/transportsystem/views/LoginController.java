@@ -12,11 +12,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import shu.cssd.transportsystem.controllers.UserController;
+
 
 public class LoginController implements Initializable
 {
@@ -33,8 +36,8 @@ public class LoginController implements Initializable
 
 	// Goes to the Dashboard
 	@FXML
-	private void login_buttonClick(ActionEvent event) throws IOException
-	{
+	private void login_buttonClick(ActionEvent event) throws IOException {
+
         UserController user = new UserController();
         String currentUsername = username.getText();
         String currentPassword = password.getText();
@@ -52,6 +55,29 @@ public class LoginController implements Initializable
             dashboardController.loadDashBoard(event);
         }
         else{
+
+//            if(currentUsername.equals(""))
+//            {
+//                Alert errorAlert = new Alert(AlertType.WARNING);
+//                errorAlert.setTitle("Warning");
+//                errorAlert.setHeaderText("Please Enter a USERNAME");
+//                errorAlert.showAndWait();
+//            }
+//            else if (currentPassword.equals(""))
+//            {
+//                Alert errorAlert = new Alert(AlertType.WARNING);
+//                errorAlert.setTitle("Warning");
+//                errorAlert.setHeaderText("Please Enter a PASSWORD");
+//                errorAlert.showAndWait();
+//            }
+//            else
+//            {
+//                Alert errorAlert = new Alert(AlertType.ERROR);
+//                errorAlert.setTitle("Error");
+//                errorAlert.setHeaderText("Input not valid!");
+//                errorAlert.showAndWait();
+//            }
+
             Parent dashboardParent = FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
             Scene dashboardScene = new Scene(dashboardParent);
 
@@ -59,8 +85,8 @@ public class LoginController implements Initializable
 
             window.setScene(dashboardScene);
             window.show();
-        }
 
+        }
 
 	}
 

@@ -46,7 +46,7 @@ public class TokenMachineController
 	 *
 	 * @param username
 	 * @param password
-	 * @return
+	 * @return boolean
 	 */
 	public boolean login(String username, String password)
 	{
