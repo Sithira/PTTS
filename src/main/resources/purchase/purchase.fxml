@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.trainrouteController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.purchaseController">
     <children>
         <AnchorPane fx:id="topPane" layoutY="-9.0" prefHeight="67.0" prefWidth="400.0" styleClass="dashboardTopPane" stylesheets="@../styles/Styles.css">
             <children>
@@ -80,16 +80,16 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="274.0" layoutY="12.0" text="Non - Stop" textFill="#398ede">
-                     <font>
-                        <Font name="Calibri Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="86.0" layoutY="33.0" text="Express" textFill="#16a43a">
-                     <font>
-                        <Font name="Calibri Bold" size="18.0" />
-                     </font>
-                  </Label>
+                        <Label layoutX="274.0" layoutY="12.0" text="Non - Stop" textFill="#398ede">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="86.0" layoutY="33.0" text="Express" textFill="#16a43a">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
                     </children></AnchorPane>
             </children>
         </VBox>
@@ -115,11 +115,11 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="282.0" layoutY="12.0" text="4 Stops" textFill="#398ede">
-                     <font>
-                        <Font name="Calibri Bold" size="18.0" />
-                     </font>
-                  </Label>
+                        <Label layoutX="282.0" layoutY="12.0" text="4 Stops" textFill="#398ede">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
                     </children></AnchorPane>
             </children>
         </VBox>
@@ -145,16 +145,16 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="271.0" layoutY="14.0" text="Non - Stop" textFill="#398ede">
-                     <font>
-                        <Font name="Calibri Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="93.0" layoutY="33.0" text="Express" textFill="#16a43a">
-                     <font>
-                        <Font name="Calibri Bold" size="18.0" />
-                     </font>
-                  </Label>
+                        <Label layoutX="271.0" layoutY="14.0" text="Non - Stop" textFill="#398ede">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="93.0" layoutY="33.0" text="Express" textFill="#16a43a">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
                     </children>
                 </AnchorPane>
             </children>
@@ -176,16 +176,16 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="279.0" layoutY="34.0" text="45 mins" textFill="#a7a4a4">
-                     <font>
-                        <Font name="Calibri Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="282.0" layoutY="12.0" text="2 Stops" textFill="#398ede">
-                     <font>
-                        <Font name="Calibri Bold" size="18.0" />
-                     </font>
-                  </Label>
+                        <Label layoutX="279.0" layoutY="34.0" text="45 mins" textFill="#a7a4a4">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="282.0" layoutY="12.0" text="2 Stops" textFill="#398ede">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
                     </children>
                 </AnchorPane>
             </children>
@@ -207,21 +207,21 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="282.0" layoutY="37.0" text="10 mins" textFill="#a7a4a4">
-                     <font>
-                        <Font name="Calibri Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="284.0" layoutY="15.0" text="4 Stops" textFill="#398ede">
-                     <font>
-                        <Font name="Calibri Bold" size="18.0" />
-                     </font>
-                  </Label>
+                        <Label layoutX="282.0" layoutY="37.0" text="10 mins" textFill="#a7a4a4">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="284.0" layoutY="15.0" text="4 Stops" textFill="#398ede">
+                            <font>
+                                <Font name="Calibri Bold" size="18.0" />
+                            </font>
+                        </Label>
                     </children>
                 </AnchorPane>
             </children>
         </VBox>
-        <Label layoutX="26.0" layoutY="65.0" text="Nearby Trains" textFill="#398ede">
+        <Label layoutX="26.0" layoutY="65.0" text="Buy Tickets" textFill="#398ede">
             <font>
                 <Font name="Open Sans ExtraBold" size="48.0" />
             </font>
