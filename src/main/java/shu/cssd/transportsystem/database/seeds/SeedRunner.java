@@ -12,7 +12,7 @@ public class SeedRunner
 	/**
 	 * Set the debug logs
 	 */
-	private static boolean DEBUG = false;
+	private static boolean DEBUG = true;
 	
 	/**
 	 * Array of Classes that needs to be run while seeding

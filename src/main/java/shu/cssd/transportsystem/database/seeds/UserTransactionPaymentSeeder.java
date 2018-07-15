@@ -70,8 +70,8 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 				"Colombo",
 				"10230",
 				"chathu",
-				"admin").addAsEmployee(35000, permissions[3]).create();
-
+				"admin").addAsEmployee(35000, null).create();
+		
 		User user5 = new User.Builder(
 				"Vindula",
 				"vindu@gmail.com",

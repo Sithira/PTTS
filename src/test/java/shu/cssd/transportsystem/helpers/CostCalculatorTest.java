@@ -44,7 +44,7 @@ class CostCalculatorTest
 		
 		Stop destination = (Stop) stopes.get(1);
 		
-		//assertEquals(costCalculator.calculate(origin, destination, destination.getRoute()), 12);
+		assertEquals(costCalculator.calculate(origin, destination, destination.getRoute()), 18);
 	
 	}
 }

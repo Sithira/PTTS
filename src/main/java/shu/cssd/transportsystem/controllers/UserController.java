@@ -4,6 +4,7 @@ import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.models.Payment;
+import shu.cssd.transportsystem.models.Permission;
 import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.User;
 import shu.cssd.transportsystem.models.collections.SetOfPayments;
@@ -28,17 +29,17 @@ public class UserController
 	 * @param city
 	 * @param postalCode
 	 * @param salary
-	 * @param permission_id
+	 * @param permission {@link Permission}
 	 * @param username
 	 * @param password
 	 * @return Returns a boolean depending on the status of creation
 	 */
 	public boolean createEmployee(String name, String email, String address, String city, String postalCode,
-	                      float salary, String permission_id, String username, String password)
+	                              float salary, Permission permission, String username, String password)
 	{
 		
 		User user = new User.Builder(name, email, address, city, postalCode, username, password)
-				.addAsEmployee(salary, permission_id)
+				.addAsEmployee(salary, permission)
 				.create();
 		
 		return setOfUsers.create(user);

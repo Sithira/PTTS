@@ -215,13 +215,13 @@ public class User extends BaseModel
 		 * Make the current user as an Employee
 		 *
 		 * @param salary
-		 * @param permissionId
-		 * @return
+		 * @param permission {@link Permission}
+		 * @return {@link Builder}
 		 */
-		public Builder addAsEmployee(float salary, String permissionId)
+		public Builder addAsEmployee(float salary, Permission permission)
 		{
 			this.salary = salary;
-			this.permissionId = permissionId;
+			this.permissionId = permission.id;
 			
 			return this;
 		}
