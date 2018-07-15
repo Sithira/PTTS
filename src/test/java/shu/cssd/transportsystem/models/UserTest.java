@@ -25,19 +25,24 @@ class UserTest
 	void createNewUser()
 	{
 		
+		// get the permission from the Data store
 		Permission permission = (Permission) (new SetOfPermissions()).all().get(0);
 		
+		// create a new user and assign the permission at the same time
 		User user = new User.Builder("Test", "dfdsdfs", "fdsfsdfd", "fdsfdsf", "fsfsdf", "fsfsdf", "sfsdfd")
 				.addAsEmployee(2000, permission)
 				.create();
 		
+		// save the user into the database
 		setOfUsers.create(user);
 		
 		try
 		{
 			
+			// get the user by id
 			User get = (User) this.setOfUsers.findById(user.id);
 			
+			// check if the user permission is equal to the actual permission id
 			assertEquals(permission.id, get.permissionId);
 			
 		} catch (ModelNotFoundException e)
