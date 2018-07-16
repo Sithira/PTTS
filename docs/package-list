@@ -1,0 +1,15 @@
+shu.cssd.transportsystem
+shu.cssd.transportsystem.controllers
+shu.cssd.transportsystem.controllers.ui
+shu.cssd.transportsystem.database.seeds
+shu.cssd.transportsystem.foundation
+shu.cssd.transportsystem.foundation.core
+shu.cssd.transportsystem.foundation.core.transaction
+shu.cssd.transportsystem.foundation.database
+shu.cssd.transportsystem.foundation.exceptions
+shu.cssd.transportsystem.foundation.interfaces
+shu.cssd.transportsystem.foundation.types
+shu.cssd.transportsystem.helpers
+shu.cssd.transportsystem.models
+shu.cssd.transportsystem.models.collections
+shu.cssd.transportsystem.views
