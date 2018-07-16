@@ -46,4 +46,8 @@
     -fx-background-radius: 8px;
 }
 
+.tokenMachineTopPane{
+    -fx-background-color: #398ede;
+    -fx-background-radius: 8px;
+}
 

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.mobileApp.ProfileController">
+    <children>
+        <VBox layoutY="540.0" prefHeight="60.0" prefWidth="400.0" styleClass="cardPane">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <AnchorPane prefHeight="66.0" prefWidth="400.0">
+                    <children>
+                        <ImageView fx:id="paymentButton" fitHeight="37.0" fitWidth="38.0" layoutX="43.0" layoutY="12.0" onMouseClicked="#paymentButtonClick" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/payment.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" onMouseClicked="#journeyButtonClick" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/journey.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="225.0" layoutY="11.0" onMouseClicked="#routeButtonClick" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/route.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="317.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/profile.png" />
+                            </image>
+                        </ImageView>
+                        <Separator layoutX="104.0" layoutY="12.0" orientation="VERTICAL" prefHeight="35.0" />
+                        <Separator layoutX="194.0" layoutY="13.0" orientation="VERTICAL" prefHeight="35.0" />
+                        <Separator layoutX="286.0" layoutY="13.0" orientation="VERTICAL" prefHeight="35.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+      <AnchorPane layoutX="-1.0" layoutY="309.0" prefHeight="235.0" prefWidth="400.0" styleClass="randomwhite" stylesheets="@../../styles/Styles.css">
+         <children>
+            <Label layoutX="37.0" layoutY="41.0" text="Contact Number">
+               <font>
+                  <Font name="Open Sans SemiBold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="63.0" text="+44 7911 123456" textFill="#a7a4a4">
+               <font>
+                  <Font name="Open Sans SemiBold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="106.0" text="Member Type">
+               <font>
+                  <Font name="Open Sans SemiBold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="128.0" text="Premium" textFill="#a7a4a4">
+               <font>
+                  <Font name="Open Sans SemiBold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="166.0" text="Address">
+               <font>
+                  <Font name="Open Sans SemiBold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="188.0" text="Fulham Rd, Fulham, London SW6 1HS, UK" textFill="#a7a4a4">
+               <font>
+                  <Font name="Open Sans SemiBold" size="13.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <ImageView fitHeight="321.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/3152190687_e31fa04c44_z.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="69.0" layoutX="303.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/edit.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Label layoutX="35.0" layoutY="253.0" text="John Doe" textFill="WHITE">
+         <font>
+            <Font name="Open Sans ExtraBold" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="backButton" fitHeight="78.0" fitWidth="44.0" layoutX="311.0" layoutY="14.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/back-white.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

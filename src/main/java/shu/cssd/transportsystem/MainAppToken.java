@@ -1,25 +1,23 @@
 package shu.cssd.transportsystem;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import shu.cssd.transportsystem.views.mobileApp.MetaData;
 
-
-public class MainApp extends Application {
+public class MainAppToken extends Application {
 
     public  static Stage stage = null;
     @Override
     public void start(Stage stage) throws Exception {
-        
-        Parent root = FXMLLoader.load(getClass().getResource("/mobileApp/login/Scene.fxml"));
-        
+
+        Parent root = FXMLLoader.load(getClass().getResource("/tokenMachine/login/login.fxml"));
+
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-        
+
         stage.setTitle("Transport and Ticketing Management System");
         stage.setScene(scene);
         this.stage = stage;
@@ -38,5 +36,4 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 }
