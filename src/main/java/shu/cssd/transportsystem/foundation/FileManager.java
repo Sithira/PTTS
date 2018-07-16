@@ -11,7 +11,7 @@ public class FileManager implements Serializable {
     /**
      * Create an instance of the FileManager using the provided path
      *
-     * @param path Path of the file path
+     * @param path {@link String} Path of the file path
      */
     public FileManager(String path)
     {

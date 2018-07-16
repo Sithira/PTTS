@@ -4,50 +4,57 @@ import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
 public class Payment extends BaseModel
 {
+	/**
+	 * Payment Type(Card or Cash) of the payment
+	 */
 	public PaymentType paymentType;
-	
-	public String cardId;
-	
-	public String value;
-	
-	public String change;
-	
-	public Payment(PaymentType type, String cardId, String value, String change)
+
+	/**
+	 * Id of the Transaaction this payment belongs to
+	 */
+	public String transactionId;
+
+	/**
+	 * Value of the Payment
+	 */
+	public float value;
+
+	/**
+	 * Change of the Payment
+	 */
+	public float change;
+
+
+	/**
+	 *Create new Payment in the System
+	 * @param builder {@link Builder}
+	 */
+	private Payment(Builder builder)
 	{
-		this.paymentType = type;
-		this.cardId = cardId;
-		this.value = value;
-		this.change = change;
-	}
-	
-	public Payment(PaymentType type, String value, String change)
-	{
-		this.paymentType = type;
-		this.value = value;
-		this.change = change;
+		this.transactionId = builder.transaction.id;
+		this.paymentType = builder.paymentType;
+		this.value = builder.value;
 	}
 	
 	/**
 	 * Get the transaction for the cashpayment
 	 *
-	 * @return
+	 * @return {@link Transaction}
 	 */
 	public Transaction getTransaction()
 	{
 		SetOfTransactions setOfTransactions = new SetOfTransactions();
 		
-		ArrayList<BaseModel> transactions = setOfTransactions.all();
-		
-		for (BaseModel model: transactions)
+		for (BaseModel model: setOfTransactions.all())
 		{
 			
 			Transaction transaction = (Transaction) model;
 			
-			if (transaction.paymentId.equals(this.id))
+			if (transaction.id.equals(this.transactionId))
 			{
 				return transaction;
 			}
@@ -55,6 +62,56 @@ public class Payment extends BaseModel
 		}
 		
 		return null;
+	}
+	
+	public static class Builder implements Serializable
+	{
+		public PaymentType paymentType;
+		
+		public Transaction transaction;
+		
+		public float value;
+		
+		public float change;
+		
+		/**
+		 * Generates a new {@link Payment} object
+		 *
+		 * @param transaction {@link Transaction}
+		 * @param paymentType {@link PaymentType}
+		 * @param value value of the transaction
+		 */
+		public Builder(Transaction transaction, PaymentType paymentType, float value)
+		{
+			this.transaction = transaction; // this later sets its id to the real object as a string (UUID)
+			this.paymentType = paymentType;
+			this.value = value;
+		}
+		
+		/**
+		 * Set the change for the payment
+		 *
+		 * @param change Remaining value
+		 * @return {@link Builder}
+		 */
+		public Builder setChange(float change)
+		{
+			this.change = change;
+			
+			return this;
+		}
+		
+		/**
+		 * Create the instance of the payment
+		 *
+		 * @return {@link Payment}
+		 */
+		public Payment create()
+		{
+			return new Payment(this);
+		}
+		
+		
 	}
 }
 

@@ -3,3 +3,5 @@
 target/
 nb-configuration.xml
 nbactions.xml
+/docs
+database/*
