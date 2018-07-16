@@ -87,6 +87,14 @@ public class TransactionController
 		
 		this.setOfTransactions.create(transaction);
 		
+		try
+		{
+			(new SetOfUsers()).findByIdAndUpdate(user.id, user);
+		} catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
 		return transaction;
 	}
 
