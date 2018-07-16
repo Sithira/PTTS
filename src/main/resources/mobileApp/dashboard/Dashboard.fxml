@@ -14,7 +14,7 @@
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.mobileApp.DashboardController">
    <children>
 
-      <AnchorPane fx:id="topPane" layoutY="-9.0" prefHeight="267.0" prefWidth="400.0" styleClass="dashboardTopPane" stylesheets="@../styles/Styles.css">
+      <AnchorPane fx:id="topPane" layoutY="-9.0" prefHeight="267.0" prefWidth="400.0" styleClass="dashboardTopPane" stylesheets="@../../styles/Styles.css">
 
          <children>
             <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -33,7 +33,7 @@
                </font>
             </Label>
 
-            <VBox layoutX="26.0" layoutY="123.0" minHeight="-Infinity" prefHeight="85.0" prefWidth="223.0" styleClass="dashboardBalance" stylesheets="@../styles/Styles.css" AnchorPane.bottomAnchor="63.0">
+            <VBox layoutX="26.0" layoutY="123.0" minHeight="-Infinity" prefHeight="85.0" prefWidth="223.0" styleClass="dashboardBalance" stylesheets="@../../styles/Styles.css" AnchorPane.bottomAnchor="63.0">
 
                <effect>
                   <DropShadow />
@@ -55,16 +55,16 @@
                   </AnchorPane>
                </children></VBox>
 
-            <JFXButton id="smartCardBtn" fx:id="smartCardButton" buttonType="RAISED" layoutX="267.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#smartCardButtonClick" prefHeight="39.0" prefWidth="114.0" styleClass="dasboardButton" stylesheets="@../styles/Styles.css" text="Smart Card" textFill="WHITE">
+            <JFXButton id="smartCardBtn" fx:id="smartCardButton" buttonType="RAISED" layoutX="267.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#smartCardButtonClick" prefHeight="39.0" prefWidth="114.0" styleClass="dasboardButton" stylesheets="@../../styles/Styles.css" text="Smart Card" textFill="WHITE">
                <font>
                   <Font name="Open Sans SemiBold" size="18.0" />
                </font></JFXButton>
-            <JFXButton id="tokenBtn" fx:id="tokenButton" buttonType="RAISED" layoutX="267.0" layoutY="165.0" mnemonicParsing="false" onMouseClicked="#tokenButtonClick" prefHeight="39.0" prefWidth="114.0" styleClass="dasboardButton" stylesheets="@../styles/Styles.css" text="Tokens" textFill="WHITE">
+            <JFXButton id="tokenBtn" fx:id="tokenButton" buttonType="RAISED" layoutX="267.0" layoutY="165.0" mnemonicParsing="false" onMouseClicked="#tokenButtonClick" prefHeight="39.0" prefWidth="114.0" styleClass="dasboardButton" stylesheets="@../../styles/Styles.css" text="Tokens" textFill="WHITE">
                <font>
                   <Font name="Open Sans SemiBold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton id="topupBtn" fx:id="topupButton" buttonType="RAISED" layoutX="267.0" layoutY="215.0" mnemonicParsing="false" onMouseClicked="#topupButtonClick" prefHeight="39.0" prefWidth="114.0" styleClass="dasboardButton" stylesheets="@../styles/Styles.css" text="Top Up" textFill="WHITE">
+            <JFXButton id="topupBtn" fx:id="topupButton" buttonType="RAISED" layoutX="267.0" layoutY="215.0" mnemonicParsing="false" onMouseClicked="#topupButtonClick" prefHeight="39.0" prefWidth="114.0" styleClass="dasboardButton" stylesheets="@../../styles/Styles.css" text="Top Up" textFill="WHITE">
                <font>
                   <Font name="Open Sans SemiBold" size="18.0" />
                </font>

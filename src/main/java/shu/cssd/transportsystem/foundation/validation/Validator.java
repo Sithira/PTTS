@@ -54,6 +54,26 @@ public class Validator
 	}
 	
 	/**
+	 * Check if the value is a numeric
+	 *
+	 * @param textField field to be validated
+	 * @return boolean
+	 */
+	public boolean isNumeric(JFXTextField textField)
+	{
+		try
+		{
+			Float.parseFloat(textField.getText());
+			
+			return true;
+		}
+		catch (NumberFormatException e)
+		{
+			return false;
+		}
+	}
+	
+	/**
 	 * Validate the Two Fields
 	 *
 	 * @param textField field 1

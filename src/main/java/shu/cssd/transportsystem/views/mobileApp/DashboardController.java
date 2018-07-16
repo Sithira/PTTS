@@ -12,6 +12,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import shu.cssd.transportsystem.MainApp;
 import shu.cssd.transportsystem.controllers.UserController;
+import shu.cssd.transportsystem.foundation.validation.Validator;
+import shu.cssd.transportsystem.views.helpers.AlertBox;
 
 import java.awt.*;
 import java.io.IOException;
@@ -24,6 +26,8 @@ public class DashboardController implements Initializable
 	public JFXTextField topUpAmount;
 	
 	private UserController userController;
+	
+	private Validator validator = Validator.getInstance();
 	
 	@FXML
 	private Label balance;
@@ -43,7 +47,7 @@ public class DashboardController implements Initializable
 	{
 
 		
-		Parent parent = FXMLLoader.load(getClass().getResource("dashboard/Dashboard.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("/mobileAppdashboard/Dashboard.fxml"));
 
 		Scene scene = new Scene(parent);
 		
@@ -57,14 +61,14 @@ public class DashboardController implements Initializable
 
 	private void logout_buttonClick(MouseEvent event) throws IOException
 	{
-		Parent root = FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/mobileApp/login/Scene.fxml"));
 		MainApp.stage.getScene().setRoot(root);
 	}
 	
 	@FXML
 	private void smartCardButtonClick(MouseEvent event) throws IOException
 	{
-		Parent paymentParent = FXMLLoader.load(getClass().getResource("/payment/Payment.fxml"));
+		Parent paymentParent = FXMLLoader.load(getClass().getResource("/mobileApp/payment/Payment.fxml"));
 		Scene paymentScene = new Scene(paymentParent);
 		
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -76,7 +80,7 @@ public class DashboardController implements Initializable
 	@FXML
 	private void journeyButtonClick(MouseEvent event) throws IOException
 	{
-		Parent journeyParent = FXMLLoader.load(getClass().getResource("/journey/journey.fxml"));
+		Parent journeyParent = FXMLLoader.load(getClass().getResource("/mobileApp/journey/journey.fxml"));
 		Scene journeyScene = new Scene(journeyParent);
 		
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -88,7 +92,7 @@ public class DashboardController implements Initializable
 	@FXML
 	private void timetableButtonClick(MouseEvent event) throws IOException
 	{
-		Parent timetableParent = FXMLLoader.load(getClass().getResource("/timetable/timetable.fxml"));
+		Parent timetableParent = FXMLLoader.load(getClass().getResource("/mobileApp/timetable/timetable.fxml"));
 		Scene timetableScene = new Scene(timetableParent);
 		
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -101,7 +105,7 @@ public class DashboardController implements Initializable
 
 	private void profileButtonClick(MouseEvent event) throws IOException
 	{
-		Parent profileParent = FXMLLoader.load(getClass().getResource("/profile/profile.fxml"));
+		Parent profileParent = FXMLLoader.load(getClass().getResource("/mobileApp/profile/profile.fxml"));
 
 		Scene profileScene = new Scene(profileParent);
 		
@@ -115,7 +119,7 @@ public class DashboardController implements Initializable
 	@FXML
 	private void tokenButtonClick(MouseEvent event) throws IOException
 	{
-		Parent tokenParent = FXMLLoader.load(getClass().getResource("/token/token.fxml"));
+		Parent tokenParent = FXMLLoader.load(getClass().getResource("/mobileApp/token/token.fxml"));
 		Scene tokenScene = new Scene(tokenParent);
 		
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -127,7 +131,7 @@ public class DashboardController implements Initializable
 	@FXML
 	private void routeButtonClick(MouseEvent event) throws IOException
 	{
-		Parent routeParent = FXMLLoader.load(getClass().getResource("/route/route.fxml"));
+		Parent routeParent = FXMLLoader.load(getClass().getResource("/mobileApp/route/route.fxml"));
 
 		Scene routeScene = new Scene(routeParent);
 		
@@ -139,6 +143,14 @@ public class DashboardController implements Initializable
 	
 	public void topupButtonClick(MouseEvent mouseEvent)
 	{
+		
+		if (this.validator.isEmpty(topUpAmount) || !this.validator.isNumeric(topUpAmount))
+		{
+			AlertBox.getInstance().alertWithHeader("Whoops !", "Please check your input");
+			
+			return;
+		}
+		
 		//UserController user = new UserController();
 		
 		System.out.println(userController.currentUser.name);

@@ -51,7 +51,7 @@ public class LoginController implements Initializable
 		
 		if (user.checkCredentials(currentUsername, currentPassword))
 		{
-			Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
+			Parent dashboardParent = FXMLLoader.load(getClass().getResource("/mobileApp/dashboard/Dashboard.fxml"));
 			Scene dashboardScene = new Scene(dashboardParent);
 			
 			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -60,7 +60,7 @@ public class LoginController implements Initializable
 			window.show();
 		} else
 		{
-			Parent dashboardParent = FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
+			Parent dashboardParent = FXMLLoader.load(getClass().getResource("/mobileApp/login/Scene.fxml"));
 			Scene dashboardScene = new Scene(dashboardParent);
 			
 			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -77,7 +77,7 @@ public class LoginController implements Initializable
 	private void signup_labelClick(javafx.scene.input.MouseEvent event) throws IOException
 	{
 		// This code opens up in the same Pane
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/signup/signup.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/mobileApp/signup/signup.fxml"));
 		rootPane.getChildren().setAll(pane);
 		
 		// This code opens up in a new window
