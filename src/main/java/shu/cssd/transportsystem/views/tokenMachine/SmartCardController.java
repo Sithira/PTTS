@@ -11,17 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SmartCardController {
-    @FXML
-    private void smartCardButtonClick(MouseEvent event) throws IOException {
-        Parent smcParent = FXMLLoader.load(getClass().getResource("/tokenMachine/login/login.fxml"));
-        Scene smcScene = new Scene(smcParent);
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(smcScene);
-        window.show();
-    }
-
+    public static boolean previous = false;
     @FXML
     private void backButtonClick(MouseEvent event) throws IOException {
         Parent homeParent = FXMLLoader.load(getClass().getResource("/tokenMachine/home/home.fxml"));
@@ -30,6 +21,19 @@ public class SmartCardController {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(homeScene);
+        window.show();
+    }
+
+
+    @FXML
+    private void paymentButtonClick(MouseEvent event) throws IOException {
+        previous = true;
+        Parent payParent = FXMLLoader.load(getClass().getResource("/tokenMachine/payment/payment.fxml"));
+        Scene payScene = new Scene(payParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(payScene);
         window.show();
     }
 }

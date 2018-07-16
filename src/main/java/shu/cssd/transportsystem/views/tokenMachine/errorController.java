@@ -10,29 +10,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TokensController {
-    public static boolean previous = false;
-
+public class errorController {
     @FXML
-    private void backButtonClick(MouseEvent event) throws IOException {
+    private void homeButtonClick(MouseEvent event) throws IOException {
         Parent homeParent = FXMLLoader.load(getClass().getResource("/tokenMachine/home/home.fxml"));
         Scene homeScene = new Scene(homeParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(homeScene);
-        window.show();
-    }
-
-    @FXML
-    private void paymentButtonClick(MouseEvent event) throws IOException {
-        previous = true;
-        Parent payParent = FXMLLoader.load(getClass().getResource("/tokenMachine/payment/payment.fxml"));
-        Scene payScene = new Scene(payParent);
-
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(payScene);
         window.show();
     }
 }
