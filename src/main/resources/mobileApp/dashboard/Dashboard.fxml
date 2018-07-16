@@ -75,7 +75,7 @@
             <AnchorPane prefHeight="255.0" prefWidth="363.0">
                <children>
                   <Separator layoutX="29.0" layoutY="126.0" prefWidth="300.0" />
-                  <Label layoutX="29.0" layoutY="20.0" onMouseClicked="#routeButtonClick" text="Route Information">
+                  <Label layoutX="29.0" layoutY="20.0" onMouseClicked="#purchaseButtonClick" text="Add Card To Your Account">
                      <font>
                         <Font name="Open Sans SemiBold" size="18.0" />
                      </font>
@@ -83,11 +83,6 @@
                   <Label layoutX="29.0" layoutY="138.0" onMouseClicked="#timetableButtonClick" text="Transport Timetable">
                      <font>
                         <Font name="Open Sans SemiBold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="29.0" layoutY="45.0" onMouseClicked="#routeButtonClick" text="All route information can be found here" textFill="#a7a4a4">
-                     <font>
-                        <Font name="Calibri" size="12.0" />
                      </font>
                   </Label>
                   <Label layoutX="29.0" layoutY="169.0" onMouseClicked="#timetableButtonClick" text="Do you want to know when your preferred" textFill="#a7a4a4">
@@ -100,14 +95,34 @@
                         <Font name="Calibri" size="12.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="routeImageButton" fitHeight="77.0" fitWidth="106.0" layoutX="252.0" layoutY="21.0" onMouseClicked="#routeButtonClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/route2.png" />
-                     </image>
-                  </ImageView>
                   <ImageView fitHeight="77.0" fitWidth="106.0" layoutX="252.0" layoutY="145.0" onMouseClicked="#timetableButtonClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/timetable.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="30.0" layoutY="50.0" onMouseClicked="#purchaseButtonClick" text="Pay with a Card or via Mobile Payments" textFill="#a7a4a4">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="247.0" layoutY="19.0" onMouseClicked="#purchaseButtonClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/visa.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="302.0" layoutY="18.0" onMouseClicked="#purchaseButtonClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/mastercard.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="248.0" layoutY="73.0" onMouseClicked="#purchaseButtonClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/apple-pay.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="302.0" layoutY="73.0" onMouseClicked="#purchaseButtonClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/google-wallet.png" />
                      </image>
                   </ImageView>
                </children></AnchorPane>

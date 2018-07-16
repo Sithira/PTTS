@@ -132,12 +132,12 @@
                         <Image url="@../../images/mastercard.png" />
                      </image>
                   </ImageView>
-                  <JFXButton buttonType="RAISED" layoutX="103.0" layoutY="191.0" mnemonicParsing="false" styleClass="topPane" text="Submit" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="112.0" layoutY="191.0" mnemonicParsing="false" styleClass="topPane" text="Add" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.5" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="191.0" layoutY="191.0" mnemonicParsing="false" styleClass="root" text="Cancel" textFill="#a8a8a8">
+                  <JFXButton buttonType="RAISED" layoutX="184.0" layoutY="191.0" mnemonicParsing="false" styleClass="root" text="Cancel" textFill="#a8a8a8">
                      <font>
                         <Font name="System Bold" size="16.5" />
                      </font>
@@ -159,7 +159,7 @@
             </AnchorPane>
          </children>
         </VBox>
-        <Label layoutX="58.0" layoutY="65.0" text="Buy Tickets" textFill="#398ede">
+        <Label layoutX="83.0" layoutY="66.0" text="ADD CARD" textFill="#398ede">
             <font>
                 <Font name="Open Sans ExtraBold" size="48.0" />
             </font>

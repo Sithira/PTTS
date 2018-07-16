@@ -37,9 +37,7 @@ public class DashboardController implements Initializable
 	{
 		this.userController = UserController.getInstance();
 		
-		//topPane.setEffect(new DropShadow(2d, 0d, +2d, Color.BLACK));
-		
-		balance.setText(Float.toString(UserController.currentUser.balance));
+		balance.setText("LKR " +Float.toString(UserController.currentUser.balance));
 	}
 	
 	@FXML
@@ -86,6 +84,17 @@ public class DashboardController implements Initializable
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		
 		window.setScene(journeyScene);
+		window.show();
+	}
+
+	@FXML
+	private void purchaseButtonClick(MouseEvent event) throws IOException {
+		Parent purchaseParent = FXMLLoader.load(getClass().getResource("/mobileApp/purchase/purchase.fxml"));
+		Scene purchaseScene = new Scene(purchaseParent);
+
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+		window.setScene(purchaseScene);
 		window.show();
 	}
 	
@@ -143,15 +152,12 @@ public class DashboardController implements Initializable
 	
 	public void topupButtonClick(MouseEvent mouseEvent)
 	{
-		
 		if (this.validator.isEmpty(topUpAmount) || !this.validator.isNumeric(topUpAmount))
 		{
 			AlertBox.getInstance().alertWithHeader("Whoops !", "Please check your input");
 			
 			return;
 		}
-		
-		//UserController user = new UserController();
 		
 		System.out.println(userController.currentUser.name);
 		

@@ -28,7 +28,7 @@ public class SmartCard extends BaseModel
 	/**
 	 * Balance of the Smart Card
 	 */
-	public float balance = 0;
+	public float balance ;
 
 	/**
 	 * Expiry date of the SmartCard
@@ -65,7 +65,6 @@ public class SmartCard extends BaseModel
 		{
 			e.printStackTrace();
 		}
-
 
 		return null;
 	}

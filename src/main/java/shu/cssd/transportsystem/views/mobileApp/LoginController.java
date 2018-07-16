@@ -58,7 +58,8 @@ public class LoginController implements Initializable
 			
 			window.setScene(dashboardScene);
 			window.show();
-		} else
+		}
+		else
 		{
 			Parent dashboardParent = FXMLLoader.load(getClass().getResource("/mobileApp/login/Scene.fxml"));
 			Scene dashboardScene = new Scene(dashboardParent);
