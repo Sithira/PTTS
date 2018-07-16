@@ -69,7 +69,7 @@
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <JFXButton buttonType="RAISED" layoutX="361.0" layoutY="82.0" mnemonicParsing="false" styleClass="topPane" text="Proceed" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="361.0" layoutY="82.0" mnemonicParsing="false" onMouseClicked="#paymentButtonClick" styleClass="topPane" text="Proceed" textFill="WHITE">
                      <font>
                         <Font name="Open Sans SemiBold" size="18.0" />
                      </font>
