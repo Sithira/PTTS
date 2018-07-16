@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shu.cssd.transportsystem.foundation;
 
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
@@ -12,6 +7,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
+ * BaseCollection
+ *
  * @author sithira
  */
 public abstract class BaseCollection implements Serializable
@@ -30,7 +27,7 @@ public abstract class BaseCollection implements Serializable
 	private Parser parser = Parser.getInstance();
 	
 	/**
-	 *  Build the Collection Instance in the memory.
+	 * Build the Collection Instance in the memory.
 	 */
 	public BaseCollection()
 	{
@@ -90,7 +87,7 @@ public abstract class BaseCollection implements Serializable
 	/**
 	 * Find by the model id and update
 	 *
-	 * @param id unique identification
+	 * @param id      unique identification
 	 * @param payload Object payload that's gonna get saved in the database
 	 * @return boolean status of the update
 	 * @throws ModelNotFoundException throws if model is not found
@@ -109,7 +106,7 @@ public abstract class BaseCollection implements Serializable
 	/**
 	 * Adds a new element to the collection
 	 *
-	 * @param payload  New Object that is saving to the data store
+	 * @param payload New Object that is saving to the data store
 	 * @return boolean
 	 */
 	public boolean create(BaseModel payload)
@@ -154,9 +151,9 @@ public abstract class BaseCollection implements Serializable
 	}
 	
 	/**
-	 * Get the data from the Collection (ArrayList)
+	 * Get the data from the Collection
 	 *
-	 * @return ArrayList
+	 * @return {@link ArrayList}
 	 */
 	public ArrayList<BaseModel> all()
 	{
