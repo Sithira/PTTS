@@ -3,6 +3,7 @@ package shu.cssd.transportsystem.controllers;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.models.Payment;
 import shu.cssd.transportsystem.models.SmartCard;
 import shu.cssd.transportsystem.models.Transaction;
@@ -14,7 +15,7 @@ public class SmartCardController
 {
 	
 	private SetOfSmartCards smartCards = new SetOfSmartCards();
-	
+
 	/**
 	 * Get the smart card of a user.
 	 *
@@ -81,32 +82,12 @@ public class SmartCardController
 	 */
 	public float topUpBalance(SmartCard card, float amount)
 	{
-		
-		// get the set of payments
-		SetOfPayments setOfPayments = new SetOfPayments();
-		
-		Transaction transaction = (new TransactionController()).makeTransaction(card.getUser(), PaymentType.CASH, amount);
-		
-		// create a new payment
-		Payment payment = new Payment.Builder(transaction, PaymentType.CASH, amount)
-				.create();
-		
-		// add the payment to the collection
-		setOfPayments.create(payment);
-		
-		try
-		{
-			// save in the model
-			this.smartCards.findByIdAndUpdate(card.id, card);
-			
-		} catch (ModelNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		
-		// return the amount.
-		return amount;
-	
+		UserController userController = UserController.getInstance();
+
+		Transaction transaction = (new TransactionController())
+				.makeTransaction(userController.currentUser, PaymentType.CARD, TransactionType.ADD, amount);
+
+		return userController.currentUser.getCard().balance;
 	}
 	
 }

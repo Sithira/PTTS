@@ -34,7 +34,11 @@ public class PaymentController
 	 */
 	public Payment create(Transaction transaction, PaymentType paymentType, float amount)
 	{
-		return new Payment.Builder(transaction, paymentType, amount).create();
+		Payment payment = new Payment.Builder(transaction, paymentType, amount).create();
+		
+		this.setOfPayments.create(payment);
+		
+		return payment;
 	}
 	
 	/**

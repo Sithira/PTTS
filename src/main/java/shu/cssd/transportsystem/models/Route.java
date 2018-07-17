@@ -10,10 +10,21 @@ import java.util.ArrayList;
 
 public class Route extends BaseModel {
 
+    /**
+     * Name of the Route
+     */
     public String name;
 
+    /**
+     * Transport type(Bus or Train) of the route
+     */
     TransportType transportType;
 
+    /**
+     * Create new route in the system
+     * @param name
+     * @param type
+     */
     public Route(String name, TransportType type)
     {
         this.name = name;

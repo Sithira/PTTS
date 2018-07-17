@@ -4,10 +4,13 @@ import shu.cssd.transportsystem.models.Journey;
 import shu.cssd.transportsystem.models.Stop;
 import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.User;
+import shu.cssd.transportsystem.models.collections.SetOfJourney;
 
 public class JourneyCreator
 {
 	private static JourneyCreator ourInstance = new JourneyCreator();
+	
+	private SetOfJourney setOfJourney = new SetOfJourney();
 	
 	public static JourneyCreator getInstance()
 	{
@@ -24,17 +27,25 @@ public class JourneyCreator
 	/**
 	 * Create a journey
 	 *
-	 * @param transaction
-	 * @param origin
-	 * @param destination
+	 * @param transaction Transaction object
+	 * @param origin Origin of the journey
+	 * @param destination Destination of the journey
 	 * @return {@link Journey}
 	 */
 	public Journey createJourney(Transaction transaction, Stop origin, Stop destination)
 	{
-		return new Journey.Builder(transaction.getUser(), origin)
+		
+		// create a journey object
+		Journey journey = new Journey.Builder(transaction.getUser(), origin)
 				.setDestination(destination)
 				.setCost(transaction.amount)
 				.create();
+		
+		// add to the data store
+		this.setOfJourney.create(journey);
+		
+		// return the journey
+		return journey;
 	}
 	
 	/**
@@ -46,6 +57,10 @@ public class JourneyCreator
 	 */
 	public Journey createJourney(User user, Stop origin)
 	{
-		return new Journey.Builder(user, origin).create();
+		Journey journey = new Journey.Builder(user, origin).create();
+		
+		this.setOfJourney.create(journey);
+		
+		return journey;
 	}
 }

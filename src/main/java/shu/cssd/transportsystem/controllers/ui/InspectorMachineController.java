@@ -35,7 +35,7 @@ public class InspectorMachineController
 	 */
 	public boolean login(String username, String password)
 	{
-		UserController userController = new UserController();
+		UserController userController = UserController.getInstance();
 		
 		boolean successLogin = userController.checkCredentials(username, password);
 		

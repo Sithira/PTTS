@@ -15,12 +15,24 @@ public class Stop extends BaseModel
      */
     public String zoneId;
 
+    /**
+     * Id of the Route of the Stop
+     */
     public String routeId;
 
+    /**
+     * Name of the Stop
+     */
     public String name;
 
+    /**
+     * Latitude of the Stop
+     */
     public String latitude;
 
+    /**
+     * Longitude of the Stop
+     */
     public String longitude;
 
 

@@ -4,6 +4,7 @@ import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.GateType;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.helpers.CostCalculator;
 import shu.cssd.transportsystem.helpers.JourneyCreator;
 import shu.cssd.transportsystem.models.*;
@@ -154,7 +155,8 @@ public class GateController
 							
 							currentjourney.cost = CostCalculator.getInstance().calculate(originStop, currentStop, currentRoute);
 							
-							Transaction smartCardTransaction = (new TransactionController()).makeTransaction(smartCard.getUser(), PaymentType.CARD, currentjourney.cost);
+							Transaction smartCardTransaction = (new TransactionController())
+									.makeTransaction(smartCard.getUser(), PaymentType.CARD, TransactionType.SUBSTRACT, currentjourney.cost);
 							
 							JourneyCreator.getInstance().createJourney(smartCardTransaction, originStop, currentStop);
 							

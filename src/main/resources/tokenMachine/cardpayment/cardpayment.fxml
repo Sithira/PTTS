@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.tokenMachine.CardPaymentController">
+    <children>
+        <VBox layoutX="48.0" layoutY="141.0" prefHeight="315.0" prefWidth="605.0">
+            <children>
+                <AnchorPane prefHeight="322.0" prefWidth="456.0" styleClass="cardPane">
+                    <children>
+                        <Label layoutX="14.0" layoutY="34.0" text="Card Holder's Name">
+                            <font>
+                                <Font name="Open Sans SemiBold" size="18.0" />
+                            </font>
+                        </Label>
+                  <JFXTextField layoutX="203.0" layoutY="31.0" opacity="0.5" prefHeight="25.0" prefWidth="352.0" promptText="Enter Your Name" />
+                  <Label layoutX="14.0" layoutY="72.0" text="Card Number">
+                     <font>
+                        <Font name="Open Sans SemiBold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="110.0" text="CVV">
+                     <font>
+                        <Font name="Open Sans SemiBold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="145.0" text="Expiration Date">
+                     <font>
+                        <Font name="Open Sans SemiBold" size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField layoutX="203.0" layoutY="67.0" opacity="0.5" prefHeight="25.0" prefWidth="352.0" promptText="Enter Card Number" />
+                  <JFXTextField layoutX="203.0" layoutY="103.0" opacity="0.5" prefHeight="25.0" prefWidth="126.0" promptText="Secret Number" />
+                        <JFXComboBox layoutX="203.0" layoutY="138.0" opacity="0.5" prefWidth="150.0" promptText="Month">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="January" />
+                                    <String fx:value="February" />
+                                    <String fx:value="March" />
+                                    <String fx:value="April" />
+                                    <String fx:value="May" />
+                                    <String fx:value="June" />
+                                    <String fx:value="July" />
+                                    <String fx:value="August" />
+                                    <String fx:value="September" />
+                                    <String fx:value="October" />
+                                    <String fx:value="November" />
+                                    <String fx:value="December" />
+                                </FXCollections>
+                            </items>
+                        </JFXComboBox>
+                  <Label layoutX="366.0" layoutY="145.0" text="/">
+                     <font>
+                        <Font name="Open Sans SemiBold" size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField layoutX="383.0" layoutY="140.0" opacity="0.5" prefHeight="25.0" prefWidth="126.0" promptText="Year" />
+                  <JFXButton buttonType="RAISED" layoutX="141.0" layoutY="178.0" mnemonicParsing="false" onMouseClicked="#successButtonClick" prefHeight="42.0" prefWidth="157.0" styleClass="topPane" text="Submit" textFill="WHITE">
+                     <font>
+                        <Font name="Open Sans SemiBold" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="308.0" layoutY="178.0" mnemonicParsing="false" onMouseClicked="#errorButtonClick" prefHeight="42.0" prefWidth="157.0" styleClass="root" text="Cancel" textFill="#a7a4a4">
+                     <font>
+                        <Font name="Open Sans SemiBold" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="86.0" fitWidth="63.0" layoutX="149.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/visa.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="86.0" fitWidth="63.0" layoutX="221.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/mastercard.png" />
+                     </image>
+                  </ImageView>
+                  <Separator layoutX="300.0" layoutY="230.0" orientation="VERTICAL" prefHeight="70.0" />
+                  <ImageView fitHeight="86.0" fitWidth="63.0" layoutX="319.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/apple-pay.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="86.0" fitWidth="63.0" layoutX="391.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/google-wallet.png" />
+                     </image>
+                  </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+            <effect>
+                <DropShadow />
+            </effect>
+        </VBox>
+        <ImageView fitHeight="97.0" fitWidth="103.0" layoutX="52.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../images/id-card.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="293.0" layoutY="40.0" text="Card">
+            <font>
+                <Font name="Open Sans ExtraBold" size="48.0" />
+            </font>
+        </Label>
+        <Label layoutX="355.0" layoutY="470.0" text="To Retry">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="289.0" layoutY="470.0" text="Click Here" textFill="#398ede">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="backButton" fitHeight="97.0" fitWidth="103.0" layoutX="581.0" layoutY="26.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../images/back.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

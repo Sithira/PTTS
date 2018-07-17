@@ -141,30 +141,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		Stop stop8 = new Stop(zones[3], routes[3],"Badulla", "6.931059", "79.364242");
 		Stop stop9 = new Stop(zones[0], routes[0],"Maradana", "6.957372", "78.863549");
 		Stop stop10 = new Stop(zones[1], routes[1],"Pettah", "6.977339", "79.465261");
-
-		//Seed Tokens
-		Token token1 = new Token(transaction1, stop1, stop2);
-		Token token2 = new Token(transaction3, stop10, stop9);
-
-		//Seed Journey
-		Journey journey1 = new Journey.Builder(user1, stop1).setDestination(stop5).setCost(135f).create();
-		Journey journey2 = new Journey.Builder(user2, stop2).setDestination(stop10).setCost(175f).create();
-		Journey journey3 = new Journey.Builder(user3, stop3).setDestination(stop7).setCost(50f).create();
-		Journey journey4 = new Journey.Builder(user5, stop4).setDestination(stop8).setCost(300f).create();
-		Journey journey5 = new Journey.Builder(user5, stop10).setDestination(stop6).setCost(250f).create();
-		Journey journey6 = new Journey.Builder(user5, stop3).setDestination(stop10).setCost(250f).create();
-
-
-
-
-
-		//Create Transactions
-		this.setOfTransactions.create(transaction1);
-		this.setOfTransactions.create(transaction2);
-		this.setOfTransactions.create(transaction3);
-		this.setOfTransactions.create(transaction4);
-		this.setOfTransactions.create(transaction5);
-
+		
 		//Create Stops
 		this.setOfStops.create(stop1);
 		this.setOfStops.create(stop2);
@@ -177,6 +154,33 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		this.setOfStops.create(stop9);
 		this.setOfStops.create(stop10);
 
+		//Seed Tokens
+		Token token1 = new Token(transaction1, stop1, stop2);
+		Token token2 = new Token(transaction3, stop10, stop9);
+
+		//Seed Journey
+		Journey journey1 = new Journey.Builder(user1, stop1).setDestination(stop5).setCost(135f).create();
+		Journey journey2 = new Journey.Builder(user2, stop2).setDestination(stop10).setCost(175f).create();
+		Journey journey3 = new Journey.Builder(user3, stop3).setDestination(stop7).setCost(50f).create();
+		Journey journey4 = new Journey.Builder(user5, stop4).setDestination(stop8).setCost(300f).create();
+		Journey journey5 = new Journey.Builder(user5, stop10).setDestination(stop6).setCost(250f).create();
+		Journey journey6 = new Journey.Builder(user5, stop3).setDestination(stop10).setCost(250f).create();
+		
+		//Create Journey
+		this.setOfJourney.create(journey1);
+		this.setOfJourney.create(journey2);
+		this.setOfJourney.create(journey3);
+		this.setOfJourney.create(journey4);
+		this.setOfJourney.create(journey5);
+		this.setOfJourney.create(journey6);
+
+		//Create Transactions
+		this.setOfTransactions.create(transaction1);
+		this.setOfTransactions.create(transaction2);
+		this.setOfTransactions.create(transaction3);
+		this.setOfTransactions.create(transaction4);
+		this.setOfTransactions.create(transaction5);
+
 		//Create Tokens
 		this.setOfTokens.create(token1);
 		this.setOfTokens.create(token2);
@@ -187,14 +191,6 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 		this.setOfPayments.create(payment3);
 		this.setOfPayments.create(payment4);
 		this.setOfPayments.create(payment5);
-
-		//Create Journey
-		this.setOfJourney.create(journey1);
-		this.setOfJourney.create(journey2);
-		this.setOfJourney.create(journey3);
-		this.setOfJourney.create(journey4);
-		this.setOfJourney.create(journey5);
-		this.setOfJourney.create(journey6);
 
 	}
 	

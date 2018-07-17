@@ -3,6 +3,8 @@ package shu.cssd.transportsystem.controllers;
 import org.apache.commons.lang.time.DateUtils;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
+import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.models.*;
 import shu.cssd.transportsystem.models.collections.SetOfJourney;
 
@@ -39,6 +41,8 @@ public class PaymentManagerController
 			
 			// apply the discount to the journey
 			journey.cost = journey.cost - (journey.cost * offer.discount);
+			
+			new TransactionController().makeTransaction(user, PaymentType.CASH, TransactionType.SUBSTRACT, journey.cost);
 			
 			// get the set
 			SetOfJourney setOfJourney = new SetOfJourney();

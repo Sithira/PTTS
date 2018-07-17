@@ -10,12 +10,30 @@ import java.util.ArrayList;
 
 public class Gate extends BaseModel
 {
+    /**
+     * Get the state of the Gate
+     * {@link GateState}
+     */
     public GateState state;
 
+    /**
+     * Get the gate type of the Gate
+     * {@link GateType}
+     */
     public GateType gateType;
 
+    /**
+     * Get stop of the Gate
+     */
     public String stopId;
 
+    /**
+     * Create new Gate
+     *
+     * @param state {@link GateState}
+     * @param gateType {@link GateState}
+     * @param stopId
+     */
     public Gate(GateState state, GateType gateType, String stopId)
     {
         this.state = state;
@@ -26,7 +44,7 @@ public class Gate extends BaseModel
     /**
      * Get the Stop of the Gate
      *
-     * @return
+     * @return {@link Stop}
      */
     public Stop getStop()
     {

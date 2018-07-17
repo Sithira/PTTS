@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import shu.cssd.transportsystem.views.MetaData;
+import shu.cssd.transportsystem.views.mobileApp.MetaData;
 
 
 public class MainApp extends Application {
@@ -15,7 +15,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-        Parent root = FXMLLoader.load(getClass().getResource("/login/Scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/mobileApp/login/Scene.fxml"));
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");

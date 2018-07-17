@@ -1,13 +1,11 @@
 package shu.cssd.transportsystem.controllers;
 
 import shu.cssd.transportsystem.foundation.BaseModel;
-import shu.cssd.transportsystem.foundation.exceptions.ModelNotFoundException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
-import shu.cssd.transportsystem.models.Payment;
+import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.models.Permission;
 import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.User;
-import shu.cssd.transportsystem.models.collections.SetOfPayments;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
 import java.util.ArrayList;
@@ -18,7 +16,21 @@ public class UserController
 	
 	private SetOfUsers setOfUsers = new SetOfUsers();
 	
-	public User currentUser;
+	private static UserController userController;
+	
+	public static User currentUser;
+	
+	private UserController() { }
+	
+	public static UserController getInstance()
+	{
+		if (userController == null)
+		{
+			return new UserController();
+		}
+		
+		return userController;
+	}
 	
 	/**
 	 * Create a new Employee in the system
@@ -76,7 +88,7 @@ public class UserController
 	 */
 	public float getBalanace()
 	{
-		return this.currentUser.balance;
+		return currentUser.balance;
 	}
 	
 	/**
@@ -86,7 +98,7 @@ public class UserController
 	 */
 	public float getCardBalance()
 	{
-		return this.currentUser.getCard().balance;
+		return currentUser.getCard().balance;
 	}
 	
 	/**
@@ -117,7 +129,7 @@ public class UserController
 			
 			if (user.username.equals(username) && user.password.equals(password))
 			{
-				this.currentUser = user;
+				currentUser = user;
 				
 				return true;
 			}
@@ -130,23 +142,16 @@ public class UserController
 	 * Update the account balance of the current user.
 	 *
 	 * @param amount
-	 * @return
 	 */
 	public float topUpBalance(float amount)
 	{
-		float value = this.currentUser.balance += amount;
 		
+		Transaction transaction = (new TransactionController())
+				.makeTransaction(currentUser, PaymentType.CASH, TransactionType.ADD, amount);
 		
-		SetOfPayments setOfPayments = new SetOfPayments();
+		new PaymentController().create(transaction, PaymentType.CASH, amount);
 		
-		Transaction transaction = (new TransactionController()).makeTransaction(this.currentUser, PaymentType.CASH, amount);
-		
-		Payment payment = new Payment.Builder(transaction, PaymentType.CASH, amount)
-				.create();
-		
-		setOfPayments.create(payment);
-		
-		return value;
+		return currentUser.balance;
 	}
 	
 	/**
@@ -155,7 +160,7 @@ public class UserController
 	public void removeCard()
 	{
 		// remove the smart card from controller class
-		(new SmartCardController()).remove(this.currentUser.getCard());
+		(new SmartCardController()).remove(currentUser.getCard());
 	}
 	
 

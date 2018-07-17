@@ -7,15 +7,29 @@ import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
 public class Journey extends BaseModel
 {
-	
+	/**
+	 * Id of the User of the Journey
+	 */
 	public String userId;
 
+	/**
+	 * Id of the Route of the Journey
+	 */
 	public String routeId;
 
+	/**
+	 * Id of the Origin Stop of the Journey
+	 */
 	public String originId;
-	
+
+	/**
+	 * Id of the Destination Stop of the Journey
+	 */
 	public String destinationId;
 
+	/**
+	 * Cost amount of the Journey
+	 */
 	public float cost;
 	
 	/**
@@ -27,6 +41,9 @@ public class Journey extends BaseModel
 	{
 		this.userId = builder.userId;
 		this.originId = builder.originId;
+		this.destinationId = builder.destinationId;
+		this.routeId = builder.routeId;
+		this.cost = builder.cost;
 	}
 
 	/**

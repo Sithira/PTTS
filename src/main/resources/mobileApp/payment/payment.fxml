@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.mobileApp.PaymentController">
+    <children>
+        <AnchorPane fx:id="topPane" layoutY="-9.0" prefHeight="254.0" prefWidth="400.0" styleClass="dashboardTopPane" stylesheets="@../../styles/Styles.css">
+            <children>
+                <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/home.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="backButton" fitHeight="46.0" fitWidth="46.0" layoutX="340.0" layoutY="14.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/back-white.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" layoutX="24.0" layoutY="62.0" text="SMART CARD" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans SemiBold" size="36.0" />
+                    </font>
+                </Label>
+                <VBox layoutX="26.0" layoutY="123.0" prefHeight="101.0" prefWidth="223.0" styleClass="dashboardBalance" stylesheets="@../../styles/Styles.css">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" snapToPixel="false" text="Current Balance" textFill="WHITE">
+                                    <font>
+                                        <Font name="Open Sans Light" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="balance1" layoutX="14.0" layoutY="34.0" textFill="WHITE">
+                                    <font>
+                                        <Font name="Open Sans ExtraBold" size="36.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </children></VBox>
+                <JFXButton fx:id="toupBtn" buttonType="RAISED" layoutX="280.0" layoutY="177.0" mnemonicParsing="false" onMouseClicked="#topupButton1Click" prefHeight="37.0" prefWidth="94.0" styleClass="dasboardButton" stylesheets="@../../styles/Styles.css" text="Top Up" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans SemiBold" size="18.0" />
+                    </font>
+                </JFXButton>
+            <JFXTextField fx:id="topUpAmount1" focusColor="WHITE" labelFloat="true" layoutX="264.0" layoutY="127.0" opacity="0.55" prefHeight="30.0" prefWidth="126.0" promptText="Top Up Amount" unFocusColor="#ffffff">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            </children></AnchorPane>
+        <VBox layoutX="19.0" layoutY="266.0" prefHeight="254.0" prefWidth="363.0" styleClass="cardPane">
+            <children>
+                <AnchorPane prefHeight="255.0" prefWidth="363.0">
+                    <children>
+                        <Separator layoutX="29.0" layoutY="126.0" prefWidth="300.0" />
+                        <Label layoutX="29.0" layoutY="20.0" onMouseClicked="#purchaseButtonClick" prefHeight="27.0" prefWidth="169.0" text="Smart Card Number">
+                            <font>
+                                <Font name="Open Sans SemiBold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="buyTokenTextButton" layoutX="29.0" layoutY="139.0" onMouseClicked="#tokenButtonClick" prefHeight="27.0" prefWidth="103.0" text="Expiry Date">
+                            <font>
+                                <Font name="Open Sans SemiBold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="cardId" layoutX="27.0" layoutY="66.0" onMouseClicked="#purchaseButtonClick" prefHeight="27.0" prefWidth="309.0" textFill="#a7a4a4">
+                            <font>
+                                <Font name="Calibri" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="expiryDate" layoutX="29.0" layoutY="185.0" onMouseClicked="#tokenButtonClick" prefHeight="27.0" prefWidth="300.0" textFill="#a7a4a4">
+                            <font>
+                                <Font name="Calibri" size="18.0" />
+                            </font>
+                        </Label>
+                    </children></AnchorPane>
+            </children>
+            <effect>
+                <DropShadow />
+            </effect></VBox>
+        <VBox layoutY="540.0" prefHeight="60.0" prefWidth="400.0" styleClass="cardPane">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <AnchorPane prefHeight="66.0" prefWidth="400.0">
+                    <children>
+                        <ImageView fx:id="paymentButton" fitHeight="37.0" fitWidth="38.0" layoutX="43.0" layoutY="12.0" onMouseClicked="#paymentButtonClick" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/payment.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" onMouseClicked="#journeyButtonClick" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/journey.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="routeButton" fitHeight="37.0" fitWidth="38.0" layoutX="225.0" layoutY="11.0" onMouseClicked="#routeButtonClick" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/route.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="profileButton" fitHeight="37.0" fitWidth="38.0" layoutX="317.0" layoutY="11.0" onMouseClicked="#profileButtonClick" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/profile.png" />
+                            </image>
+                        </ImageView>
+                        <Separator layoutX="104.0" layoutY="12.0" orientation="VERTICAL" prefHeight="35.0" />
+                        <Separator layoutX="194.0" layoutY="13.0" orientation="VERTICAL" prefHeight="35.0" />
+                        <Separator layoutX="286.0" layoutY="13.0" orientation="VERTICAL" prefHeight="35.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

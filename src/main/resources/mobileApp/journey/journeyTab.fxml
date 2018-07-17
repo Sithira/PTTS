@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" layoutY="72.0" prefHeight="60.0" prefWidth="371.0"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="shu.cssd.transportsystem.views.mobileApp.content.JourneyTabController">
+    <effect>
+        <DropShadow/>
+    </effect>
+    <!--<children>-->
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
+
+            <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="14.0"
+                       layoutY="12.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@../../images/tickets.png"/>
+            </ImageView>
+
+            <Label fx:id="origin_destination" layoutX="68.0" layoutY="9.0" text="DUMMY"
+                   textFill="#a7a4a4">
+                <font>
+                    <Font name="Calibri Bold" size="18.0"/>
+                </font>
+            </Label>
+
+            <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="319.0"
+                       layoutY="12.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@../../images/metro.png"/>
+            </ImageView>
+
+            <Label layoutX="69.0" layoutY="30.0" text="Finished"
+                       textFill="RED">
+                    <font>
+                        <Font name="Calibri Bold" size="18.0"/>
+                    </font>
+            </Label>
+
+        </AnchorPane>
+    <!--</children>-->
+</VBox>

@@ -10,16 +10,38 @@ import java.util.Date;
 public class SmartCard extends BaseModel
 {
 
+	/**
+	 * Id of the User(Owner) of this Smart Card
+	 */
 	public String userId;
-	
-	public int pinCode;
-	
-	public int cvc;
-	
-	public float balance = 0;
 
+	/**
+	 * Pin number of the Smart Card
+	 */
+	public int pinCode;
+
+	/**
+	 * CVC of th Smart Card
+	 */
+	public int cvc;
+
+	/**
+	 * Balance of the Smart Card
+	 */
+	public float balance ;
+
+	/**
+	 * Expiry date of the SmartCard
+	 */
 	public Date expiryDate;
-	
+
+	/**
+	 * Create a new SmartCard in the system
+	 * @param user
+	 * @param pinCode
+	 * @param cvc
+	 * @param expiryDate
+	 */
 	public SmartCard(User user, int pinCode, int cvc, Date expiryDate)
 	{
 		this.userId = user.id;
@@ -43,7 +65,6 @@ public class SmartCard extends BaseModel
 		{
 			e.printStackTrace();
 		}
-
 
 		return null;
 	}
