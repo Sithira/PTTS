@@ -1,5 +1,6 @@
 package shu.cssd.transportsystem.database.seeds;
 
+import org.apache.commons.lang.time.DateUtils;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.database.BaseSeeder;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
@@ -95,7 +96,7 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 
 
 		//Seed SmardCards
-		Date date = new Date();
+		Date date = DateUtils.addHours(new Date(), 5);
 
 		SmartCard smartCard1 = new SmartCard(user1, 1111, 111, date);
 		SmartCard smartCard2 = new SmartCard(user2, 2222, 222, date);

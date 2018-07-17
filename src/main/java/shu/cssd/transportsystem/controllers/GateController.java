@@ -23,6 +23,10 @@ public class GateController
 	
 	private Gate currentGate;
 	
+	public String REASON = "";
+	
+	public float amountCharged = 0;
+	
 	/**
 	 * Set current Gate
 	 *
@@ -83,14 +87,12 @@ public class GateController
 				currentGate.state = OPEN;
 				
 				return true;
-			}
-			else
+			} else
 			{
 				System.out.println("Origin stop is not valid");
 				return false;
 			}
-		}
-		catch (ModelNotFoundException e)
+		} catch (ModelNotFoundException e)
 		{
 			e.printStackTrace();
 			
@@ -128,21 +130,22 @@ public class GateController
 				
 				if (currentGate.gateType == GateType.ENTRY)
 				{
-					new Journey.Builder(smartCard.getUser(), this.currentGate.getStop()).create();
+
+					JourneyCreator.getInstance().createJourney(smartCard.getUser(), this.currentGate.getStop());
 					
 					currentGate.state = OPEN;
 					
 					return true;
-				} else
+				}
+				else
 				{
-					SetOfJourney setOfJourney = new SetOfJourney();
+
+					ArrayList<Journey> journeys = smartCard.getUser().getJourney();
 					
-					ArrayList<BaseModel> journeys = setOfJourney.all();
-					
-					for (BaseModel model : journeys)
+					for (Journey journey : journeys)
 					{
-						Journey journey = (Journey) model;
-						if (journey.routeId == null && journey.destinationId == null && journey.cost == 0)
+						
+						if (journey.destinationId == null && journey.cost == 0)
 						{
 							currentjourney = journey;
 							
@@ -154,6 +157,8 @@ public class GateController
 							
 							currentjourney.cost = CostCalculator.getInstance().calculate(originStop, currentStop, currentRoute);
 							
+							this.amountCharged = currentjourney.cost;
+							
 							Transaction smartCardTransaction = (new TransactionController())
 									.makeTransaction(smartCard.getUser(), PaymentType.CARD, TransactionType.SUBSTRACT, currentjourney.cost);
 							
@@ -164,16 +169,21 @@ public class GateController
 							return true;
 						}
 					}
+					
+					this.REASON = "NO JOURNEYS FOUND";
+					
 					return false;
 				}
 			}
 			else
 			{
 				System.out.println("Smart card has expired");
+				
+				this.REASON = "CARD HAS EXPIRED";
+				
 				return false;
 			}
-		}
-		catch (ModelNotFoundException e)
+		} catch (ModelNotFoundException e)
 		{
 			return false;
 		}
