@@ -12,8 +12,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import shu.cssd.transportsystem.MainApp;
+import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.validation.Validator;
 import shu.cssd.transportsystem.models.User;
+import shu.cssd.transportsystem.models.collections.SetOfUsers;
 import shu.cssd.transportsystem.views.helpers.AlertBox;
 
 import java.io.IOException;
@@ -46,6 +48,8 @@ public class SignupController {
     @FXML
     JFXTextField postalCode;
 
+    UserController userController = UserController.getInstance();
+
     @FXML
     public void sign_up(ActionEvent event) throws IOException
     {
@@ -61,14 +65,14 @@ public class SignupController {
                     // add the special validation
                     if (!this.validator.isEmail(((JFXTextField) node).getText()))
                     {
-                        AlertBox.getInstance().alertWithHeader("Validation Error", "Email is not in the correct format");
+                        AlertBox.getInstance().alertInfo("Validation Error", "Email is not in the correct format");
                         return;
                     }
                 }
                 // validate for empty fields
                 if (this.validator.isEmpty((JFXTextField) node))
                 {
-                    AlertBox.getInstance().alertWithHeader("Validation Error", "Field " + node.getId() + " is empty");
+                    AlertBox.getInstance().alertInfo("Validation Error", "Field " + node.getId() + " is empty");
 
                     System.out.println("Failed on:" + node.getId());
 
@@ -91,9 +95,12 @@ public class SignupController {
 
     private User createUser()
     {
+        userController.createUser(name.getText(), email.getText(), address.getText(), city.getText(), postalCode.getText(), username.getText(), password.getText());
         return new User.Builder(name.getText(), email.getText(), address.getText(),
                 city.getText(), postalCode.getText(), username.getText(), password.getText())
                 .create();
+
+
     }
 
     @FXML

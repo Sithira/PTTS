@@ -13,6 +13,7 @@ import shu.cssd.transportsystem.models.Token;
 import shu.cssd.transportsystem.models.collections.SetOfRoutes;
 import shu.cssd.transportsystem.models.collections.SetOfTokens;
 import shu.cssd.transportsystem.views.helpers.AlertBox;
+import shu.cssd.transportsystem.views.tokenMachine.SmartCardController;
 
 import java.util.ArrayList;
 
@@ -89,9 +90,12 @@ public class MobileAppController
 				.createJourney(token.getTransaction(), origin, destination);
 		
 		(new SetOfTokens()).create(token);
-		
-		AlertBox.getInstance()
-				.alertInfo("Success", "Your token has been successfully added to the token list");
+		if(!SmartCardController.from.equals("token"))
+		{
+			AlertBox.getInstance()
+					.alertInfo("Success", "Your token has been successfully added to the token list");
+		}
+
 	}
 	
 }

@@ -1,12 +1,14 @@
 package shu.cssd.transportsystem.views.tokenMachine;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -47,9 +49,6 @@ public class TokensController implements Initializable {
 
     @FXML
     private Label cost;
-
-    @FXML
-    private Label date;
 
     private Stop originStop, destinationStop;
 
@@ -149,7 +148,7 @@ public class TokensController implements Initializable {
         {
             if (origin.getSelectionModel().getSelectedItem().equals(selectedValue))
             {
-                AlertBox.getInstance().alertWithHeader("Whoops", "Origin and the Destination cant be the same");
+                AlertBox.getInstance().alertDanger("Whoops", "Origin and the Destination cant be the same");
 
                 destination.getSelectionModel().clearSelection();
 

@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -20,35 +19,29 @@
          <children>
             <AnchorPane prefHeight="255.0" prefWidth="469.0" styleClass="cardPane">
                <children>
-                  <Label layoutX="56.0" layoutY="68.0" prefHeight="20.0" prefWidth="84.0" text="To">
+                  <Label layoutX="56.0" layoutY="86.0" prefHeight="20.0" prefWidth="84.0" text="To">
                      <font>
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="56.0" layoutY="115.0" prefHeight="20.0" prefWidth="111.0" text="From">
+                  <Label layoutX="56.0" layoutY="137.0" prefHeight="20.0" prefWidth="111.0" text="From">
                      <font>
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="55.0" layoutY="159.0" prefHeight="20.0" prefWidth="111.0" text="Date">
-                     <font>
-                        <Font name="Open Sans SemiBold" size="14.0" />
-                     </font>
-                  </Label>
-                  <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#checkFareButtonClicked" styleClass="topPane" text="Check Fare" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="179.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#checkFareButtonClicked" styleClass="topPane" text="Check Fare" textFill="WHITE">
                      <font>
                         <Font name="Open Sans SemiBold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXComboBox fx:id="origin" layoutX="174.0" layoutY="65.0" onAction="#onOriginSelect" prefHeight="25.0" prefWidth="236.0" />
-                  <JFXComboBox fx:id="destination" layoutX="175.0" layoutY="111.0" onAction="#onDestinationSelect" prefHeight="25.0" prefWidth="236.0" />
-                  <JFXDatePicker fx:id="date" layoutX="175.0" layoutY="157.0" prefHeight="25.0" prefWidth="236.0" />
-                  <Label layoutX="57.0" layoutY="24.0" prefHeight="20.0" prefWidth="84.0" text="Route">
+                  <JFXComboBox fx:id="origin" layoutX="174.0" layoutY="83.0" onAction="#onOriginSelect" prefHeight="25.0" prefWidth="236.0" />
+                  <JFXComboBox fx:id="destination" layoutX="175.0" layoutY="133.0" onAction="#onDestinationSelect" prefHeight="25.0" prefWidth="236.0" />
+                  <Label layoutX="57.0" layoutY="35.0" prefHeight="20.0" prefWidth="84.0" text="Route">
                      <font>
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <JFXComboBox fx:id="route" layoutX="173.0" layoutY="17.0" onAction="#getSelectedRoute" prefHeight="25.0" prefWidth="236.0" />
+                  <JFXComboBox fx:id="route" layoutX="173.0" layoutY="28.0" onAction="#getSelectedRoute" prefHeight="25.0" prefWidth="236.0" />
                </children>
             </AnchorPane>
          </children>
