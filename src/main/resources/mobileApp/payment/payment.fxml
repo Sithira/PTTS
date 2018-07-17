@@ -66,22 +66,22 @@
                 <AnchorPane prefHeight="255.0" prefWidth="363.0">
                     <children>
                         <Separator layoutX="29.0" layoutY="126.0" prefWidth="300.0" />
-                        <Label layoutX="29.0" layoutY="20.0" onMouseClicked="#purchaseButtonClick" prefHeight="27.0" prefWidth="169.0" text="Smart Card Number">
+                        <Label layoutX="29.0" layoutY="20.0" prefHeight="27.0" prefWidth="169.0" text="Smart Card Number">
                             <font>
                                 <Font name="Open Sans SemiBold" size="18.0" />
                             </font>
                         </Label>
-                        <Label fx:id="buyTokenTextButton" layoutX="29.0" layoutY="139.0" onMouseClicked="#tokenButtonClick" prefHeight="27.0" prefWidth="103.0" text="Expiry Date">
+                        <Label fx:id="buyTokenTextButton" layoutX="29.0" layoutY="139.0" prefHeight="27.0" prefWidth="103.0" text="Expiry Date">
                             <font>
                                 <Font name="Open Sans SemiBold" size="18.0" />
                             </font>
                         </Label>
-                        <Label fx:id="cardId" layoutX="27.0" layoutY="66.0" onMouseClicked="#purchaseButtonClick" prefHeight="27.0" prefWidth="309.0" textFill="#a7a4a4">
+                        <Label fx:id="cardId" layoutX="27.0" layoutY="66.0" prefHeight="27.0" prefWidth="309.0" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri" size="18.0" />
                             </font>
                         </Label>
-                        <Label fx:id="expiryDate" layoutX="29.0" layoutY="185.0" onMouseClicked="#tokenButtonClick" prefHeight="27.0" prefWidth="300.0" textFill="#a7a4a4">
+                        <Label fx:id="expiryDate" layoutX="29.0" layoutY="185.0" prefHeight="27.0" prefWidth="300.0" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri" size="18.0" />
                             </font>
