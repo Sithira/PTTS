@@ -12,6 +12,7 @@ import java.io.IOException;
 
 
 public class PaymentController {
+    public  boolean previous = false;
     private String tokenURL = "/tokenMachine/smartcard/smartcard.fxml" ;
     private String smartCardURL = "/tokenMachine/smartcard/smartcard.fxml" ;
 

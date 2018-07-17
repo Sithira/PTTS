@@ -13,12 +13,14 @@ import java.io.IOException;
 public class errorController {
     @FXML
     private void homeButtonClick(MouseEvent event) throws IOException {
-        Parent homeParent = FXMLLoader.load(getClass().getResource("/tokenMachine/home/home.fxml"));
+        Parent homeParent = FXMLLoader.load(getClass().getResource("/tokenMachine/cashpayment/cashpayment.fxml"));
+
         Scene homeScene = new Scene(homeParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(homeScene);
+
         window.show();
     }
 }
