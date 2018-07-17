@@ -38,11 +38,11 @@
         </VBox>
         <VBox layoutX="114.0" layoutY="47.0" prefHeight="398.0" prefWidth="476.0">
             <children>
-                <AnchorPane prefHeight="398.0" prefWidth="476.0" styleClass="cardPane">
+                <AnchorPane fx:id="anchorpane" prefHeight="398.0" prefWidth="476.0" styleClass="cardPane">
                     <children>
-                        <JFXTextField layoutX="70.0" layoutY="65.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Name" unFocusColor="#a7a4a4" />
-                        <JFXPasswordField layoutX="70.0" layoutY="177.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Password" />
-                        <JFXButton buttonType="RAISED" layoutX="99.0" layoutY="328.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="285.0" styleClass="topPane" text="Sign Up" textFill="WHITE">
+                        <JFXTextField fx:id="name" layoutX="70.0" layoutY="65.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Name" unFocusColor="#a7a4a4" />
+                        <JFXPasswordField fx:id="password" layoutX="70.0" layoutY="177.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Password" />
+                        <JFXButton fx:id="signUp" buttonType="RAISED" layoutX="99.0" layoutY="328.0" mnemonicParsing="false" onAction="#sign_up" prefHeight="50.0" prefWidth="285.0" styleClass="topPane" text="Sign Up" textFill="WHITE">
                             <font>
                                 <Font name="Open Sans SemiBold" size="18.0" />
                             </font>
@@ -52,11 +52,11 @@
                                 <Font name="Open Sans Light" size="20.0" />
                             </font>
                         </Label>
-                  <JFXTextField layoutX="70.0" layoutY="103.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Username" />
-                  <JFXTextField layoutX="70.0" layoutY="138.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Email" />
-                  <JFXTextField layoutX="70.0" layoutY="212.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Address" />
-                  <JFXTextField layoutX="71.0" layoutY="248.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Your City" />
-                  <JFXTextField layoutX="71.0" layoutY="285.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Your Postal Code" />
+                  <JFXTextField fx:id="username" layoutX="70.0" layoutY="103.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Username" />
+                  <JFXTextField fx:id="email" layoutX="70.0" layoutY="138.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Email" />
+                  <JFXTextField fx:id="address" layoutX="70.0" layoutY="212.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Address" />
+                  <JFXTextField fx:id="city" layoutX="71.0" layoutY="248.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Your City" />
+                  <JFXTextField fx:id="postalCode" layoutX="71.0" layoutY="285.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Enter Your Postal Code" />
                     </children>
                 </AnchorPane>
             </children>

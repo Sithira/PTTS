@@ -23,17 +23,32 @@ public class receivedController implements Initializable {
     public void initialize(URL location, ResourceBundle resources)
     {
         CashPaymentController cashPaymentController = new CashPaymentController();
-        successMessage.setText("Current SmartCard Balance: LKR "+ cashPaymentController.newBalance);
+
+        if(SmartCardController.from.equals("topUp"))
+        {
+            successMessage.setText("Current SmartCard Balance: LKR "+ cashPaymentController.newBalance);
+        }
+        else if(SmartCardController.from.equals("newCard"))
+        {
+            successMessage.setText("Collect Your SmartCard from the Machine");
+        }
+        else if (SmartCardController.from.equals("token"))
+        {
+            successMessage.setText("Collect Your Token from the Machine\n Have a Safe journey");
+        }
+
     }
 
     @FXML
     private void logoutButtonClick(MouseEvent event) throws IOException {
         Parent loginParent = FXMLLoader.load(getClass().getResource("/tokenMachine/login/login.fxml"));
+
         Scene loginScene = new Scene(loginParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(loginScene);
+
         window.show();
     }
 }

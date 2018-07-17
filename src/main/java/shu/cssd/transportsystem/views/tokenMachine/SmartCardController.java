@@ -29,6 +29,7 @@ public class SmartCardController {
     @FXML
     private void topUpButtonClick(MouseEvent event) throws IOException {
         previous = true;
+        from = "topUp";
         Parent payParent = FXMLLoader.load(getClass().getResource("/tokenMachine/payment/payment.fxml"));
         Scene payScene = new Scene(payParent);
 
@@ -41,6 +42,7 @@ public class SmartCardController {
     @FXML
     private void newCardButtonClick(MouseEvent event) throws IOException {
         previous = true;
+        from = "newCard";
         Parent payParent = FXMLLoader.load(getClass().getResource("/tokenMachine/payment/payment.fxml"));
         Scene payScene = new Scene(payParent);
 

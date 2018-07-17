@@ -28,7 +28,6 @@ class PaymentManagerControllerTest
 	@Test
 	void applyDiscount()
 	{
-		
 		User user = (User) (new SetOfUsers()).all().get(0);
 		
 		Stop origin = (Stop) (new SetOfStops()).all().get(0);

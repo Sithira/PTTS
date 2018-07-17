@@ -37,16 +37,32 @@ public class CashPaymentController implements Initializable {
     public void initialize(URL location, ResourceBundle resources)
     {
         this.userController = UserController.getInstance();
+
+        if (shu.cssd.transportsystem.views.tokenMachine.SmartCardController.from.equals("newCard"))
+        {
+            amount.setPromptText("Amount LKR 100.0");
+
+            amount.setEditable(false);
+        }
+
+        else if (shu.cssd.transportsystem.views.tokenMachine.SmartCardController.from.equals("token"))
+        {
+            amount.setPromptText("Amount LKR " + Float.toString(TokensController.costAmount));
+
+            amount.setEditable(false);
+        }
     }
 
     @FXML
     private void backButtonClick(MouseEvent event) throws IOException {
         Parent ncParent = FXMLLoader.load(getClass().getResource("/tokenMachine/payment/payment.fxml"));
+
         Scene ncScene = new Scene(ncParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(ncScene);
+
         window.show();
     }
 
@@ -54,7 +70,31 @@ public class CashPaymentController implements Initializable {
     @FXML
     private void successButtonClick(MouseEvent event) throws IOException {
 
-        if (this.validator.isEmpty(amount) || !this.validator.isNumeric(amount))
+        if(shu.cssd.transportsystem.views.tokenMachine.SmartCardController.from.equals("token"))
+        {
+            Parent yesParent = FXMLLoader.load(getClass().getResource("/tokenMachine/received/received.fxml"));
+
+            Scene yesScene = new Scene(yesParent);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+            window.setScene(yesScene);
+
+            window.show();
+        }
+        else if(shu.cssd.transportsystem.views.tokenMachine.SmartCardController.from.equals("newCard"))
+        {
+            Parent yesParent = FXMLLoader.load(getClass().getResource("/tokenMachine/received/received.fxml"));
+
+            Scene yesScene = new Scene(yesParent);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+            window.setScene(yesScene);
+
+            window.show();
+        }
+        else if (this.validator.isEmpty(amount) || !this.validator.isNumeric(amount))
         {
             Parent noParent = FXMLLoader.load(getClass().getResource("/tokenMachine/error/error.fxml"));
 
@@ -86,12 +126,15 @@ public class CashPaymentController implements Initializable {
 
     @FXML
     private void errorButtonClick(MouseEvent event) throws IOException {
+
         Parent noParent = FXMLLoader.load(getClass().getResource("/tokenMachine/error/error.fxml"));
+
         Scene noScene = new Scene(noParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(noScene);
+
         window.show();
     }
 }

@@ -80,7 +80,6 @@ public class TransactionController
 			{
 				card.balance = transactionOperation.executeOperation(card.balance, amount);
 			}
-			
 		}
 
 		this.setOfTransactions.create(transaction);

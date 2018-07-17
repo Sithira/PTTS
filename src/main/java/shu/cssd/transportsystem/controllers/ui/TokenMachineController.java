@@ -30,7 +30,7 @@ public class TokenMachineController
 	private User loggedInUser;
 	private float fare;
 	
-	TokenMachineController()
+	/*TokenMachineController()
 	{
 		
 		// get the size of the stop list
@@ -39,7 +39,7 @@ public class TokenMachineController
 		// getting an random stop from the list of stops.
 		this.currentStop = (Stop) this.setOfStops.all().get(new Random().nextInt((0 - size) + 1) + size);
 		
-	}
+	}*/
 	
 	/**
 	 * Login the user into the token machine

@@ -66,6 +66,9 @@
                 <Image url="@../../images/back.png" />
             </image>
         </ImageView>
-      <JFXTextField fx:id="amount" layoutX="160.0" layoutY="155.0" opacity="0.5" prefHeight="25.0" prefWidth="352.0" promptText="Enter Amount" />
+      <JFXTextField fx:id="amount" layoutX="160.0" layoutY="134.0" opacity="0.5" prefHeight="35.0" prefWidth="352.0" promptText="Enter Amount">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
     </children>
 </AnchorPane>
