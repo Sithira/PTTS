@@ -51,3 +51,15 @@
     -fx-background-radius: 8px;
 }
 
+.inspectorCardPane{
+    -fx-background-color: #8bce27;
+    -fx-background-radius: 8px;
+}
+
+.validateButton{
+    -fx-background-color: #8bce27;
+}
+
+.fineButton{
+    -fx-background-color: #d84937;
+}
