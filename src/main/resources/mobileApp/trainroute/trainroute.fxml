@@ -70,17 +70,17 @@
                                 <Font name="Open Sans ExtraBold" size="22.0" />
                             </font>
                         </Label>
-                        <Label layoutX="86.0" layoutY="9.0" text="Colombo - Airport" textFill="#a7a4a4">
+                        <Label layoutX="86.0" layoutY="9.0" text="Pettah - Galle" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="284.0" layoutY="34.0" text="15 mins" textFill="#a7a4a4">
+                        <Label layoutX="280.0" layoutY="36.0" text="15 mins" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="274.0" layoutY="12.0" text="Non - Stop" textFill="#398ede">
+                  <Label layoutX="282.0" layoutY="14.0" text="2 Stops" textFill="#398ede">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -100,12 +100,12 @@
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>
-                        <Label layoutX="21.0" layoutY="18.0" text="T36" textFill="#398ede">
+                        <Label layoutX="21.0" layoutY="18.0" text="U36" textFill="#398ede">
                             <font>
                                 <Font name="Open Sans ExtraBold" size="22.0" />
                             </font>
                         </Label>
-                        <Label layoutX="87.0" layoutY="23.0" text="Colombo - Ella" textFill="#a7a4a4">
+                        <Label layoutX="87.0" layoutY="23.0" text="Peradeniya - Badulla" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
@@ -115,7 +115,7 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="282.0" layoutY="12.0" text="4 Stops" textFill="#398ede">
+                  <Label layoutX="274.0" layoutY="12.0" text="Non - Stop" textFill="#398ede">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -135,7 +135,7 @@
                                 <Font name="Open Sans ExtraBold" size="22.0" />
                             </font>
                         </Label>
-                        <Label layoutX="93.0" layoutY="10.0" text="Ella - Kandy" textFill="#a7a4a4">
+                        <Label layoutX="86.0" layoutY="10.0" text="Pettah - Matara" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
@@ -145,12 +145,12 @@
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="271.0" layoutY="14.0" text="Non - Stop" textFill="#398ede">
+                  <Label layoutX="282.0" layoutY="14.0" text="2 Stops" textFill="#398ede">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="93.0" layoutY="33.0" text="Express" textFill="#16a43a">
+                  <Label layoutX="86.0" layoutY="33.0" text="Express" textFill="#16a43a">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -171,7 +171,7 @@
                                 <Font name="Open Sans ExtraBold" size="22.0" />
                             </font>
                         </Label>
-                        <Label layoutX="94.0" layoutY="23.0" text="Trinco - Ella" textFill="#a7a4a4">
+                        <Label layoutX="86.0" layoutY="23.0" text="Trinco - Ella" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
@@ -197,17 +197,17 @@
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>
-                        <Label layoutX="26.0" layoutY="18.0" text="W42" textFill="#398ede">
+                        <Label layoutX="26.0" layoutY="18.0" text="Y-2" textFill="#398ede">
                             <font>
                                 <Font name="Open Sans ExtraBold" size="22.0" />
                             </font>
                         </Label>
-                        <Label layoutX="93.0" layoutY="23.0" text="Colombo - Galle" textFill="#a7a4a4">
+                        <Label layoutX="86.0" layoutY="23.0" text="Colombo - Jaffna" textFill="#a7a4a4">
                             <font>
                                 <Font name="Calibri Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label layoutX="282.0" layoutY="37.0" text="10 mins" textFill="#a7a4a4">
+                  <Label layoutX="282.0" layoutY="37.0" text="20 mins" textFill="#a7a4a4">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
