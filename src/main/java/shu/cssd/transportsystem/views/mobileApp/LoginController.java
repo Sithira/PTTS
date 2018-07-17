@@ -33,6 +33,7 @@ public class LoginController implements Initializable
 	
 	@FXML
 	AnchorPane rootPane;
+	@FXML
 	AnchorPane secondPane;
 	
 	@Override
@@ -48,7 +49,7 @@ public class LoginController implements Initializable
 		
 		String currentUsername = username.getText();
 		String currentPassword = password.getText();
-		
+
 		if (user.checkCredentials(currentUsername, currentPassword))
 		{
 			Parent dashboardParent = FXMLLoader.load(getClass().getResource("/mobileApp/dashboard/Dashboard.fxml"));

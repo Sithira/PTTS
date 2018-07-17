@@ -78,7 +78,7 @@ public class SignupController implements Initializable
 					// add the special validation
 					if (!this.validator.isEmail(((JFXTextField) node).getText()))
 					{
-						AlertBox.getInstance().alertWithHeader("Validation Error", "Email is not in the correct format");
+						AlertBox.getInstance().alertInfo("Validation Error", "Email is not in the correct format");
 						return;
 					}
 					
@@ -88,7 +88,7 @@ public class SignupController implements Initializable
 				if (this.validator.isEmpty((JFXTextField) node))
 				{
 					
-					AlertBox.getInstance().alertWithHeader("Validation Error", "Field " + node.getId() + " is empty");
+					AlertBox.getInstance().alertInfo("Validation Error", "Field " + node.getId() + " is empty");
 					
 					System.out.println("Failed on:" + node.getId());
 					
@@ -101,7 +101,7 @@ public class SignupController implements Initializable
 		// validate the password confirmation fields
 		if (!this.validator.confirm(this.password, this.password_confirm))
 		{
-			AlertBox.getInstance().alertWithHeader("Validation Error", "Passwords doesn't match");
+			AlertBox.getInstance().alertInfo("Validation Error", "Passwords doesn't match");
 			
 			return;
 		}

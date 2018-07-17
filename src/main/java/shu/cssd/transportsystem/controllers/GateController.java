@@ -128,7 +128,6 @@ public class GateController
 				
 				if (currentGate.gateType == GateType.ENTRY)
 				{
-					
 					new Journey.Builder(smartCard.getUser(), this.currentGate.getStop()).create();
 					
 					currentGate.state = OPEN;

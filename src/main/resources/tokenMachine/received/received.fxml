@@ -23,7 +23,7 @@
                         <Image url="@../../images/success.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="204.0" layoutY="232.0" text="Have a Safe Journey" textFill="#a7a4a4">
+                  <Label fx:id="successMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="232.0" prefHeight="35.0" prefWidth="638.0" textFill="#a7a4a4">
                      <font>
                         <Font name="Open Sans SemiBold" size="24.0" />
                      </font>
@@ -31,7 +31,7 @@
                </children>
             </AnchorPane>
          </children></VBox>
-      <Label layoutX="247.0" layoutY="40.0" text="Success!">
+      <Label layoutX="262.0" layoutY="39.0" text="Success!">
          <font>
             <Font name="Open Sans ExtraBold" size="48.0" />
          </font>

@@ -15,7 +15,6 @@ import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.validation.Validator;
 import shu.cssd.transportsystem.views.helpers.AlertBox;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -162,7 +161,7 @@ public class DashboardController implements Initializable
 				|| !this.validator.isNumeric(topUpAmount)
 				|| !this.validator.isPositive(topUpAmount))
 		{
-			AlertBox.getInstance().alertWithHeader("Whoops !", "Please check your input");
+			AlertBox.getInstance().alertInfo("Whoops !", "Please check your input");
 			
 			return;
 		}

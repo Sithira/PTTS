@@ -50,9 +50,9 @@
             <children>
                 <AnchorPane prefHeight="266.0" prefWidth="476.0" styleClass="cardPane">
                     <children>
-                        <JFXTextField layoutX="70.0" layoutY="71.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0"
+                        <JFXTextField fx:id="username" layoutX="70.0" layoutY="71.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0"
                                       promptText="Username"/>
-                        <JFXPasswordField layoutX="70.0" layoutY="125.0" opacity="0.5" prefHeight="25.0"
+                        <JFXPasswordField fx:id="password" layoutX="70.0" layoutY="125.0" opacity="0.5" prefHeight="25.0"
                                           prefWidth="336.0" promptText="Password"/>
                         <JFXButton buttonType="RAISED" layoutX="96.0" layoutY="191.0" mnemonicParsing="false"
                                    onMouseClicked="#loginButtonClick" prefHeight="50.0" prefWidth="285.0"

@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.tokenMachine.SmartCardController">
     <children>
-        <VBox layoutX="52.0" layoutY="150.0" onMouseClicked="#paymentButtonClick" prefHeight="200.0" prefWidth="272.0">
+        <VBox fx:id="topUp" layoutX="52.0" layoutY="150.0" onMouseClicked="#topUpButtonClick" prefHeight="200.0" prefWidth="272.0">
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>
@@ -31,7 +31,7 @@
                 <DropShadow />
             </effect>
         </VBox>
-        <VBox layoutX="376.0" layoutY="150.0" onMouseClicked="#paymentButtonClick" prefHeight="200.0" prefWidth="272.0">
+        <VBox fx:id="newCard" layoutX="376.0" layoutY="150.0" onMouseClicked="#newCardButtonClick" prefHeight="200.0" prefWidth="272.0">
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>

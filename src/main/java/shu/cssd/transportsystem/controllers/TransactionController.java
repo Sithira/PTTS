@@ -31,7 +31,6 @@ public class TransactionController
 	 */
 	public Transaction makeTransaction(User user, PaymentType paymentType, TransactionType transactionType, float amount)
 	{
-
 		SmartCard card = user.getCard();
 
 		Transaction transaction = (new Transaction.Builder(user, paymentType, amount)).create();

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../../styles/Styles.css"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="shu.cssd.transportsystem.views.inspectorMachine.FailedTokenController">
+    <children>
+        <VBox layoutX="137.0" layoutY="23.0" prefHeight="259.0" prefWidth="326.0">
+            <children>
+                <AnchorPane prefHeight="312.0" prefWidth="372.0" style="-fx-background-color: #c0392b;"
+                            styleClass="validateButton">
+                    <children>
+                        <Label layoutX="118.0" layoutY="86.0" text="Failed" textFill="#f2f2f2">
+                            <font>
+                                <Font name="Open Sans ExtraBold" size="36.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="79.0" layoutY="147.0" text="InValid Token" textFill="WHITE">
+                            <font>
+                                <Font name="Open Sans ExtraBold" size="28.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+            <effect>
+                <DropShadow/>
+            </effect>
+        </VBox>
+        <JFXButton fx:id="issueToken" accessibleText="Issue a token" layoutX="250.0" layoutY="321.0"
+                   onAction="#issueToken" style="-fx-background-color: #c0392b#c0392b;" text="Issue a token"
+                   textFill="WHITE"/>
+    </children>
+</AnchorPane>
