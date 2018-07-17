@@ -42,7 +42,7 @@ public class User extends BaseModel
 	/**
 	 * Balance of the User Account
 	 */
-	public float balance;
+	public float balance=0;
 	
 	// from employee
 	/**
@@ -317,7 +317,6 @@ public class User extends BaseModel
 				tokens.add(transaction.getToken());
 			}
 		}
-		
 		return tokens;
 	}
 	

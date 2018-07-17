@@ -13,36 +13,42 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.tokenMachine.TokensController">
     <children>
-        <VBox layoutX="116.0" layoutY="125.0" prefHeight="183.0" prefWidth="469.0">
+        <VBox layoutX="116.0" layoutY="125.0" prefHeight="246.0" prefWidth="469.0">
             <effect>
                 <DropShadow />
             </effect>
          <children>
-            <AnchorPane prefHeight="187.0" prefWidth="490.0" styleClass="cardPane">
+            <AnchorPane prefHeight="255.0" prefWidth="469.0" styleClass="cardPane">
                <children>
-                  <Label layoutX="14.0" layoutY="24.0" prefHeight="20.0" prefWidth="125.0" text="Select your Origin">
+                  <Label layoutX="56.0" layoutY="68.0" prefHeight="20.0" prefWidth="84.0" text="To">
                      <font>
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="61.0" prefHeight="20.0" prefWidth="159.0" text="Select your Destination">
+                  <Label layoutX="56.0" layoutY="115.0" prefHeight="20.0" prefWidth="111.0" text="From">
                      <font>
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="101.0" prefHeight="20.0" prefWidth="159.0" text="Select the Date">
+                  <Label layoutX="55.0" layoutY="159.0" prefHeight="20.0" prefWidth="111.0" text="Date">
                      <font>
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <JFXButton buttonType="RAISED" layoutX="17.0" layoutY="132.0" mnemonicParsing="false" styleClass="topPane" text="Check Fare" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#checkFareButtonClicked" styleClass="topPane" text="Check Fare" textFill="WHITE">
                      <font>
                         <Font name="Open Sans SemiBold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXComboBox layoutX="192.0" layoutY="16.0" prefHeight="25.0" prefWidth="236.0" />
-                  <JFXComboBox layoutX="192.0" layoutY="53.0" prefHeight="25.0" prefWidth="236.0" />
-                  <JFXDatePicker layoutX="192.0" layoutY="99.0" prefHeight="25.0" prefWidth="236.0" />
+                  <JFXComboBox fx:id="origin" layoutX="174.0" layoutY="65.0" onAction="#onOriginSelect" prefHeight="25.0" prefWidth="236.0" />
+                  <JFXComboBox fx:id="destination" layoutX="175.0" layoutY="111.0" onAction="#onDestinationSelect" prefHeight="25.0" prefWidth="236.0" />
+                  <JFXDatePicker fx:id="date" layoutX="175.0" layoutY="157.0" prefHeight="25.0" prefWidth="236.0" />
+                  <Label layoutX="57.0" layoutY="24.0" prefHeight="20.0" prefWidth="84.0" text="Route">
+                     <font>
+                        <Font name="Open Sans SemiBold" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXComboBox fx:id="route" layoutX="173.0" layoutY="17.0" onAction="#getSelectedRoute" prefHeight="25.0" prefWidth="236.0" />
                </children>
             </AnchorPane>
          </children>
@@ -57,29 +63,29 @@
                 <Font name="Open Sans ExtraBold" size="48.0" />
             </font>
         </Label>
-      <VBox layoutX="116.0" layoutY="317.0" prefHeight="133.0" prefWidth="469.0">
+      <VBox layoutX="116.0" layoutY="382.0" prefHeight="91.0" prefWidth="469.0">
          <effect>
             <DropShadow />
          </effect>
          <children>
-            <AnchorPane prefHeight="187.0" prefWidth="490.0" styleClass="cardPane">
+            <AnchorPane prefHeight="114.0" prefWidth="469.0" styleClass="cardPane">
                <children>
-                  <Label layoutX="14.0" layoutY="24.0" prefHeight="20.0" prefWidth="169.0" text="This is Your Total Fare">
+                  <Label layoutX="53.0" layoutY="22.0" prefHeight="20.0" prefWidth="169.0" text="This is Your Total Fare">
                      <font>
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <JFXButton buttonType="RAISED" layoutX="361.0" layoutY="82.0" mnemonicParsing="false" onMouseClicked="#paymentButtonClick" styleClass="topPane" text="Proceed" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="279.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#paymentButtonClick" prefHeight="39.0" prefWidth="143.0" styleClass="topPane" text="Proceed" textFill="WHITE">
                      <font>
                         <Font name="Open Sans SemiBold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <Label layoutX="14.0" layoutY="57.0" prefHeight="20.0" prefWidth="110.0" text="Amount ($) :">
+                  <Label layoutX="53.0" layoutY="55.0" prefHeight="20.0" prefWidth="110.0" text="Amount : ">
                      <font>
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="105.0" layoutY="57.0" prefHeight="20.0" prefWidth="110.0" text="300">
+                  <Label fx:id="cost" layoutX="121.0" layoutY="55.0" prefHeight="20.0" prefWidth="110.0">
                      <font>
                         <Font name="Open Sans SemiBold" size="14.0" />
                      </font>

@@ -43,8 +43,6 @@ public class DashboardController implements Initializable
 	@FXML
 	public void loadDashBoard(javafx.event.ActionEvent event) throws IOException
 	{
-
-		
 		Parent parent = FXMLLoader.load(getClass().getResource("/mobileApp/dashboard/Dashboard.fxml"));
 
 		Scene scene = new Scene(parent);
@@ -52,6 +50,7 @@ public class DashboardController implements Initializable
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		
 		window.setScene(scene);
+
 		window.show();
 	}
 	

@@ -13,7 +13,6 @@ import java.util.Date;
 
 public class PaymentManagerController
 {
-	
 	private PaymentManager paymentManager;
 	
 	PaymentManagerController()
@@ -28,7 +27,6 @@ public class PaymentManagerController
 	 */
 	public void applyDiscount(Journey journey)
 	{
-		
 		// get the user from the journey
 		User user = journey.getUser();
 		
