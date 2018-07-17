@@ -49,7 +49,8 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Kottawa",
 				"10230",
 				"sithira",
-				"admin").create();
+				"admin")
+				.create();
 
 		User user2 = new User.Builder(
 				"Sanura",
@@ -58,7 +59,8 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Kottawa",
 				"10230",
 				"sanura",
-				"admin").create();
+				"admin")
+				.create();
 
 		User user3 = new User.Builder(
 				"Dinusha",
@@ -67,7 +69,8 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Pannipitiya",
 				"10230",
 				"dinusha",
-				"admin").create();
+				"admin")
+				.create();
 
 		User user4 = new User.Builder(
 				"Chathu",
@@ -76,7 +79,9 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Colombo",
 				"10230",
 				"chathu",
-				"admin").addAsEmployee(35000, permission3).create();
+				"admin")
+				.addAsEmployee(35000, permission3)
+				.create();
 		
 		User user5 = new User.Builder(
 				"Vindula",
@@ -85,7 +90,8 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Colombo",
 				"10230",
 				"vindula",
-				"admin").create();
+				"admin")
+				.create();
 
 
 		//Seed SmardCards
