@@ -10,6 +10,7 @@ import shu.cssd.transportsystem.models.Payment;
 import shu.cssd.transportsystem.models.SmartCard;
 import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.User;
+import shu.cssd.transportsystem.models.collections.SetOfSmartCards;
 import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 import shu.cssd.transportsystem.models.collections.SetOfUsers;
 
@@ -30,13 +31,14 @@ public class TransactionController
 	 */
 	public Transaction makeTransaction(User user, PaymentType paymentType, TransactionType transactionType, float amount)
 	{
-		
+
+		SmartCard card = user.getCard();
+
 		Transaction transaction = (new Transaction.Builder(user, paymentType, amount)).create();
-		
+
 		// Add Operation
 		if (transactionType.equals(TransactionType.ADD))
 		{
-			
 			// Call the strategy class
 			// this is an over-head operation
 			TransactionOperation transactionOperation = new TransactionOperation(new TransactionAddOperation());
@@ -52,9 +54,9 @@ public class TransactionController
 			// check if the payment is card
 			if (paymentType.equals(PaymentType.CARD))
 			{
-				SmartCard card = user.getCard();
 				
 				card.balance = transactionOperation.executeOperation(card.balance, amount);
+
 			}
 			
 		}
@@ -62,7 +64,6 @@ public class TransactionController
 		// Subtract Operation
 		if (transactionType.equals(TransactionType.SUBSTRACT))
 		{
-			
 			// Call the strategy class
 			// this is an over-head operation
 			TransactionOperation transactionOperation = new TransactionOperation(new TransactionSubtractOperation());
@@ -78,15 +79,13 @@ public class TransactionController
 			// check if the payment is card
 			if (paymentType.equals(PaymentType.CARD))
 			{
-				SmartCard card = user.getCard();
-				
 				card.balance = transactionOperation.executeOperation(card.balance, amount);
 			}
 			
 		}
-		
+
 		this.setOfTransactions.create(transaction);
-		
+
 		try
 		{
 			(new SetOfUsers()).findByIdAndUpdate(user.id, user);
@@ -94,7 +93,16 @@ public class TransactionController
 		{
 			e.printStackTrace();
 		}
-		
+
+		try
+		{
+			(new SetOfSmartCards()).findByIdAndUpdate(card.id, card);
+		}
+		catch (ModelNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+
 		return transaction;
 	}
 

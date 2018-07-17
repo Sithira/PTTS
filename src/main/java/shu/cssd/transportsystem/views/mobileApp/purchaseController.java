@@ -39,7 +39,7 @@ public class purchaseController {
 
     @FXML
     private void backButtonClick(MouseEvent event) throws IOException {
-        Parent paymentParent = FXMLLoader.load(getClass().getResource("/mobileApp/payment/payment.fxml"));
+        Parent paymentParent = FXMLLoader.load(getClass().getResource("/mobileApp/dashboard/Dashboard.fxml"));
         Scene paymentScene = new Scene(paymentParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

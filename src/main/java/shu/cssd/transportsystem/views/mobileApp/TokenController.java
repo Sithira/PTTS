@@ -14,7 +14,7 @@ public class TokenController {
 
     @FXML
     private void backButtonClick(MouseEvent event) throws IOException {
-        Parent purchaseParent = FXMLLoader.load(getClass().getResource("/mobileApp/purchase/purchase.fxml"));
+        Parent purchaseParent = FXMLLoader.load(getClass().getResource("/mobileApp/dashboard/Dashboard.fxml"));
         Scene purchaseScene = new Scene(purchaseParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

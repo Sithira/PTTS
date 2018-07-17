@@ -41,7 +41,7 @@ public class Payment extends BaseModel
 	}
 	
 	/**
-	 * Get the transaction for the payment
+	 * Get the transaction for the cashpayment
 	 *
 	 * @return {@link Transaction}
 	 */
