@@ -21,4 +21,28 @@ public class ZoneController {
         window.setScene(dashboardScene);
         window.show();
     }
+
+    @FXML
+    private void addButtonClick(MouseEvent event) throws IOException {
+        Parent addParent = FXMLLoader.load(getClass().getResource("/admin/addZone/addZone.fxml"));
+        Scene addScene = new Scene(addParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(addScene);
+        window.show();
+    }
+
+
+    @FXML
+    private void modButtonClick(MouseEvent event) throws IOException {
+        Parent modParent = FXMLLoader.load(getClass().getResource("/admin/modifyZone/modifyZone.fxml"));
+        Scene modScene = new Scene(modParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(modScene);
+        window.show();
+    }
+
 }

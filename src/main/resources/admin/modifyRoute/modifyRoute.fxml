@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -10,32 +10,27 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.admin.RoutesController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.admin.ModifyRouteController">
     <children>
-        <VBox layoutX="9.0" layoutY="82.0" prefHeight="412.0" prefWidth="682.0">
+        <VBox layoutX="167.0" layoutY="105.0" prefHeight="291.0" prefWidth="367.0">
             <children>
                 <AnchorPane prefHeight="423.0" prefWidth="682.0" styleClass="cardPane">
                     <children>
-                        <JFXTreeTableView layoutX="17.0" layoutY="98.0" prefHeight="297.0" prefWidth="646.0">
-                            <effect>
-                                <DropShadow />
-                            </effect>
-                        </JFXTreeTableView>
-                        <JFXButton buttonType="RAISED" layoutX="119.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#addButtonClick" styleClass="topPane" text="Add Route" textFill="WHITE">
+                        <JFXButton buttonType="RAISED" layoutX="62.0" layoutY="224.0" mnemonicParsing="false" styleClass="topPane" text="Modify Route" textFill="WHITE">
                             <font>
                                 <Font name="Open Sans ExtraBold" size="18.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton buttonType="RAISED" layoutX="254.0" layoutY="32.0" mnemonicParsing="false" styleClass="fineButton" text="Delete Route" textFill="WHITE">
+                        <JFXButton buttonType="RAISED" layoutX="220.0" layoutY="224.0" mnemonicParsing="false" styleClass="root" text="Cancel" textFill="#a7a4a4">
                             <font>
                                 <Font name="Open Sans ExtraBold" size="18.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton buttonType="RAISED" layoutX="412.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#modButtonClick" styleClass="validateButton" text="Modify Route" textFill="WHITE">
-                            <font>
-                                <Font name="Open Sans ExtraBold" size="18.0" />
-                            </font>
-                        </JFXButton>
+                        <JFXTextField layoutX="63.0" layoutY="35.0" opacity="0.5" prefHeight="25.0" prefWidth="241.0" promptText="Name" />
+                        <JFXTextField layoutX="63.0" layoutY="72.0" opacity="0.5" prefHeight="25.0" prefWidth="241.0" promptText="Stops" />
+                        <JFXTextField layoutX="63.0" layoutY="109.0" opacity="0.5" prefHeight="25.0" prefWidth="241.0" promptText="Journey" />
+                        <JFXTextField layoutX="63.0" layoutY="145.0" opacity="0.5" prefHeight="25.0" prefWidth="241.0" promptText="Vehicles" />
+                        <JFXTextField layoutX="63.0" layoutY="182.0" opacity="0.5" prefHeight="25.0" prefWidth="241.0" promptText="Transport Type" />
                     </children>
                 </AnchorPane>
             </children>

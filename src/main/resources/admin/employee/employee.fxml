@@ -21,7 +21,7 @@
                         <DropShadow />
                      </effect>
                   </JFXTreeTableView>
-                  <JFXButton buttonType="RAISED" layoutX="66.0" layoutY="32.0" mnemonicParsing="false" styleClass="topPane" text="Add Employee" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="66.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#addButtonClick" styleClass="topPane" text="Add Employee" textFill="WHITE">
                      <font>
                         <Font name="Open Sans ExtraBold" size="18.0" />
                      </font>
@@ -31,7 +31,7 @@
                         <Font name="Open Sans ExtraBold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="429.0" layoutY="32.0" mnemonicParsing="false" styleClass="validateButton" text="Modify Employee" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="429.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#modButtonClick" styleClass="validateButton" text="Modify Employee" textFill="WHITE">
                      <font>
                         <Font name="Open Sans ExtraBold" size="18.0" />
                      </font>
