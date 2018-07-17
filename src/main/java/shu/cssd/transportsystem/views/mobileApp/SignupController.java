@@ -16,6 +16,7 @@ import shu.cssd.transportsystem.MainApp;
 import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.validation.Validator;
 import shu.cssd.transportsystem.models.User;
+import shu.cssd.transportsystem.models.collections.SetOfUsers;
 import shu.cssd.transportsystem.views.helpers.AlertBox;
 
 import java.io.IOException;
@@ -125,6 +126,8 @@ public class SignupController implements Initializable
 		User user = new User.Builder(name.getText(), email.getText(), address.getText(),
 				city.getText(), postalCode.getText(), username.getText(), password.getText())
 				.create();
+		
+		(new SetOfUsers()).create(user);
 		
 		UserController.currentUser = user;
 		

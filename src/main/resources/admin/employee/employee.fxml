@@ -16,7 +16,7 @@
             <children>
                 <AnchorPane prefHeight="423.0" prefWidth="682.0" styleClass="cardPane">
                     <children>
-                  <JFXTreeTableView layoutX="17.0" layoutY="98.0" prefHeight="297.0" prefWidth="646.0">
+                  <JFXTreeTableView fx:id="employeeTable" layoutX="17.0" layoutY="98.0" prefHeight="297.0" prefWidth="646.0">
                      <effect>
                         <DropShadow />
                      </effect>
