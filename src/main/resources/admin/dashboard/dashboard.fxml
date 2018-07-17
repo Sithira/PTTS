@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.admin.DashboardController">
+    <children>
+        <VBox layoutX="90.0" layoutY="84.0" onMouseClicked="#empButtonClick" prefHeight="184.0" prefWidth="240.0">
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
+                    <children>
+                        <ImageView fitHeight="118.0" fitWidth="103.0" layoutX="69.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/employees.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="54.0" layoutY="129.0" text="Employees">
+                            <font>
+                                <Font name="Open Sans ExtraBold" size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+            <effect>
+                <DropShadow />
+            </effect>
+        </VBox>
+        <Label layoutX="240.0" layoutY="15.0" text="Dashboard">
+            <font>
+                <Font name="Open Sans ExtraBold" size="36.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="53.0" fitWidth="56.0" layoutX="610.0" layoutY="14.0" onMouseClicked="#logoutButtonClick" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../images/exit.png" />
+            </image>
+        </ImageView>
+      <VBox layoutX="370.0" layoutY="84.0" onMouseClicked="#routeButtonClick" prefHeight="184.0" prefWidth="240.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="103.0" layoutX="69.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/route99.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="76.0" layoutY="131.0" text="Routes">
+                     <font>
+                        <Font name="Open Sans ExtraBold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </VBox>
+      <VBox layoutX="90.0" layoutY="288.0" onMouseClicked="#stopButtonClick" prefHeight="184.0" prefWidth="240.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="103.0" layoutX="69.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/bus2.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="86.0" layoutY="132.0" text="Stops">
+                     <font>
+                        <Font name="Open Sans ExtraBold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </VBox>
+      <VBox layoutX="370.0" layoutY="288.0" onMouseClicked="#zoneButtonClick" prefHeight="184.0" prefWidth="240.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="103.0" layoutX="69.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/radar.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="84.0" layoutY="134.0" text="Zones">
+                     <font>
+                        <Font name="Open Sans ExtraBold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </VBox>
+      <ImageView fitHeight="53.0" fitWidth="56.0" layoutX="37.0" layoutY="14.0" onMouseClicked="#logoutButtonClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/home.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
