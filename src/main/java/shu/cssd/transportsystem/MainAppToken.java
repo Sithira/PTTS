@@ -1,15 +1,18 @@
 package shu.cssd.transportsystem;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import shu.cssd.transportsystem.views.mobileApp.MetaData;
 
 public class MainAppToken extends Application {
 
     public  static Stage stage = null;
+    
     @Override
     public void start(Stage stage) throws Exception {
 

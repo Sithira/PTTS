@@ -108,7 +108,7 @@ public class SignupController implements Initializable
 		
 		this.createUser();
 		
-		Parent dashboardParent = FXMLLoader.load(getClass().getResource("/dashboard/Dashboard.fxml"));
+		Parent dashboardParent = FXMLLoader.load(getClass().getResource("/mobileApp/dashboard/Dashboard.fxml"));
 		
 		Scene dashboardScene = new Scene(dashboardParent);
 		

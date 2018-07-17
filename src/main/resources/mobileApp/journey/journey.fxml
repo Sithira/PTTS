@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -9,156 +10,114 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.mobileApp.JourneyController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="400.0" styleClass="root" stylesheets="@../../styles/Styles.css"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="shu.cssd.transportsystem.views.mobileApp.JourneyController">
     <children>
-        <AnchorPane fx:id="topPane" layoutY="-9.0" prefHeight="67.0" prefWidth="400.0" styleClass="dashboardTopPane" stylesheets="@../../styles/Styles.css">
+
+        <AnchorPane fx:id="topPane" layoutY="-9.0" prefHeight="67.0" prefWidth="400.0" styleClass="dashboardTopPane"
+                    stylesheets="@../../styles/Styles.css">
             <children>
-                <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
-                        <Image url="@../../images/home.png" />
+                        <Image url="@../../images/home.png"/>
                     </image>
                 </ImageView>
-                <ImageView fx:id="backButton" fitHeight="46.0" fitWidth="46.0" layoutX="340.0" layoutY="14.0" onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="backButton" fitHeight="46.0" fitWidth="46.0" layoutX="340.0" layoutY="14.0"
+                           onMouseClicked="#backButtonClick" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../images/back-white.png" />
+                        <Image url="@../../images/back-white.png"/>
                     </image>
                 </ImageView>
-            </children></AnchorPane>
+            </children>
+        </AnchorPane>
+
         <VBox layoutY="540.0" prefHeight="60.0" prefWidth="400.0" styleClass="cardPane">
             <effect>
-                <DropShadow />
+                <DropShadow/>
             </effect>
             <children>
                 <AnchorPane prefHeight="66.0" prefWidth="400.0">
                     <children>
-                        <ImageView fx:id="paymentButton" fitHeight="37.0" fitWidth="38.0" layoutX="43.0" layoutY="12.0" onMouseClicked="#paymentButtonClick" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="paymentButton" fitHeight="37.0" fitWidth="38.0" layoutX="43.0" layoutY="12.0"
+                                   onMouseClicked="#paymentButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/payment.png" />
+                                <Image url="@../../images/payment.png"/>
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0" onMouseClicked="#journeyButtonClick" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="132.0" layoutY="11.0"
+                                   onMouseClicked="#journeyButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/journey.png" />
+                                <Image url="@../../images/journey.png"/>
                             </image>
                         </ImageView>
-                        <ImageView fx:id="routeButton" fitHeight="37.0" fitWidth="38.0" layoutX="225.0" layoutY="11.0" onMouseClicked="#routeButtonClick" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="routeButton" fitHeight="37.0" fitWidth="38.0" layoutX="225.0" layoutY="11.0"
+                                   onMouseClicked="#routeButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/route.png" />
+                                <Image url="@../../images/route.png"/>
                             </image>
                         </ImageView>
-                        <ImageView fx:id="profileButton" fitHeight="37.0" fitWidth="38.0" layoutX="317.0" layoutY="11.0" onMouseClicked="#profileButtonClick" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="profileButton" fitHeight="37.0" fitWidth="38.0" layoutX="317.0" layoutY="11.0"
+                                   onMouseClicked="#profileButtonClick" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/profile.png" />
+                                <Image url="@../../images/profile.png"/>
                             </image>
                         </ImageView>
-                        <Separator layoutX="104.0" layoutY="12.0" orientation="VERTICAL" prefHeight="35.0" />
-                        <Separator layoutX="194.0" layoutY="13.0" orientation="VERTICAL" prefHeight="35.0" />
-                        <Separator layoutX="286.0" layoutY="13.0" orientation="VERTICAL" prefHeight="35.0" />
+                        <Separator layoutX="104.0" layoutY="12.0" orientation="VERTICAL" prefHeight="35.0"/>
+                        <Separator layoutX="194.0" layoutY="13.0" orientation="VERTICAL" prefHeight="35.0"/>
+                        <Separator layoutX="286.0" layoutY="13.0" orientation="VERTICAL" prefHeight="35.0"/>
                     </children>
                 </AnchorPane>
             </children>
         </VBox>
+
         <VBox layoutX="15.0" layoutY="116.0" prefHeight="60.0" prefWidth="371.0">
             <effect>
-                <DropShadow />
+                <DropShadow/>
             </effect>
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <image>
-                                <Image url="@../../images/tickets.png" />
+                                <Image url="@../../images/tickets.png"/>
                             </image>
                         </ImageView>
                         <Label layoutX="68.0" layoutY="7.0" text="Colombo - Airport" textFill="#a7a4a4">
                             <font>
-                                <Font name="Calibri Bold" size="18.0" />
+                                <Font name="Calibri Bold" size="18.0"/>
                             </font>
                         </Label>
-                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="319.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="319.0" layoutY="12.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <image>
-                                <Image url="@../../images/train.png" />
+                                <Image url="@../../images/train.png"/>
                             </image>
                         </ImageView>
                         <Label layoutX="68.0" layoutY="29.0" text="In Progress" textFill="LIME">
                             <font>
-                                <Font name="Calibri Bold" size="18.0" />
+                                <Font name="Calibri Bold" size="18.0"/>
                             </font>
                         </Label>
-                    </children></AnchorPane>
+                    </children>
+                </AnchorPane>
             </children>
         </VBox>
+
         <Label layoutX="14.0" layoutY="74.0" text="Current Journies" textFill="#398ede">
             <font>
-                <Font name="Open Sans ExtraBold" size="24.0" />
+                <Font name="Open Sans ExtraBold" size="24.0"/>
             </font>
         </Label>
-        <VBox layoutX="15.0" layoutY="235.0" prefHeight="60.0" prefWidth="371.0">
-            <effect>
-                <DropShadow />
-            </effect>
-            <children>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
-                    <children>
-                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../images/tickets.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="68.0" layoutY="9.0" text="Battaramulla - CMB 4" textFill="#a7a4a4">
-                            <font>
-                                <Font name="Calibri Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="319.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../images/metro.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="69.0" layoutY="30.0" text="Finished" textFill="RED">
-                            <font>
-                                <Font name="Calibri Bold" size="18.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </AnchorPane>
-            </children>
-        </VBox>
-        <VBox layoutX="15.0" layoutY="306.0" prefHeight="60.0" prefWidth="371.0">
-            <effect>
-                <DropShadow />
-            </effect>
-            <children>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
-                    <children>
-                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../images/tickets.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="72.0" layoutY="8.0" text="Colombo - Galle" textFill="#a7a4a4">
-                            <font>
-                                <Font name="Calibri Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="317.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../images/bus.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="72.0" layoutY="29.0" text="Finished" textFill="RED">
-                            <font>
-                                <Font name="Calibri Bold" size="18.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </AnchorPane>
-            </children>
-        </VBox>
-      <Label layoutX="14.0" layoutY="190.0" text="Past Journies" textFill="#398ede">
-         <font>
-            <Font name="Open Sans ExtraBold" size="24.0" />
-         </font>
-      </Label>
+
+        <Label layoutX="14.0" layoutY="190.0" text="Past Journies" textFill="#398ede">
+            <font>
+                <Font name="Open Sans ExtraBold" size="24.0"/>
+            </font>
+        </Label>
+        <ListView fx:id="journeyList" layoutX="5.0" layoutY="226.0" prefHeight="303.0" prefWidth="388.0"/>
     </children>
 </AnchorPane>

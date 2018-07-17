@@ -11,71 +11,81 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginButton" prefHeight="500.0" prefWidth="700.0" styleClass="root" stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shu.cssd.transportsystem.views.tokenMachine.LoginController">
+<AnchorPane fx:id="loginButton" prefHeight="500.0" prefWidth="700.0" styleClass="root"
+            stylesheets="@../../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.121"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="shu.cssd.transportsystem.views.tokenMachine.LoginController">
     <children>
         <VBox layoutX="52.0" layoutY="150.0" prefHeight="200.0" prefWidth="272.0">
             <effect>
-                <DropShadow />
+                <DropShadow/>
             </effect>
         </VBox>
         <Label layoutX="210.0" layoutY="376.0" text="Please Enter Your Credentials" textFill="#a7a4a4">
             <font>
-                <Font name="Open Sans SemiBold" size="20.0" />
+                <Font name="Open Sans SemiBold" size="20.0"/>
             </font>
         </Label>
         <Label layoutX="279.0" layoutY="405.0" text="New User?">
             <font>
-                <Font size="14.0" />
+                <Font size="14.0"/>
             </font>
         </Label>
-        <Label fx:id="singUpLabel" layoutX="352.0" layoutY="405.0" onMouseClicked="#signUpButtonClick" text="Click Here" textFill="#398ede">
+        <Label fx:id="singUpLabel" layoutX="352.0" layoutY="405.0" onMouseClicked="#signUpButtonClick" text="Click Here"
+               textFill="#398ede">
             <font>
-                <Font size="14.0" />
+                <Font size="14.0"/>
             </font>
         </Label>
-      <VBox prefHeight="200.0" prefWidth="702.0">
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="tokenMachineTopPane" stylesheets="@../../styles/Styles.css" />
-         </children>
-         <effect>
-            <DropShadow />
-         </effect>
-      </VBox>
-      <VBox layoutX="114.0" layoutY="80.0" prefHeight="262.0" prefWidth="476.0">
-         <children>
-            <AnchorPane prefHeight="266.0" prefWidth="476.0" styleClass="cardPane">
-               <children>
-                  <JFXTextField layoutX="70.0" layoutY="71.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Username" />
-                  <JFXPasswordField layoutX="70.0" layoutY="125.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0" promptText="Password" />
-                  <JFXButton buttonType="RAISED" layoutX="96.0" layoutY="191.0" mnemonicParsing="false" onMouseClicked="#loginButtonClick" prefHeight="50.0" prefWidth="285.0" styleClass="topPane" text="Login" textFill="WHITE">
-                     <font>
-                        <Font name="Open Sans SemiBold" size="18.0" />
-                     </font>
-                  </JFXButton>
-                  <Label layoutX="70.0" layoutY="28.0" text="Sign In to Continue" textFill="#a7a4a4">
-                     <font>
-                        <Font name="Open Sans Light" size="20.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="76.0" fitWidth="66.0" layoutX="-94.0" layoutY="-65.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/home.png" />
-                     </image>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </ImageView>
-                  <Label layoutX="319.0" layoutY="165.0" text="Forgot Password?" textFill="#a7a4a4">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </children>
-         <effect>
-            <DropShadow />
-         </effect>
-      </VBox>
+        <VBox prefHeight="200.0" prefWidth="702.0">
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="tokenMachineTopPane"
+                            stylesheets="@../../styles/Styles.css"/>
+            </children>
+            <effect>
+                <DropShadow/>
+            </effect>
+        </VBox>
+        <VBox layoutX="114.0" layoutY="80.0" prefHeight="262.0" prefWidth="476.0">
+            <children>
+                <AnchorPane prefHeight="266.0" prefWidth="476.0" styleClass="cardPane">
+                    <children>
+                        <JFXTextField layoutX="70.0" layoutY="71.0" opacity="0.5" prefHeight="25.0" prefWidth="336.0"
+                                      promptText="Username"/>
+                        <JFXPasswordField layoutX="70.0" layoutY="125.0" opacity="0.5" prefHeight="25.0"
+                                          prefWidth="336.0" promptText="Password"/>
+                        <JFXButton buttonType="RAISED" layoutX="96.0" layoutY="191.0" mnemonicParsing="false"
+                                   onMouseClicked="#loginButtonClick" prefHeight="50.0" prefWidth="285.0"
+                                   styleClass="topPane" text="Login" textFill="WHITE">
+                            <font>
+                                <Font name="Open Sans SemiBold" size="18.0"/>
+                            </font>
+                        </JFXButton>
+                        <Label layoutX="70.0" layoutY="28.0" text="Sign In to Continue" textFill="#a7a4a4">
+                            <font>
+                                <Font name="Open Sans Light" size="20.0"/>
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="76.0" fitWidth="66.0" layoutX="-94.0" layoutY="-65.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/home.png"/>
+                            </image>
+                            <effect>
+                                <DropShadow/>
+                            </effect>
+                        </ImageView>
+                        <Label layoutX="319.0" layoutY="165.0" text="Forgot Password?" textFill="#a7a4a4">
+                            <font>
+                                <Font size="11.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+            <effect>
+                <DropShadow/>
+            </effect>
+        </VBox>
     </children>
 </AnchorPane>

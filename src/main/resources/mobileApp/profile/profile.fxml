@@ -52,7 +52,7 @@
                   <Font name="Open Sans SemiBold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="63.0" text="+44 7911 123456" textFill="#a7a4a4">
+            <Label fx:id="phone" layoutX="37.0" layoutY="63.0" text="+44 7911 123456" textFill="#a7a4a4">
                <font>
                   <Font name="Open Sans SemiBold" size="13.0" />
                </font>
@@ -72,7 +72,7 @@
                   <Font name="Open Sans SemiBold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="188.0" text="Fulham Rd, Fulham, London SW6 1HS, UK" textFill="#a7a4a4">
+            <Label fx:id="address" layoutX="37.0" layoutY="188.0" text="Fulham Rd, Fulham, London SW6 1HS, UK" textFill="#a7a4a4">
                <font>
                   <Font name="Open Sans SemiBold" size="13.0" />
                </font>
@@ -91,7 +91,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <Label layoutX="35.0" layoutY="253.0" text="John Doe" textFill="WHITE">
+      <Label fx:id="name" layoutX="35.0" layoutY="253.0" text="John Doe" textFill="WHITE">
          <font>
             <Font name="Open Sans ExtraBold" size="36.0" />
          </font>

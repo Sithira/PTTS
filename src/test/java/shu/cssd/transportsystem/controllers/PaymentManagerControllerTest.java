@@ -33,15 +33,15 @@ class PaymentManagerControllerTest
 		
 		Stop origin = (Stop) (new SetOfStops()).all().get(0);
 		
-//		Stop destination = (Stop) (new SetOfStops()).all().get(3);
+		Stop destination = (Stop) (new SetOfStops()).all().get(3);
 		
-//		for (int i = 0; i < 3; i++)
-//		{
-//			Transaction transaction = new TransactionController()
-//					.makeTransaction(user, PaymentType.CASH, TransactionType.SUBSTRACT, 10);
-//
-//			JourneyCreator.getInstance().createJourney(transaction, origin, destination);
-//		}
+		for (int i = 0; i < 1; i++)
+		{
+			Transaction transaction = new TransactionController()
+					.makeTransaction(user, PaymentType.CASH, TransactionType.SUBSTRACT, 10);
+
+			JourneyCreator.getInstance().createJourney(transaction, origin, destination);
+		}
 		
 		Transaction transaction = new TransactionController()
 				.makeTransaction(user, PaymentType.CASH, TransactionType.SUBSTRACT,  10);

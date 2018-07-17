@@ -47,7 +47,7 @@ public class DashboardController implements Initializable
 	{
 
 		
-		Parent parent = FXMLLoader.load(getClass().getResource("/mobileAppdashboard/Dashboard.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("/mobileApp/dashboard/Dashboard.fxml"));
 
 		Scene scene = new Scene(parent);
 		

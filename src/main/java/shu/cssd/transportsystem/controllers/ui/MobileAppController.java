@@ -1,18 +1,25 @@
 package shu.cssd.transportsystem.controllers.ui;
 
+import shu.cssd.transportsystem.controllers.TransactionController;
 import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.BaseModel;
+import shu.cssd.transportsystem.foundation.exceptions.NotEnoughFundsException;
+import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.foundation.types.TransactionType;
+import shu.cssd.transportsystem.helpers.CostCalculator;
+import shu.cssd.transportsystem.helpers.JourneyCreator;
 import shu.cssd.transportsystem.models.Route;
 import shu.cssd.transportsystem.models.Stop;
-import shu.cssd.transportsystem.models.User;
+import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.collections.SetOfRoutes;
+import shu.cssd.transportsystem.views.helpers.AlertBox;
 
 import java.util.ArrayList;
 
 public class MobileAppController
 {
 	
-	private User user;
+	private UserController userController = UserController.getInstance();
 	
 	/**
 	 * Login the user
@@ -23,14 +30,7 @@ public class MobileAppController
 	 */
 	public boolean login(String username, String password)
 	{
-		
-		UserController userController = UserController.getInstance();
-		
-		boolean login = userController.checkCredentials(username, password);
-		
-		this.user = userController.currentUser;
-		
-		return login;
+		return userController.checkCredentials(username, password);
 	}
 	
 	/**
@@ -40,7 +40,7 @@ public class MobileAppController
 	 */
 	public boolean logout()
 	{
-		this.user = null;
+		UserController.currentUser = null;
 		
 		return true;
 	}
@@ -64,6 +64,32 @@ public class MobileAppController
 	public ArrayList<BaseModel> getRoutes()
 	{
 		return (new SetOfRoutes()).all();
+	}
+	
+	/**
+	 * Create a token for the provided Stop and Origin
+	 *
+	 * @param origin      Origin
+	 * @param destination Destination
+	 * @throws NotEnoughFundsException throws when not enough founds in the account.
+	 */
+	public void getToken(Stop origin, Stop destination) throws NotEnoughFundsException
+	{
+		float amount = CostCalculator.getInstance().calculate(origin, destination, destination.getRoute());
+		
+		if (UserController.currentUser.balance < amount)
+		{
+			throw new NotEnoughFundsException();
+		}
+		
+		Transaction transaction = (new TransactionController())
+				.makeTransaction(UserController.currentUser, PaymentType.CASH, TransactionType.SUBSTRACT, amount);
+		
+		JourneyCreator.getInstance()
+				.createJourney(transaction, origin, destination);
+		
+		AlertBox.getInstance()
+				.alertWithHeader("Success", "Your token has been successfully added to the token list");
 	}
 	
 }

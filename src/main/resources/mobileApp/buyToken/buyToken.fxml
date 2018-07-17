@@ -26,7 +26,8 @@
                         <Image url="@../../images/back-white.png" />
                     </image>
                 </ImageView>
-            </children></AnchorPane>
+            </children>
+        </AnchorPane>
         <VBox layoutY="540.0" prefHeight="60.0" prefWidth="400.0" styleClass="cardPane">
             <effect>
                 <DropShadow />
@@ -94,7 +95,7 @@
                                 <Font name="Open Sans SemiBold" size="14.0" />
                             </font>
                         </Label>
-                        <JFXButton fx:id="submitButton" buttonType="RAISED" layoutX="86.0" layoutY="250.0" mnemonicParsing="false" onMouseClicked="#purchaseButtonClick" styleClass="topPane" text="Buy Ticket" textFill="WHITE">
+                        <JFXButton fx:id="submitButton" buttonType="RAISED" layoutX="86.0" layoutY="250.0" mnemonicParsing="false" onAction="#buyTicket" onMouseClicked="#purchaseButtonClick" styleClass="topPane" text="Buy Ticket" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="16.5" />
                             </font>
@@ -116,15 +117,15 @@
                             </image>
                         </ImageView>
 
-                        <JFXComboBox fx:id="origin" layoutX="116.0" layoutY="60.0" prefWidth="239.0" AnchorPane.leftAnchor="116.0" />
+                        <JFXComboBox fx:id="origin" layoutX="132.0" layoutY="59.0" onAction="#onOriginSelect" prefHeight="27.0" prefWidth="223.0" AnchorPane.leftAnchor="132.0" />
 
-                        <JFXComboBox fx:id="destination" layoutX="116.0" layoutY="110.0" prefWidth="239.0" AnchorPane.leftAnchor="116.0" />
+                        <JFXComboBox fx:id="destination" layoutX="132.0" layoutY="108.0" onAction="#onDestinationSelect" prefHeight="27.0" prefWidth="223.0" AnchorPane.leftAnchor="132.0" />
 
-                        <JFXComboBox fx:id="payType" layoutX="116.0" layoutY="158.0" prefHeight="25.0" prefWidth="99.0" AnchorPane.leftAnchor="116.0" />
+                        <JFXComboBox fx:id="payType" layoutX="132.0" layoutY="156.0" prefHeight="27.0" prefWidth="223.0" AnchorPane.leftAnchor="132.0" />
 
-                        <JFXComboBox fx:id="route" layoutX="116.0" layoutY="22.0" prefWidth="150.0" AnchorPane.leftAnchor="116.0" />
+                        <JFXComboBox fx:id="route" layoutX="132.0" layoutY="20.0" onAction="#getSelectedRoute" prefHeight="27.0" prefWidth="223.0" AnchorPane.leftAnchor="132.0" />
 
-                        <JFXTextField fx:id="cost" editable="false" layoutX="116.0" layoutY="202.0" prefHeight="25.0" prefWidth="99.0" AnchorPane.leftAnchor="116.0" />
+                        <JFXTextField fx:id="cost" editable="false" layoutX="132.0" layoutY="201.0" prefHeight="27.0" prefWidth="223.0" AnchorPane.leftAnchor="132.0" />
 
 
                     </children>
@@ -136,10 +137,10 @@
                 <Font name="Open Sans ExtraBold" size="48.0" />
             </font>
         </Label>
-            <ImageView fitHeight="46.0" fitWidth="128.0" layoutX="299.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../images/token.png" />
-                </image>
-            </ImageView>
+        <ImageView fitHeight="46.0" fitWidth="128.0" layoutX="340.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../images/token.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>
