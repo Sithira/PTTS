@@ -1,5 +1,6 @@
 package shu.cssd.transportsystem.views.mobileApp;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -281,6 +282,14 @@ public class BuyTokenController implements Initializable
 			if (node instanceof JFXTextField)
 			{
 				((JFXTextField) node).clear();
+			}
+			
+			
+			if (node instanceof JFXComboBox)
+			{
+				JFXComboBox jfxComboBox = (JFXComboBox) node;
+				
+				jfxComboBox.getItems().clear();
 			}
 		}
 	}

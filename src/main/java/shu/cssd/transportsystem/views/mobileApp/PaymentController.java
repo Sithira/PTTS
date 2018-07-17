@@ -164,12 +164,19 @@ public class PaymentController implements Initializable
 			return;
 		}
 		
-		float amount = Float.valueOf(topUpAmount1.getText());
-		
-		float newBalance = smartCardController.topUpBalance(userController.currentUser.getCard(), amount);
-		
-		balance1.setText("LKR " + Float.toString(newBalance));
-		
-		topUpAmount1.clear();
+		try
+		{
+			float amount = Float.valueOf(topUpAmount1.getText());
+			
+			float newBalance = smartCardController.topUpBalance(userController.currentUser.getCard(), amount);
+			
+			balance1.setText("LKR " + Float.toString(newBalance));
+			
+			topUpAmount1.clear();
+		}
+		catch (NullPointerException  e)
+		{
+			AlertBox.getInstance().alertWithHeader("Whoops !", "You need to buy a smart card from a token machine");
+		}
 	}
 }
