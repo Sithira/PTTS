@@ -1,6 +1,9 @@
 package shu.cssd.transportsystem.views.helpers;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
+import java.util.Optional;
 
 public class AlertBox
 {
@@ -26,6 +29,21 @@ public class AlertBox
 		alert.setContentText(message);
 		
 		alert.showAndWait();
+	}
+	
+	public boolean confirm(String message)
+	{
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		
+		alert.setTitle("Confirmation required");
+		
+		alert.setHeaderText(null);
+		
+		alert.setContentText(message);
+		
+		Optional<ButtonType> result = alert.showAndWait();
+		
+		return result.get() == ButtonType.OK;
 	}
 	
 }

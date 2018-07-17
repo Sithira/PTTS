@@ -46,7 +46,7 @@ public class JourneyController implements Initializable
 		
 		for (Journey journey : journeys)
 		{
-			System.out.println("Fire");
+			//System.out.println("Fire");
 			journeyList.getItems().add(journey);
 		}
 		

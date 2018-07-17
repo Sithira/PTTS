@@ -23,8 +23,7 @@ public class Token extends BaseModel
 	 * Id of the Transaction that created the Token
 	 */
 	public String transactionId;
-
-
+	
 	/**
 	 * Create new Token in the system
 	 * @param transaction {@link Transaction}

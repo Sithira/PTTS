@@ -152,6 +152,12 @@ public class DashboardController implements Initializable
 	
 	public void topupButtonClick(MouseEvent mouseEvent)
 	{
+		
+		if (!AlertBox.getInstance().confirm("Are you sure to top up ?"))
+		{
+			return;
+		}
+		
 		if (this.validator.isEmpty(topUpAmount) || !this.validator.isNumeric(topUpAmount))
 		{
 			AlertBox.getInstance().alertWithHeader("Whoops !", "Please check your input");
@@ -159,15 +165,13 @@ public class DashboardController implements Initializable
 			return;
 		}
 		
-		System.out.println(userController.currentUser.name);
-		
 		float amount = Float.valueOf(topUpAmount.getText());
 		
 		float newBalance = userController.topUpBalance(amount);
 		
-		System.out.println(Float.toString(newBalance));
-		
 		balance.setText("LKR " + Float.toString(newBalance));
+		
+		topUpAmount.clear();
 		
 	}
 }

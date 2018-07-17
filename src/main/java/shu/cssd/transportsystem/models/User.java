@@ -299,4 +299,26 @@ public class User extends BaseModel
 		
 	}
 	
+	/**
+	 * Get a list of token that owns by the user.
+	 *
+	 * @return {@link ArrayList<Token>}
+	 */
+	public ArrayList<Token> getTokens()
+	{
+		ArrayList<Transaction> transactions = this.getTransactions();
+		
+		ArrayList<Token> tokens = new ArrayList<>();
+		
+		for (Transaction transaction: transactions)
+		{
+			if (transaction.getToken() != null)
+			{
+				tokens.add(transaction.getToken());
+			}
+		}
+		
+		return tokens;
+	}
+	
 }
