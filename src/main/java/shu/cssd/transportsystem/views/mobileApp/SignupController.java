@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import shu.cssd.transportsystem.MainApp;
+import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.validation.Validator;
 import shu.cssd.transportsystem.models.User;
 import shu.cssd.transportsystem.views.helpers.AlertBox;
@@ -121,9 +122,13 @@ public class SignupController implements Initializable
 	private User createUser()
 	{
 		
-		return new User.Builder(name.getText(), email.getText(), address.getText(),
+		User user = new User.Builder(name.getText(), email.getText(), address.getText(),
 				city.getText(), postalCode.getText(), username.getText(), password.getText())
 				.create();
+		
+		UserController.currentUser = user;
+		
+		return user;
 	}
 	
 	@FXML
