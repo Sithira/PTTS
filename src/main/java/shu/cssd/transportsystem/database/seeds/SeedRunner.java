@@ -21,18 +21,9 @@ public class SeedRunner
 			OfferSeeder.class,
 			ZoneSeeder.class,
 			RouteSeeder.class,
-			//PermissionLevelSeeder.class,
-			UserTransactionPaymentSeeder.class,
-			//UserSeeder.class,
-			//SmartCardSeeder.class,
-			//TransactionSeeder.class,
-			//PaymentSeeder.class,
-
+			MainSeeder.class,
 			VehicleSeeder.class,
-			//StopSeeder.class,
-			GateSeeder.class,
-			//JourneySeeder.class,
-			//TokenSeeder.class
+			GateSeeder.class
 	};
 	
 	/**

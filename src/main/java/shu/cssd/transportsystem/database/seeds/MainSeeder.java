@@ -8,7 +8,7 @@ import shu.cssd.transportsystem.models.collections.*;
 
 import java.util.Date;
 
-public class UserTransactionPaymentSeeder implements BaseSeeder
+public class MainSeeder implements shu.cssd.transportsystem.foundation.database.BaseSeeder
 {
 	private SetOfUsers setOfUsers = new SetOfUsers();
 
@@ -132,14 +132,14 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 
 		//Seed Stops
 		Stop stop1 = new Stop(zones[0], routes[0],"Maharagama", "6.927079", "79.861244");
-		Stop stop2 = new Stop(zones[1], routes[1],"Makumbura", "6.937373", "80.262244");
-		Stop stop3 = new Stop(zones[2], routes[2],"Galle", "6.917171", "79.761442");
-		Stop stop4 = new Stop(zones[3], routes[3],"Peradeniya", "6.823019", "78.961314");
+		Stop stop2 = new Stop(zones[1], routes[3],"Kottawa", "6.937373", "80.262244");
+		Stop stop3 = new Stop(zones[2], routes[1],"Galle", "6.917171", "79.761442");
+		Stop stop4 = new Stop(zones[3], routes[2],"Peradeniya", "6.823019", "78.961314");
 		Stop stop5 = new Stop(zones[0], routes[0],"Udahamulla", "6.770219", "79.831245");
-		Stop stop6 = new Stop(zones[1], routes[1],"Jaffna", "6.827372", "79.131243");
-		Stop stop7 = new Stop(zones[2], routes[2],"Mathara", "6.923049", "79.661645");
-		Stop stop8 = new Stop(zones[3], routes[3],"Badulla", "6.931059", "79.364242");
-		Stop stop9 = new Stop(zones[0], routes[0],"Maradana", "6.957372", "78.863549");
+		Stop stop6 = new Stop(zones[1], routes[3],"Hokandara", "6.827372", "79.131243");
+		Stop stop7 = new Stop(zones[2], routes[1],"Mathara", "6.923049", "79.661645");
+		Stop stop8 = new Stop(zones[3], routes[2],"Badulla", "6.931059", "79.364242");
+		Stop stop9 = new Stop(zones[0], routes[3],"Malabe", "6.957372", "78.863549");
 		Stop stop10 = new Stop(zones[1], routes[1],"Pettah", "6.977339", "79.465261");
 		
 		//Create Stops
@@ -160,10 +160,10 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 
 		//Seed Journey
 		Journey journey1 = new Journey.Builder(user1, stop1).setDestination(stop5).setCost(135f).create();
-		Journey journey2 = new Journey.Builder(user2, stop2).setDestination(stop10).setCost(175f).create();
+		Journey journey2 = new Journey.Builder(user2, stop2).setDestination(stop6).setCost(175f).create();
 		Journey journey3 = new Journey.Builder(user3, stop3).setDestination(stop7).setCost(50f).create();
 		Journey journey4 = new Journey.Builder(user5, stop4).setDestination(stop8).setCost(300f).create();
-		Journey journey5 = new Journey.Builder(user5, stop10).setDestination(stop6).setCost(250f).create();
+		Journey journey5 = new Journey.Builder(user5, stop6).setDestination(stop9).setCost(250f).create();
 		Journey journey6 = new Journey.Builder(user5, stop3).setDestination(stop10).setCost(250f).create();
 		
 		//Create Journey
@@ -270,7 +270,7 @@ public class UserTransactionPaymentSeeder implements BaseSeeder
 			System.out.println("JourneyID: " + journey.id + " ,JourneyUser: "
 					+ journey.getUser().name + " ,JourneyOrigin: "
 					+ journey.getOrigin().name + " ,JourneyDestination: "
-					+ journey.destinationId
+					+ journey.getDestination().name
 			);
 
 		}
