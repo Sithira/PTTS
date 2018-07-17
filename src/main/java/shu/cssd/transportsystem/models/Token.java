@@ -58,7 +58,7 @@ public class Token extends BaseModel
 	 *
 	 * @return Get the stop {@link Stop}
 	 */
-	public Stop getOrginStop()
+	public Stop getOriginStop()
 	{
 		try
 		{

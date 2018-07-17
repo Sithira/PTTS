@@ -158,7 +158,9 @@ public class DashboardController implements Initializable
 			return;
 		}
 		
-		if (this.validator.isEmpty(topUpAmount) || !this.validator.isNumeric(topUpAmount))
+		if (this.validator.isEmpty(topUpAmount)
+				|| !this.validator.isNumeric(topUpAmount)
+				|| !this.validator.isPositive(topUpAmount))
 		{
 			AlertBox.getInstance().alertWithHeader("Whoops !", "Please check your input");
 			

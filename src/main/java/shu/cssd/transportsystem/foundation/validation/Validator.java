@@ -74,6 +74,24 @@ public class Validator
 	}
 	
 	/**
+	 * Check if the given number is a positive number
+	 *
+	 * @param field number that needed to check
+	 * @return boolean
+	 */
+	public boolean isPositive(JFXTextField field)
+	{
+		if (this.isNumeric(field))
+		{
+			float number = Float.parseFloat(field.getText());
+			
+			return !(number <= 0);
+		}
+		
+		return false;
+	}
+	
+	/**
 	 * Validate the Two Fields
 	 *
 	 * @param textField field 1

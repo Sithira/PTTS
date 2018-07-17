@@ -1,6 +1,8 @@
 package shu.cssd.transportsystem.helpers;
 
+import shu.cssd.transportsystem.controllers.TransactionController;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.models.Stop;
 import shu.cssd.transportsystem.models.Token;
 import shu.cssd.transportsystem.models.Transaction;
@@ -43,8 +45,12 @@ public class TokenCreator
 	{
 		float amount = CostCalculator.getInstance().calculate(origin, destination, destination.getRoute());
 		
-		Transaction transaction = new Transaction.Builder(user, paymentType, amount).create();
+		Transaction transaction = (new TransactionController()).makeTransaction(user, paymentType, TransactionType.SUBSTRACT, amount);
 		
-		return new Token(transaction, origin, destination);
+		Token token = new Token(transaction, origin, destination);
+		
+		this.setOfTokens.create(token);
+		
+		return token;
 	}
 }

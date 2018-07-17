@@ -8,10 +8,14 @@ import shu.cssd.transportsystem.foundation.types.PaymentType;
 import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.helpers.CostCalculator;
 import shu.cssd.transportsystem.helpers.JourneyCreator;
+import shu.cssd.transportsystem.helpers.TokenCreator;
 import shu.cssd.transportsystem.models.Route;
 import shu.cssd.transportsystem.models.Stop;
+import shu.cssd.transportsystem.models.Token;
 import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.collections.SetOfRoutes;
+import shu.cssd.transportsystem.models.collections.SetOfTokens;
+import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 import shu.cssd.transportsystem.views.helpers.AlertBox;
 
 import java.util.ArrayList;
@@ -82,11 +86,13 @@ public class MobileAppController
 			throw new NotEnoughFundsException();
 		}
 		
-		Transaction transaction = (new TransactionController())
-				.makeTransaction(UserController.currentUser, PaymentType.CASH, TransactionType.SUBSTRACT, amount);
+		Token token = TokenCreator.getInstance()
+				.createToken(UserController.currentUser, PaymentType.CASH, origin, destination);
 		
 		JourneyCreator.getInstance()
-				.createJourney(transaction, origin, destination);
+				.createJourney(token.getTransaction(), origin, destination);
+		
+		(new SetOfTokens()).create(token);
 		
 		AlertBox.getInstance()
 				.alertWithHeader("Success", "Your token has been successfully added to the token list");

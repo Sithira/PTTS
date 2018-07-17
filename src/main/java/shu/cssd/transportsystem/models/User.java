@@ -169,7 +169,7 @@ public class User extends BaseModel
 	{
 		
 		// build an array list
-		ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+		ArrayList<Transaction> transactions = new ArrayList<>();
 		
 		// get the set of transactions
 		SetOfTransactions setOfTransactions = new SetOfTransactions();

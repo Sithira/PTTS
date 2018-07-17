@@ -155,7 +155,9 @@ public class PaymentController implements Initializable
 			return;
 		}
 		
-		if (this.validator.isEmpty(topUpAmount1) || !this.validator.isNumeric(topUpAmount1))
+		if (this.validator.isEmpty(topUpAmount1)
+				|| !this.validator.isNumeric(topUpAmount1)
+				|| !this.validator.isPositive(topUpAmount1))
 		{
 			AlertBox.getInstance().alertWithHeader("Whoops !", "Please check your input");
 			

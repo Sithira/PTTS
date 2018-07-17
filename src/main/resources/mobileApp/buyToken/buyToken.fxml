@@ -67,7 +67,7 @@
                 <DropShadow />
             </effect>
             <children>
-                <AnchorPane id="form" prefHeight="389.0" prefWidth="371.0" styleClass="cardPane">
+                <AnchorPane id="form" fx:id="buyPanel" prefHeight="389.0" prefWidth="371.0" styleClass="cardPane">
                     <children>
                         <Label layoutX="19.0" layoutY="24.0" text="Route" textFill="#a7a4a4" AnchorPane.leftAnchor="19.0">
                             <font>

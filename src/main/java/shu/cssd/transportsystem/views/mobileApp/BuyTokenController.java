@@ -1,5 +1,6 @@
 package shu.cssd.transportsystem.views.mobileApp;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import shu.cssd.transportsystem.controllers.ui.MobileAppController;
 import shu.cssd.transportsystem.foundation.BaseModel;
@@ -26,6 +28,9 @@ import java.util.ResourceBundle;
 
 public class BuyTokenController implements Initializable
 {
+	
+	@FXML
+	private AnchorPane buyPanel;
 	
 	@FXML
 	private ComboBox origin;
@@ -59,7 +64,6 @@ public class BuyTokenController implements Initializable
 		
 		routesList = mobileAppController.getRoutes();
 		
-		//System.out.println(routesList);
 		for (BaseModel model : routesList)
 		{
 			
@@ -177,8 +181,6 @@ public class BuyTokenController implements Initializable
 		{
 			if (model.name.equals(selectedValue))
 			{
-				System.out.println("ID:" + model.id);
-				
 				loadOriginAndDestination(model);
 			}
 		}
@@ -257,11 +259,29 @@ public class BuyTokenController implements Initializable
 	{
 		try {
 			this.mobileAppController.getToken(originStop, destinationStop);
+			
+			clearFields();
 		}
 		catch (NotEnoughFundsException e)
 		{
 			AlertBox.getInstance()
 					.alertWithHeader("Whoops", "Not Enough funds to create a token");
+		}
+	}
+	
+	/**
+	 * Clear all the fields
+	 */
+	private void clearFields()
+	{
+		// loop through all the properties
+		for (Node node : buyPanel.getChildren())
+		{
+			// get the nodes
+			if (node instanceof JFXTextField)
+			{
+				((JFXTextField) node).clear();
+			}
 		}
 	}
 }

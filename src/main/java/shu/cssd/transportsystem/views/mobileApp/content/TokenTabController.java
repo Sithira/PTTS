@@ -16,7 +16,7 @@ public class TokenTabController
 		
 		if (token != null)
 		{
-			route = token.getOrginStop().name;
+			route = token.getOriginStop().name;
 			
 			if (token.getDestinationStop() != null)
 			{
