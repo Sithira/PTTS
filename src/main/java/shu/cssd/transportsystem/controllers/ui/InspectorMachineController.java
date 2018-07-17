@@ -4,12 +4,16 @@ import org.apache.commons.lang.time.DateUtils;
 import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.exceptions.InvalidTokenDateException;
 import shu.cssd.transportsystem.foundation.exceptions.InvalidTokenRouteException;
+import shu.cssd.transportsystem.foundation.exceptions.NotEnoughFundsException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
+import shu.cssd.transportsystem.helpers.CostCalculator;
+import shu.cssd.transportsystem.helpers.JourneyCreator;
 import shu.cssd.transportsystem.helpers.TokenCreator;
 import shu.cssd.transportsystem.models.Route;
 import shu.cssd.transportsystem.models.Stop;
 import shu.cssd.transportsystem.models.Token;
 import shu.cssd.transportsystem.models.User;
+import shu.cssd.transportsystem.models.collections.SetOfTokens;
 
 import java.util.Date;
 
@@ -35,11 +39,10 @@ public class InspectorMachineController
 	 */
 	public boolean login(String username, String password)
 	{
-		UserController userController = UserController.getInstance();
 		
-		boolean successLogin = userController.checkCredentials(username, password);
+		boolean successLogin = UserController.getInstance().checkCredentials(username, password);
 		
-		this.user = userController.currentUser;
+		this.user = UserController.currentUser;
 		
 		return successLogin;
 	}
@@ -75,10 +78,16 @@ public class InspectorMachineController
 	 * @param user        User that requires to make a new ticket
 	 * @param origin      Origin of the user
 	 * @param destination Destination of the user
-	 * @return {@link Token}
 	 */
-	public Token createToken(User user, Stop origin, Stop destination)
+	public void createToken(User user, Stop origin, Stop destination)
 	{
-		return TokenCreator.getInstance().createToken(user, PaymentType.CASH, origin, destination);
+		
+		Token token = TokenCreator.getInstance()
+				.createToken(user, PaymentType.CASH, origin, destination);
+		
+		JourneyCreator.getInstance()
+				.createJourney(token.getTransaction(), origin, destination);
+		
+		(new SetOfTokens()).create(token);
 	}
 }

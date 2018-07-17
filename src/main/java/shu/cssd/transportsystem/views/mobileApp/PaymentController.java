@@ -159,7 +159,7 @@ public class PaymentController implements Initializable
 				|| !this.validator.isNumeric(topUpAmount1)
 				|| !this.validator.isPositive(topUpAmount1))
 		{
-			AlertBox.getInstance().alertWithHeader("Whoops !", "Please check your input");
+			AlertBox.getInstance().alertInfo("Whoops !", "Please check your input");
 			
 			return;
 		}
@@ -176,7 +176,7 @@ public class PaymentController implements Initializable
 		}
 		catch (NullPointerException  e)
 		{
-			AlertBox.getInstance().alertWithHeader("Whoops !", "You need to buy a smart card from a token machine");
+			AlertBox.getInstance().alertInfo("Whoops !", "You need to buy a smart card from a token machine");
 		}
 	}
 }

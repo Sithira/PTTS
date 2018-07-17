@@ -63,3 +63,8 @@
 .fineButton{
     -fx-background-color: #d84937;
 }
+
+.inspection-valid-token
+{
+    -webkit-fa-background: #27ae60;
+}

@@ -1,5 +1,6 @@
 package shu.cssd.transportsystem.database.seeds;
 
+import org.apache.commons.lang.time.DateUtils;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.database.BaseSeeder;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
@@ -49,7 +50,8 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Kottawa",
 				"10230",
 				"sithira",
-				"admin").create();
+				"admin")
+				.create();
 
 		User user2 = new User.Builder(
 				"Sanura",
@@ -58,7 +60,8 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Kottawa",
 				"10230",
 				"sanura",
-				"admin").create();
+				"admin")
+				.create();
 
 		User user3 = new User.Builder(
 				"Dinusha",
@@ -67,7 +70,8 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Pannipitiya",
 				"10230",
 				"dinusha",
-				"admin").create();
+				"admin")
+				.create();
 
 		User user4 = new User.Builder(
 				"Chathu",
@@ -76,7 +80,9 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Colombo",
 				"10230",
 				"chathu",
-				"admin").addAsEmployee(35000, permission3).create();
+				"admin")
+				.addAsEmployee(35000, permission3)
+				.create();
 		
 		User user5 = new User.Builder(
 				"Vindula",
@@ -85,11 +91,12 @@ public class MainSeeder implements shu.cssd.transportsystem.foundation.database.
 				"Colombo",
 				"10230",
 				"vindula",
-				"admin").create();
+				"admin")
+				.create();
 
 
 		//Seed SmardCards
-		Date date = new Date();
+		Date date = DateUtils.addHours(new Date(), 5);
 
 		SmartCard smartCard1 = new SmartCard(user1, 1111, 111, date);
 		SmartCard smartCard2 = new SmartCard(user2, 2222, 222, date);

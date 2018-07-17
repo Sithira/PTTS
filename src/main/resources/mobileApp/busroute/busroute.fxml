@@ -65,12 +65,12 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                <children>
-                  <Label layoutX="22.0" layoutY="18.0" text="900" textFill="#398ede">
+                  <Label layoutX="22.0" layoutY="18.0" text="336" textFill="#398ede">
                      <font>
                         <Font name="Open Sans ExtraBold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="86.0" layoutY="23.0" text="Kandy - Colombo" textFill="#a7a4a4">
+                  <Label layoutX="86.0" layoutY="23.0" text="Kottawa - Malabe" textFill="#a7a4a4">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -90,12 +90,12 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                <children>
-                  <Label layoutX="21.0" layoutY="18.0" text="250" textFill="#398ede">
+                  <Label layoutX="21.0" layoutY="18.0" text="138" textFill="#398ede">
                      <font>
                         <Font name="Open Sans ExtraBold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="87.0" layoutY="23.0" text="Colombo - Galle" textFill="#a7a4a4">
+                  <Label layoutX="87.0" layoutY="23.0" text="Maharagama - Pettah" textFill="#a7a4a4">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -115,12 +115,12 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                <children>
-                  <Label layoutX="23.0" layoutY="18.0" text="680" textFill="#398ede">
+                  <Label layoutX="23.0" layoutY="18.0" text="121" textFill="#398ede">
                      <font>
                         <Font name="Open Sans ExtraBold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="91.0" layoutY="25.0" text="Galle - Jaffna" textFill="#a7a4a4">
+                  <Label layoutX="75.0" layoutY="25.0" text="Maharagama - Udahamulla" textFill="#a7a4a4">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -146,7 +146,7 @@
                         <Font name="Open Sans ExtraBold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="94.0" layoutY="23.0" text="Jaffna - Kandy" textFill="#a7a4a4">
+                  <Label layoutX="94.0" layoutY="23.0" text="Pettah - Kaduwela" textFill="#a7a4a4">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -167,12 +167,12 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="cardPane">
                <children>
-                  <Label layoutX="26.0" layoutY="18.0" text="420" textFill="#398ede">
+                  <Label layoutX="26.0" layoutY="18.0" text="17" textFill="#398ede">
                      <font>
                         <Font name="Open Sans ExtraBold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="93.0" layoutY="23.0" text="Airport - Colombo" textFill="#a7a4a4">
+                  <Label layoutX="93.0" layoutY="23.0" text="Colombo - Kandy" textFill="#a7a4a4">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -186,7 +186,7 @@
             </AnchorPane>
          </children>
       </VBox>
-      <Label layoutX="30.0" layoutY="65.0" text="Nearby Buses" textFill="#398ede">
+      <Label contentDisplay="CENTER" layoutX="56.0" layoutY="65.0" text="Nearby Buses" textFill="#398ede">
          <font>
             <Font name="Open Sans ExtraBold" size="48.0" />
          </font>

@@ -1,23 +1,18 @@
 package shu.cssd.transportsystem.controllers.ui;
 
-import shu.cssd.transportsystem.controllers.TransactionController;
 import shu.cssd.transportsystem.controllers.UserController;
 import shu.cssd.transportsystem.foundation.BaseModel;
 import shu.cssd.transportsystem.foundation.exceptions.NotEnoughFundsException;
 import shu.cssd.transportsystem.foundation.types.PaymentType;
-import shu.cssd.transportsystem.foundation.types.TransactionType;
 import shu.cssd.transportsystem.helpers.CostCalculator;
 import shu.cssd.transportsystem.helpers.JourneyCreator;
 import shu.cssd.transportsystem.helpers.TokenCreator;
 import shu.cssd.transportsystem.models.Route;
 import shu.cssd.transportsystem.models.Stop;
 import shu.cssd.transportsystem.models.Token;
-import shu.cssd.transportsystem.models.Transaction;
 import shu.cssd.transportsystem.models.collections.SetOfRoutes;
 import shu.cssd.transportsystem.models.collections.SetOfTokens;
-import shu.cssd.transportsystem.models.collections.SetOfTransactions;
 import shu.cssd.transportsystem.views.helpers.AlertBox;
-import shu.cssd.transportsystem.views.tokenMachine.SmartCardController;
 
 import java.util.ArrayList;
 
@@ -94,11 +89,9 @@ public class MobileAppController
 				.createJourney(token.getTransaction(), origin, destination);
 		
 		(new SetOfTokens()).create(token);
-		if(!SmartCardController.from.equals("token")){
-			AlertBox.getInstance()
-					.alertWithHeader("Success", "Your token has been successfully added to the token list");
-		}
-
+		
+		AlertBox.getInstance()
+				.alertInfo("Success", "Your token has been successfully added to the token list");
 	}
 	
 }

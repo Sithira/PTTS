@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -32,43 +33,40 @@
             <children>
                 <AnchorPane prefHeight="358.0" prefWidth="371.0" styleClass="cardPane" stylesheets="@../../styles/Styles.css">
                     <children>
-                  <JFXTextField layoutX="76.0" layoutY="32.0" opacity="0.5" prefHeight="30.0" prefWidth="208.0" promptText="Enter Token ID to Validate">
+                  <JFXTextField id="token" fx:id="token" layoutX="82.0" layoutY="119.0" opacity="0.5" prefHeight="30.0" prefWidth="208.0" promptText="Enter Token ID to Validate">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                  <Label layoutX="99.0" layoutY="91.0" text="Route Information">
+                  <Label layoutX="110.0" layoutY="163.0" text="Route Information">
                      <font>
                         <Font name="Open Sans SemiBold" size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField layoutX="82.0" layoutY="130.0" opacity="0.5" prefHeight="30.0" prefWidth="208.0" promptText="Route Origin">
+                  <JFXTextField id="stopOrigin" fx:id="stopOrigin" layoutX="82.0" layoutY="199.0" opacity="0.5" prefHeight="30.0" prefWidth="208.0" promptText="Route Origin">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField layoutX="82.0" layoutY="182.0" opacity="0.5" prefHeight="30.0" prefWidth="208.0" promptText="Route Destination">
+                  <JFXTextField id="stopDestination" fx:id="stopDestination" layoutX="82.0" layoutY="244.0" opacity="0.5" prefHeight="30.0" prefWidth="208.0" promptText="Route Destination">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="21.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="37.0" layoutX="33.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../images/token.png" />
                             </image>
                         </ImageView>
-                  <JFXButton buttonType="RAISED" layoutX="19.0" layoutY="272.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="96.0" styleClass="validateButton" stylesheets="@../../styles/Styles.css" text="Validate" textFill="WHITE">
+                  <JFXButton fx:id="verify" buttonType="RAISED" layoutX="51.0" layoutY="291.0" mnemonicParsing="false" onAction="#validateToken" prefHeight="37.0" prefWidth="96.0" styleClass="validateButton" stylesheets="@../../styles/Styles.css" text="Validate" textFill="WHITE">
                      <font>
                         <Font name="Open Sans ExtraBold" size="14.0" />
                      </font></JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="138.0" layoutY="272.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="96.0" styleClass="fineButton" stylesheets="@../../styles/Styles.css" text="Fine" textFill="WHITE">
+                  <JFXButton fx:id="issue" buttonType="RAISED" layoutX="236.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#issuebuttonClick" prefHeight="37.0" prefWidth="96.0" styleClass="topPane" stylesheets="@../../styles/Styles.css" text="Issue" textFill="WHITE">
                      <font>
                         <Font name="Open Sans ExtraBold" size="14.0" />
                      </font></JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="255.0" layoutY="272.0" mnemonicParsing="false" onMouseClicked="#issuebuttonClick" prefHeight="37.0" prefWidth="96.0" styleClass="topPane" stylesheets="@../../styles/Styles.css" text="Issue" textFill="WHITE">
-                     <font>
-                        <Font name="Open Sans ExtraBold" size="14.0" />
-                     </font></JFXButton>
+                  <JFXComboBox fx:id="routes" layoutX="82.0" layoutY="46.0" onAction="#onRouteList" prefHeight="37.0" prefWidth="208.0" promptText="Please select a route" />
                     </children></AnchorPane>
             </children>
         </VBox>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../../styles/Styles.css"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="shu.cssd.transportsystem.views.inspectorMachine.SuccessTokenController">
+    <children>
+        <VBox layoutX="137.0" layoutY="29.0" prefHeight="259.0" prefWidth="326.0">
+            <children>
+                <AnchorPane fx:id="success" prefHeight="312.0" prefWidth="372.0" style="-fx-background-color: #27ae60;"
+                            styleClass="inspection-valid-token">
+                    <children>
+                        <Label layoutX="51.0" layoutY="78.0" text="SUCCESSFUL" textFill="#f2f2f2">
+                            <font>
+                                <Font name="Open Sans ExtraBold" size="36.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="79.0" layoutY="145.0" text="Valid Token" textFill="WHITE">
+                            <font>
+                                <Font name="Open Sans ExtraBold" size="28.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+            <effect>
+                <DropShadow/>
+            </effect>
+        </VBox>
+
+        <ImageView fx:id="goBack" onMouseClicked="#goBack" fitHeight="76.0" fitWidth="85.0" layoutX="262.0"
+                   layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/success.png"/>
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

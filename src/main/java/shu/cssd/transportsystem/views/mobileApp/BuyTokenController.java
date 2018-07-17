@@ -230,7 +230,7 @@ public class BuyTokenController implements Initializable
 			
 			if (origin.getSelectionModel().getSelectedItem().equals(selectedValue))
 			{
-				AlertBox.getInstance().alertWithHeader("Whoops", "Origin and the Destination cant be the same");
+				AlertBox.getInstance().alertInfo("Whoops", "Origin and the Destination cant be the same");
 				
 				destination.getSelectionModel().clearSelection();
 				
@@ -266,7 +266,7 @@ public class BuyTokenController implements Initializable
 		catch (NotEnoughFundsException e)
 		{
 			AlertBox.getInstance()
-					.alertWithHeader("Whoops", "Not Enough funds to create a token");
+					.alertInfo("Whoops", "Not Enough funds to create a token");
 		}
 	}
 	
